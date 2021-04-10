@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>内存管理 | EricLiu&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.b0433d53.js" as="script"><link rel="preload" href="/assets/js/2.18ea9359.js" as="script"><link rel="preload" href="/assets/js/21.5ad460f8.js" as="script"><link rel="prefetch" href="/assets/js/10.178f6896.js"><link rel="prefetch" href="/assets/js/11.cd01c7de.js"><link rel="prefetch" href="/assets/js/12.7a1d8f7c.js"><link rel="prefetch" href="/assets/js/13.cea45cbb.js"><link rel="prefetch" href="/assets/js/14.7d7bd4e6.js"><link rel="prefetch" href="/assets/js/15.ddadca9e.js"><link rel="prefetch" href="/assets/js/16.aa95aa92.js"><link rel="prefetch" href="/assets/js/17.f2513033.js"><link rel="prefetch" href="/assets/js/18.2dcc5175.js"><link rel="prefetch" href="/assets/js/19.c51f8dd4.js"><link rel="prefetch" href="/assets/js/20.0cb9b801.js"><link rel="prefetch" href="/assets/js/22.e15c4639.js"><link rel="prefetch" href="/assets/js/23.33888a5d.js"><link rel="prefetch" href="/assets/js/24.a53e51e6.js"><link rel="prefetch" href="/assets/js/25.d9532c9f.js"><link rel="prefetch" href="/assets/js/3.3a852c24.js"><link rel="prefetch" href="/assets/js/4.e05c873c.js"><link rel="prefetch" href="/assets/js/5.76fc70b2.js"><link rel="prefetch" href="/assets/js/6.498ab014.js"><link rel="prefetch" href="/assets/js/7.f6c7151e.js"><link rel="prefetch" href="/assets/js/8.50e4a5ee.js"><link rel="prefetch" href="/assets/js/9.6954cb99.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">EricLiu's Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/iOS/" class="nav-link router-link-active">
+  iOS
+</a></div><div class="nav-item"><a href="/Web/" class="nav-link">
+  Web
+</a></div><div class="nav-item"><a href="https://github.com/ericliuhusky" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/iOS/" class="nav-link router-link-active">
+  iOS
+</a></div><div class="nav-item"><a href="/Web/" class="nav-link">
+  Web
+</a></div><div class="nav-item"><a href="https://github.com/ericliuhusky" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/iOS/" aria-current="page" class="sidebar-link">iOS</a></li><li><a href="/iOS/Data-structure.html" class="sidebar-link">数据结构</a></li><li><a href="/iOS/Algorithm.html" class="sidebar-link">算法</a></li><li><a href="/iOS/Foundation.html" class="sidebar-link">Foundation</a></li><li><a href="/iOS/UIKit.html" class="sidebar-link">UIKit</a></li><li><a href="/iOS/WebKit.html" class="sidebar-link">WebKit</a></li><li><a href="/iOS/Memory-management.html" aria-current="page" class="active sidebar-link">内存管理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/iOS/Memory-management.html#_1-arc自动引用计数" class="sidebar-link">1. ARC自动引用计数</a></li><li class="sidebar-sub-header"><a href="/iOS/Memory-management.html#_2-weak循环引用" class="sidebar-link">2. weak循环引用</a></li><li class="sidebar-sub-header"><a href="/iOS/Memory-management.html#_3-深拷贝和浅拷贝" class="sidebar-link">3. 深拷贝和浅拷贝</a></li><li class="sidebar-sub-header"><a href="/iOS/Memory-management.html#_4-参数传递" class="sidebar-link">4. 参数传递</a></li><li class="sidebar-sub-header"><a href="/iOS/Memory-management.html#_5-bad-access" class="sidebar-link">5. BAD_ACCESS</a></li></ul></li><li><a href="/iOS/Network.html" class="sidebar-link">网络</a></li><li><a href="/iOS/Data-storage.html" class="sidebar-link">数据存储</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="内存管理"><a href="#内存管理" class="header-anchor">#</a> 内存管理</h1> <h2 id="_1-arc自动引用计数"><a href="#_1-arc自动引用计数" class="header-anchor">#</a> 1. ARC自动引用计数</h2> <p>初始化类的时候会分配内存，ARC自动计数实例被引用的次数，当不再被引用的时候释放内存；
+默认创建的引用为强引用，只有当c1,c2,c3都取消对实例的引用时才会释放为实例分配的内存</p> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token punctuation">{</span>
+    <span class="token keyword">deinit</span> <span class="token punctuation">{</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;deinit&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> c1<span class="token punctuation">:</span> C<span class="token operator">?</span>
+<span class="token keyword">var</span> c2<span class="token punctuation">:</span> C<span class="token operator">?</span>
+<span class="token keyword">var</span> c3<span class="token punctuation">:</span> C<span class="token operator">?</span>
+
+c1 <span class="token operator">=</span> <span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+c2 <span class="token operator">=</span> c1
+c3 <span class="token operator">=</span> c1
+
+c1 <span class="token operator">=</span> <span class="token constant">nil</span>
+c2 <span class="token operator">=</span> <span class="token constant">nil</span>
+c3 <span class="token operator">=</span> <span class="token constant">nil</span>
+</code></pre></div><h2 id="_2-weak循环引用"><a href="#_2-weak循环引用" class="header-anchor">#</a> 2. weak循环引用</h2> <p>互相持有会引起循环引用，导致ARC引用计数永不为空，无法释放内存；添加weak关键字使用弱引用即可解决这个问题</p> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+    <span class="token keyword">weak</span> <span class="token keyword">var</span> b<span class="token punctuation">:</span> B<span class="token operator">?</span>
+    <span class="token keyword">deinit</span> <span class="token punctuation">{</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;deinit A&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> a<span class="token punctuation">:</span> A<span class="token operator">?</span>
+    <span class="token keyword">deinit</span> <span class="token punctuation">{</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;deinit B&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> a<span class="token punctuation">:</span> A<span class="token operator">?</span>
+<span class="token keyword">var</span> b<span class="token punctuation">:</span> B<span class="token operator">?</span>
+
+a <span class="token operator">=</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+b <span class="token operator">=</span> <span class="token function">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+a<span class="token operator">!</span><span class="token punctuation">.</span>b <span class="token operator">=</span> b
+b<span class="token operator">!</span><span class="token punctuation">.</span>a <span class="token operator">=</span> a
+
+a <span class="token operator">=</span> <span class="token constant">nil</span>
+b <span class="token operator">=</span> <span class="token constant">nil</span>
+</code></pre></div><h2 id="_3-深拷贝和浅拷贝"><a href="#_3-深拷贝和浅拷贝" class="header-anchor">#</a> 3. 深拷贝和浅拷贝</h2> <ul><li>值类型深拷贝，像细胞分裂一样完全的复制一份出来</li></ul> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">struct</span> S <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token function">S</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> s2 <span class="token operator">=</span> s1
+s1<span class="token punctuation">.</span>s <span class="token operator">=</span> <span class="token number">1</span>
+s2<span class="token punctuation">.</span>s <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token function">print</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>s<span class="token punctuation">,</span> s2<span class="token punctuation">.</span>s<span class="token punctuation">)</span>
+</code></pre></div><ul><li>引用类型浅拷贝，仅复制对实例的引用，两个引用仍是同一个实例的引用</li></ul> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> c1 <span class="token operator">=</span> <span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> c2 <span class="token operator">=</span> c1
+c1<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token number">1</span>
+c2<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token function">print</span><span class="token punctuation">(</span>c1<span class="token punctuation">.</span>c<span class="token punctuation">,</span> c2<span class="token punctuation">.</span>c<span class="token punctuation">)</span>
+</code></pre></div><h2 id="_4-参数传递"><a href="#_4-参数传递" class="header-anchor">#</a> 4. 参数传递</h2> <ul><li>值类型默认值传递，会复制一份传入函数内，如果想要修改外部变量必须显示声明inout，且在调用的时候添加&amp;</li></ul> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">struct</span> S <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">modify</span><span class="token punctuation">(</span><span class="token number">_</span> s<span class="token punctuation">:</span> <span class="token keyword">inout</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    s<span class="token punctuation">.</span>s <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token function">S</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">modify</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span>
+<span class="token function">print</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>s<span class="token punctuation">)</span>
+</code></pre></div><ul><li>引用类型默认引用传递，会传入实例的引用，可以直接修改外部的实例</li></ul> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">modify</span><span class="token punctuation">(</span><span class="token number">_</span> c<span class="token punctuation">:</span> C<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    c<span class="token punctuation">.</span>c <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> c <span class="token operator">=</span> <span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">modify</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+<span class="token function">print</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>c<span class="token punctuation">)</span>
+</code></pre></div><h2 id="_5-bad-access"><a href="#_5-bad-access" class="header-anchor">#</a> 5. BAD_ACCESS</h2> <p>访问了已经释放的变量</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/iOS/WebKit.html" class="prev">
+        WebKit
+      </a></span> <span class="next"><a href="/iOS/Network.html">
+        网络
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b0433d53.js" defer></script><script src="/assets/js/2.18ea9359.js" defer></script><script src="/assets/js/21.5ad460f8.js" defer></script>
+  </body>
+</html>

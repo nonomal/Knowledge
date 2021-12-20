@@ -2,7 +2,7 @@
 <html lang="zh-CN">
   <head>
     <link rel="icon" type="image/svg+xml" href="/images/杉.svg"><title>表达式 | EricLiu's Blog</title><meta name="description" content=""><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="VuePress 2.0.0-beta.20">
-    <link rel="preload" href="/Knowledge/assets/js/runtime~app.33b424c9.js" as="script"><link rel="preload" href="/Knowledge/assets/css/styles.1144b83c.css" as="style"><link rel="preload" href="/Knowledge/assets/js/4640.e62e001d.js" as="script"><link rel="preload" href="/Knowledge/assets/js/app.53cc6526.js" as="script">
+    <link rel="preload" href="/Knowledge/assets/js/runtime~app.67269439.js" as="script"><link rel="preload" href="/Knowledge/assets/css/styles.1144b83c.css" as="style"><link rel="preload" href="/Knowledge/assets/js/4640.e62e001d.js" as="script"><link rel="preload" href="/Knowledge/assets/js/app.5e760004.js" as="script">
     <link rel="stylesheet" href="/Knowledge/assets/css/styles.1144b83c.css">
   </head>
   <body>
@@ -112,7 +112,33 @@ closure <span class="token punctuation">{</span> x<span class="token punctuation
 closure <span class="token punctuation">{</span>
     $<span class="token number">0</span> <span class="token operator">+</span> $<span class="token number">1</span>
 <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">Last Updated: </span><span class="meta-item-info">2021/12/15 上午9:55:33</span></div><!----></footer><nav class="page-nav"><p class="inner"><span class="prev"> ← <a href="/Knowledge/Swift/ReferenceManual/Attributes.html" class="nav-link" aria-label="特性"><!--[--><!--]--> 特性 <!--[--><!--]--></a></span><!----></p></nav><!--[--><!--]--></main></div><!----><!--]--></div>
-    <script src="/Knowledge/assets/js/runtime~app.33b424c9.js" defer></script><script src="/Knowledge/assets/js/4640.e62e001d.js" defer></script><script src="/Knowledge/assets/js/app.53cc6526.js" defer></script>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h4 id="捕获列表" tabindex="-1"><a class="header-anchor" href="#捕获列表" aria-hidden="true">#</a> 捕获列表</h4><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">let</span> closure <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token keyword">in</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+a <span class="token operator">=</span> <span class="token number">1</span>
+b <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token function">closure</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 0 1</span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">ReferenceInt</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">ReferenceInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token function">ReferenceInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">let</span> closure <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token keyword">in</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>value<span class="token punctuation">,</span> b<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+a<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token number">1</span>
+b<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token function">closure</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 1 1</span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">Last Updated: </span><span class="meta-item-info">2021/12/20 上午10:28:00</span></div><!----></footer><nav class="page-nav"><p class="inner"><span class="prev"> ← <a href="/Knowledge/Swift/ReferenceManual/Attributes.html" class="nav-link" aria-label="特性"><!--[--><!--]--> 特性 <!--[--><!--]--></a></span><!----></p></nav><!--[--><!--]--></main></div><!----><!--]--></div>
+    <script src="/Knowledge/assets/js/runtime~app.67269439.js" defer></script><script src="/Knowledge/assets/js/4640.e62e001d.js" defer></script><script src="/Knowledge/assets/js/app.5e760004.js" defer></script>
   </body>
 </html>

@@ -1,321 +1,564 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <link rel="icon" type="image/svg+xml" href="/images/杉.svg"><title>算法 | EricLiu's Blog</title><meta name="description" content=""><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="VuePress 2.0.0-beta.20">
-    <link rel="preload" href="/Knowledge/assets/js/runtime~app.4be62ddd.js" as="script"><link rel="preload" href="/Knowledge/assets/css/styles.1144b83c.css" as="style"><link rel="preload" href="/Knowledge/assets/js/4640.e62e001d.js" as="script"><link rel="preload" href="/Knowledge/assets/js/app.d7e6dda3.js" as="script">
-    <link rel="stylesheet" href="/Knowledge/assets/css/styles.1144b83c.css">
-  </head>
-  <body>
-    <div id="app"><!--[--><div class="theme-container"><header class="navbar"><div class="toggle-sidebar-button"><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><span><a href="/Knowledge/" class=""><!----><span class="site-name">EricLiu&#39;s Blog</span></a></span><div class="navbar-links-wrapper" style=""><!--[--><!--]--><nav class="navbar-links can-hide"><!--[--><div class="navbar-links-item"><a href="/Knowledge/CS/" class="nav-link" aria-label="CS"><!--[--><!--]--> CS <!--[--><!--]--></a></div><div class="navbar-links-item"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="arrow down"></span></button><button class="mobile-dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="right arrow"></span></button><ul style="display:none;" class="nav-dropdown"><!--[--><li class="dropdown-item"><a href="/Knowledge/Swift/ReferenceManual/" class="nav-link" aria-label="Swift语言参考"><!--[--><!--]--> Swift语言参考 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-links-item"><a href="/Knowledge/iOS/" class="nav-link router-link-active" aria-label="iOS"><!--[--><!--]--> iOS <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Web/" class="nav-link" aria-label="Web"><!--[--><!--]--> Web <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Books/" class="nav-link" aria-label="Books"><!--[--><!--]--> Books <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Tools/" class="nav-link" aria-label="Tools"><!--[--><!--]--> Tools <!--[--><!--]--></a></div><div class="navbar-links-item"><a class="nav-link external" href="https://github.com/ericliuhusky" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">open in new window</span><!--]--></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><button class="toggle-dark-button"><svg style="" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg style="display:none;" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><div class="sidebar-mask"></div><aside class="sidebar"><nav class="navbar-links"><!--[--><div class="navbar-links-item"><a href="/Knowledge/CS/" class="nav-link" aria-label="CS"><!--[--><!--]--> CS <!--[--><!--]--></a></div><div class="navbar-links-item"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="arrow down"></span></button><button class="mobile-dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="right arrow"></span></button><ul style="display:none;" class="nav-dropdown"><!--[--><li class="dropdown-item"><a href="/Knowledge/Swift/ReferenceManual/" class="nav-link" aria-label="Swift语言参考"><!--[--><!--]--> Swift语言参考 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-links-item"><a href="/Knowledge/iOS/" class="nav-link router-link-active" aria-label="iOS"><!--[--><!--]--> iOS <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Web/" class="nav-link" aria-label="Web"><!--[--><!--]--> Web <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Books/" class="nav-link" aria-label="Books"><!--[--><!--]--> Books <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Tools/" class="nav-link" aria-label="Tools"><!--[--><!--]--> Tools <!--[--><!--]--></a></div><div class="navbar-links-item"><a class="nav-link external" href="https://github.com/ericliuhusky" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">open in new window</span><!--]--></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><ul class="sidebar-links"><!--[--><!--[--><p class="sidebar-heading sidebar-item active">iOS</p><ul class=""><li><!--[--><a href="/Knowledge/iOS/Data-structure.html" class="nav-link sidebar-item" aria-label="数据结构"><!--[--><!--]--> 数据结构 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html" class="router-link-active router-link-exact-active nav-link router-link-active sidebar-item active" aria-label="算法"><!--[--><!--]--> 算法 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#_1-时间复杂度" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="1. 时间复杂度"><!--[--><!--]--> 1. 时间复杂度 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#时间频度" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="时间频度"><!--[--><!--]--> 时间频度 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#时间复杂度-o-n" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="时间复杂度 O(n)"><!--[--><!--]--> 时间复杂度 O(n) <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#_2-空间复杂度" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="2. 空间复杂度"><!--[--><!--]--> 2. 空间复杂度 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#_3-排序算法" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="3. 排序算法"><!--[--><!--]--> 3. 排序算法 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#冒泡" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="冒泡"><!--[--><!--]--> 冒泡 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#选择" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="选择"><!--[--><!--]--> 选择 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#插入" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="插入"><!--[--><!--]--> 插入 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#_4-查找算法" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="4. 查找算法"><!--[--><!--]--> 4. 查找算法 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#_5-反转" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="5. 反转"><!--[--><!--]--> 5. 反转 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#数组" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="数组"><!--[--><!--]--> 数组 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#字符串" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="字符串"><!--[--><!--]--> 字符串 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#链表" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="链表"><!--[--><!--]--> 链表 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#_6-合并有序数组" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="6. 合并有序数组"><!--[--><!--]--> 6. 合并有序数组 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#_7-哈希计数查找" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="7. 哈希计数查找"><!--[--><!--]--> 7. 哈希计数查找 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#_8-用有序字典实现-lru缓存" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="8. 用有序字典实现 LRU缓存"><!--[--><!--]--> 8. 用有序字典实现 LRU缓存 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Algorithm.html#swift字符串算法特殊处理" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="Swift字符串算法特殊处理"><!--[--><!--]--> Swift字符串算法特殊处理 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Swift.html" class="nav-link sidebar-item" aria-label="Swift"><!--[--><!--]--> Swift <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/String.html" class="nav-link sidebar-item" aria-label="String"><!--[--><!--]--> String <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Foundation.html" class="nav-link sidebar-item" aria-label="Foundation"><!--[--><!--]--> Foundation <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/UIKit.html" class="nav-link sidebar-item" aria-label="UIKit"><!--[--><!--]--> UIKit <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/WebKit.html" class="nav-link sidebar-item" aria-label="WebKit"><!--[--><!--]--> WebKit <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Memory-management.html" class="nav-link sidebar-item" aria-label="内存管理"><!--[--><!--]--> 内存管理 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Network.html" class="nav-link sidebar-item" aria-label="网络"><!--[--><!--]--> 网络 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Data-storage.html" class="nav-link sidebar-item" aria-label="数据存储"><!--[--><!--]--> 数据存储 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Multi-thread.html" class="nav-link sidebar-item" aria-label="多线程"><!--[--><!--]--> 多线程 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Design-patterns.html" class="nav-link sidebar-item" aria-label="设计模式"><!--[--><!--]--> 设计模式 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Concurrency.html" class="nav-link sidebar-item" aria-label="并发编程"><!--[--><!--]--> 并发编程 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Alamofire.html" class="nav-link sidebar-item" aria-label="Alamofire"><!--[--><!--]--> Alamofire <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/OC-%3ESwift.html" class="nav-link sidebar-item" aria-label="Objective-C组件库用Swift转写的方法论"><!--[--><!--]--> Objective-C组件库用Swift转写的方法论 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/ApplicationExtensionUnavailable.html" class="nav-link sidebar-item" aria-label="应用扩展不可用编译错误"><!--[--><!--]--> 应用扩展不可用编译错误 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/UnsafePointer.html" class="nav-link sidebar-item" aria-label="Swift 指针"><!--[--><!--]--> Swift 指针 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--]--></ul><!--[--><!--]--></aside><main class="page"><!--[--><!--]--><div class="theme-default-content"><!--[--><h1 id="算法" tabindex="-1"><a class="header-anchor" href="#算法" aria-hidden="true">#</a> 算法</h1><h2 id="_1-时间复杂度" tabindex="-1"><a class="header-anchor" href="#_1-时间复杂度" aria-hidden="true">#</a> 1. 时间复杂度</h2><ul><li><h3 id="时间频度" tabindex="-1"><a class="header-anchor" href="#时间频度" aria-hidden="true">#</a> 时间频度</h3><p>算法中语句执行次数称为时间频度，记为T(n)</p></li><li><h3 id="时间复杂度-o-n" tabindex="-1"><a class="header-anchor" href="#时间复杂度-o-n" aria-hidden="true">#</a> 时间复杂度 O(n)</h3></li></ul><h2 id="_2-空间复杂度" tabindex="-1"><a class="header-anchor" href="#_2-空间复杂度" aria-hidden="true">#</a> 2. 空间复杂度</h2><p>评估执行程序所需要的存储空间</p><h2 id="_3-排序算法" tabindex="-1"><a class="header-anchor" href="#_3-排序算法" aria-hidden="true">#</a> 3. 排序算法</h2><p>这里都按从小到大的 &lt; 顺序来排列</p><ul><li><h3 id="冒泡" tabindex="-1"><a class="header-anchor" href="#冒泡" aria-hidden="true">#</a> 冒泡</h3><p>一次比较两个相邻元素，大的换到后面；遍历重复，确保也只能确保最后一个元素是最大的，前面除最后一个元素外仍可能是乱序； 舍弃最后一个重复以上步骤，确保倒数第二个是第二大，以此类推就能确保右侧都是已排序序列</p></li></ul><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">bubbleSort</span><span class="token punctuation">(</span><span class="token number">_</span> array<span class="token punctuation">:</span> <span class="token keyword">inout</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span>array<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token punctuation">{</span>
-        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span>array<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">-</span> i <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> array<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> array<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
-                <span class="token keyword">let</span> temp <span class="token operator">=</span> array<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span>
-                array<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> array<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-                array<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> temp
-                <span class="token comment">//array.swapAt(j, j+1)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><ul><li><h3 id="选择" tabindex="-1"><a class="header-anchor" href="#选择" aria-hidden="true">#</a> 选择</h3><p>在右侧未排序序列中遍历找到最小元素，让其和未排序序列最前的元素交换，即追加到左侧已排序序列的末尾；重复以上步骤，每次在 剩下的未排序元素中找到最小的追加到已排序序列的末尾</p></li></ul><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">selectionSort</span><span class="token punctuation">(</span><span class="token number">_</span> array<span class="token punctuation">:</span> <span class="token keyword">inout</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span>array<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> minIndex <span class="token operator">=</span> i
-        <span class="token keyword">for</span> j <span class="token keyword">in</span> i<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span>array<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> array<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> array<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span> <span class="token punctuation">{</span>
-                minIndex <span class="token operator">=</span> j
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">let</span> temp <span class="token operator">=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-        array<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> array<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span>
-        array<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span> <span class="token operator">=</span> temp
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><ul><li><h3 id="插入" tabindex="-1"><a class="header-anchor" href="#插入" aria-hidden="true">#</a> 插入</h3><p>在右侧未排序序列中选择最前的元素，让其和左侧已排序序列中元素从后到前遍历依次比较，一次比较两个相邻元素，小的换到前面； 重复以上步骤，每次在未排序序列中选择最前的元素插入到已排序序列的应有位置使其仍然是已排序的序列</p></li></ul><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">insertionSort</span><span class="token punctuation">(</span><span class="token number">_</span> array<span class="token punctuation">:</span> <span class="token keyword">inout</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span>array<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token punctuation">{</span>
-        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reversed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> array<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> array<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token punctuation">{</span>
-                <span class="token keyword">let</span> temp <span class="token operator">=</span> array<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-                array<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> array<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span>
-                array<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> temp
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="_4-查找算法" tabindex="-1"><a class="header-anchor" href="#_4-查找算法" aria-hidden="true">#</a> 4. 查找算法</h2><h2 id="_5-反转" tabindex="-1"><a class="header-anchor" href="#_5-反转" aria-hidden="true">#</a> 5. 反转</h2><ul><li><h3 id="数组" tabindex="-1"><a class="header-anchor" href="#数组" aria-hidden="true">#</a> 数组</h3><p>前后两个指针分别指向开始和结尾，交换，接着前指针后移，后指针前移；直到两指针相遇（偶数个元素）或者前指针在后指针的后面（奇数个元素）， 也就是要保证前指针在后指针的前面，才可以进行循环</p></li></ul><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token builtin">reverse</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">_</span> base<span class="token punctuation">:</span> <span class="token keyword">inout</span> <span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> start <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">var</span> end <span class="token operator">=</span> base<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">-</span> <span class="token number">1</span>
-    <span class="token keyword">while</span> start <span class="token operator">&lt;</span> end <span class="token punctuation">{</span>
-        <span class="token keyword">let</span> temp <span class="token operator">=</span> base<span class="token punctuation">[</span>start<span class="token punctuation">]</span>
-        base<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> base<span class="token punctuation">[</span>end<span class="token punctuation">]</span>
-        base<span class="token punctuation">[</span>end<span class="token punctuation">]</span> <span class="token operator">=</span> temp
-        start <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-        end <span class="token operator">-</span><span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><ul><li><h3 id="字符串" tabindex="-1"><a class="header-anchor" href="#字符串" aria-hidden="true">#</a> 字符串</h3><p>原理相同，只不过在swift中String不能直接进行下标访问，需要写一个extension</p></li></ul><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token number">_</span> string<span class="token punctuation">:</span> <span class="token keyword">inout</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> start <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">var</span> end <span class="token operator">=</span> string<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">-</span> <span class="token number">1</span>
-    <span class="token keyword">while</span> start <span class="token operator">&lt;</span> end <span class="token punctuation">{</span>
-        <span class="token keyword">let</span> temp <span class="token operator">=</span> string<span class="token punctuation">[</span>start<span class="token punctuation">]</span>
-        string<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> string<span class="token punctuation">[</span>end<span class="token punctuation">]</span>
-        string<span class="token punctuation">[</span>end<span class="token punctuation">]</span> <span class="token operator">=</span> temp
-        start <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-        end <span class="token operator">-</span><span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>算法 - Knowledge</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
 
-<span class="token keyword">extension</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
-    <span class="token keyword">func</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token number">_</span> i<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">Self</span><span class="token punctuation">.</span><span class="token builtin">Index</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">index</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>startIndex<span class="token punctuation">,</span> offsetBy<span class="token punctuation">:</span> i<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">EricLiu's Blog</a></li><li class="chapter-item expanded affix "><li class="part-title">CS</li><li class="chapter-item expanded "><a href="../CS/AsynchronyProgramming.html"><strong aria-hidden="true">1.</strong> 异步编程</a></li><li class="chapter-item expanded "><a href="../CS/DesignPatterns.html"><strong aria-hidden="true">2.</strong> 设计模式</a></li><li class="chapter-item expanded affix "><li class="part-title">Swift语言参考</li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/LexicalStructure.html"><strong aria-hidden="true">3.</strong> 词法结构</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Types.html"><strong aria-hidden="true">4.</strong> 类型</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Expressions.html"><strong aria-hidden="true">5.</strong> 表达式</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Statements.html"><strong aria-hidden="true">6.</strong> 语句</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Declarations.html"><strong aria-hidden="true">7.</strong> 声明</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Attributes.html"><strong aria-hidden="true">8.</strong> 特性</a></li><li class="chapter-item expanded affix "><li class="part-title">iOS</li><li class="chapter-item expanded "><a href="../iOS/Data-structure.html"><strong aria-hidden="true">9.</strong> 数据结构</a></li><li class="chapter-item expanded "><a href="../iOS/Algorithm.html" class="active"><strong aria-hidden="true">10.</strong> 算法</a></li><li class="chapter-item expanded "><a href="../iOS/Swift.html"><strong aria-hidden="true">11.</strong> Swift</a></li><li class="chapter-item expanded "><a href="../iOS/String.html"><strong aria-hidden="true">12.</strong> String</a></li><li class="chapter-item expanded "><a href="../iOS/Foundation.html"><strong aria-hidden="true">13.</strong> Foundation</a></li><li class="chapter-item expanded "><a href="../iOS/UIKit.html"><strong aria-hidden="true">14.</strong> UIKit</a></li><li class="chapter-item expanded "><a href="../iOS/WebKit.html"><strong aria-hidden="true">15.</strong> WebKit</a></li><li class="chapter-item expanded "><a href="../iOS/Memory-management.html"><strong aria-hidden="true">16.</strong> 内存管理</a></li><li class="chapter-item expanded "><a href="../iOS/Network.html"><strong aria-hidden="true">17.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../iOS/Data-storage.html"><strong aria-hidden="true">18.</strong> 数据存储</a></li><li class="chapter-item expanded "><a href="../iOS/Multi-thread.html"><strong aria-hidden="true">19.</strong> 多线程</a></li><li class="chapter-item expanded "><a href="../iOS/Design-patterns.html"><strong aria-hidden="true">20.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../iOS/Concurrency.html"><strong aria-hidden="true">21.</strong> 并发编程</a></li><li class="chapter-item expanded "><a href="../iOS/Alamofire.html"><strong aria-hidden="true">22.</strong> Alamofire</a></li><li class="chapter-item expanded "><a href="../iOS/OC2Swift.html"><strong aria-hidden="true">23.</strong> Objective-C组件库用Swift转写的方法论</a></li><li class="chapter-item expanded "><a href="../iOS/ApplicationExtensionUnavailable.html"><strong aria-hidden="true">24.</strong> 应用扩展不可用编译错误</a></li><li class="chapter-item expanded "><a href="../iOS/UnsafePointer.html"><strong aria-hidden="true">25.</strong> Swift指针</a></li><li class="chapter-item expanded affix "><li class="part-title">Web</li><li class="chapter-item expanded "><a href="../Web/CSS.html"><strong aria-hidden="true">26.</strong> CSS</a></li><li class="chapter-item expanded "><a href="../Web/HTML.html"><strong aria-hidden="true">27.</strong> HTML</a></li><li class="chapter-item expanded "><a href="../Web/JavaScript.html"><strong aria-hidden="true">28.</strong> JavaScript</a></li><li class="chapter-item expanded "><a href="../Web/JavaScript.html"><strong aria-hidden="true">29.</strong> React</a></li><li class="chapter-item expanded "><a href="../Web/Taro.html"><strong aria-hidden="true">30.</strong> Taro快速开始</a></li><li class="chapter-item expanded "><a href="../Web/Vue.html"><strong aria-hidden="true">31.</strong> Vue</a></li><li class="chapter-item expanded "><a href="../Web/http.html"><strong aria-hidden="true">32.</strong> http</a></li><li class="chapter-item expanded "><a href="../Web/Performance-optimization.html"><strong aria-hidden="true">33.</strong> 性能优化</a></li><li class="chapter-item expanded affix "><li class="part-title">Books</li><li class="chapter-item expanded "><a href="../Books/Swifter-SwiftTips.html"><strong aria-hidden="true">34.</strong> Swifter Swift必备Tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../Tools/SwiftToolChain.html"><strong aria-hidden="true">35.</strong> Swift工具链</a></li><li class="chapter-item expanded "><a href="../Tools/Git.html"><strong aria-hidden="true">36.</strong> Git</a></li><li class="chapter-item expanded "><a href="../Tools/DocC.html"><strong aria-hidden="true">37.</strong> DocC</a></li><li class="chapter-item expanded "><a href="../Tools/Gitmoji.html"><strong aria-hidden="true">38.</strong> Gitmoji</a></li><li class="chapter-item expanded "><a href="../Tools/UsefulWebsites.html"><strong aria-hidden="true">39.</strong> 有用的网站</a></li><li class="chapter-item expanded "><a href="../Tools/Vuepress.html"><strong aria-hidden="true">40.</strong> Vuepress</a></li><li class="chapter-item expanded "><a href="../Tools/Markdown.html"><strong aria-hidden="true">41.</strong> Markdown</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Knowledge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="算法"><a class="header" href="#算法">算法</a></h1>
+<h2 id="1-时间复杂度"><a class="header" href="#1-时间复杂度">1. 时间复杂度</a></h2>
+<ul>
+<li>
+<h3 id="时间频度"><a class="header" href="#时间频度">时间频度</a></h3>
+<p>算法中语句执行次数称为时间频度，记为T(n)</p>
+</li>
+<li>
+<h3 id="时间复杂度-on"><a class="header" href="#时间复杂度-on">时间复杂度 O(n)</a></h3>
+</li>
+</ul>
+<h2 id="2-空间复杂度"><a class="header" href="#2-空间复杂度">2. 空间复杂度</a></h2>
+<p>评估执行程序所需要的存储空间</p>
+<h2 id="3-排序算法"><a class="header" href="#3-排序算法">3. 排序算法</a></h2>
+<p>这里都按从小到大的 &lt; 顺序来排列</p>
+<ul>
+<li>
+<h3 id="冒泡"><a class="header" href="#冒泡">冒泡</a></h3>
+<p>一次比较两个相邻元素，大的换到后面；遍历重复，确保也只能确保最后一个元素是最大的，前面除最后一个元素外仍可能是乱序；
+舍弃最后一个重复以上步骤，确保倒数第二个是第二大，以此类推就能确保右侧都是已排序序列</p>
+</li>
+</ul>
+<pre><code class="language-swift">func bubbleSort(_ array: inout [Int]) {
+    for i in 0..&lt;array.count - 1 {
+        for j in 0..&lt;array.count - 1 - i {
+            if array[j] &gt; array[j+1] {
+                let temp = array[j+1]
+                array[j+1] = array[j]
+                array[j] = temp
+                //array.swapAt(j, j+1)
+            }
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>
+<h3 id="选择"><a class="header" href="#选择">选择</a></h3>
+<p>在右侧未排序序列中遍历找到最小元素，让其和未排序序列最前的元素交换，即追加到左侧已排序序列的末尾；重复以上步骤，每次在
+剩下的未排序元素中找到最小的追加到已排序序列的末尾</p>
+</li>
+</ul>
+<pre><code class="language-swift">func selectionSort(_ array: inout [Int]) {
+    for i in 0..&lt;array.count {
+        var minIndex = i
+        for j in i..&lt;array.count {
+            if array[j] &lt; array[minIndex] {
+                minIndex = j
+            }
+        }
+        let temp = array[i]
+        array[i] = array[minIndex]
+        array[minIndex] = temp
+    }
+}
+</code></pre>
+<ul>
+<li>
+<h3 id="插入"><a class="header" href="#插入">插入</a></h3>
+<p>在右侧未排序序列中选择最前的元素，让其和左侧已排序序列中元素从后到前遍历依次比较，一次比较两个相邻元素，小的换到前面；
+重复以上步骤，每次在未排序序列中选择最前的元素插入到已排序序列的应有位置使其仍然是已排序的序列</p>
+</li>
+</ul>
+<pre><code class="language-swift">func insertionSort(_ array: inout [Int]) {
+    for i in 0..&lt;array.count {
+        for j in (0..&lt;i).reversed() {
+            if array[j+1] &lt; array[j] {
+                let temp = array[j]
+                array[j] = array[j+1]
+                array[j+1] = temp
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="4-查找算法"><a class="header" href="#4-查找算法">4. 查找算法</a></h2>
+<h2 id="5-反转"><a class="header" href="#5-反转">5. 反转</a></h2>
+<ul>
+<li>
+<h3 id="数组"><a class="header" href="#数组">数组</a></h3>
+<p>前后两个指针分别指向开始和结尾，交换，接着前指针后移，后指针前移；直到两指针相遇（偶数个元素）或者前指针在后指针的后面（奇数个元素），
+也就是要保证前指针在后指针的前面，才可以进行循环</p>
+</li>
+</ul>
+<pre><code class="language-swift">func reverse&lt;T&gt;(_ base: inout [T]) {
+    var start = 0
+    var end = base.count - 1
+    while start &lt; end {
+        let temp = base[start]
+        base[start] = base[end]
+        base[end] = temp
+        start += 1
+        end -= 1
+    }
+}
+</code></pre>
+<ul>
+<li>
+<h3 id="字符串"><a class="header" href="#字符串">字符串</a></h3>
+<p>原理相同，只不过在swift中String不能直接进行下标访问，需要写一个extension</p>
+</li>
+</ul>
+<pre><code class="language-swift">func reverse(_ string: inout String) {
+    var start = 0
+    var end = string.count - 1
+    while start &lt; end {
+        let temp = string[start]
+        string[start] = string[end]
+        string[end] = temp
+        start += 1
+        end -= 1
+    }
+}
+
+extension String {
+    func index(_ i: Int) -&gt; Self.Index {
+        self.index(self.startIndex, offsetBy: i)
+    }
     
-    <span class="token keyword">subscript</span><span class="token punctuation">(</span><span class="token number">_</span> i<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Character</span> <span class="token punctuation">{</span>
-        <span class="token keyword">get</span> <span class="token punctuation">{</span>
-            <span class="token keyword">self</span><span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">index</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">set</span> <span class="token punctuation">{</span>
-            <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>at<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">index</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> at<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">index</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><ul><li><h3 id="链表" tabindex="-1"><a class="header-anchor" href="#链表" aria-hidden="true">#</a> 链表</h3><p>设置一个新的头结点，遍历旧链表把每一个结点按顺序前插到新的链表中完成反转；使用可选项绑定来判空，首先临时保存当前结点的下一个结点， 将当前结点前插到新链表中时，next指向发生变化，所以必须先保存next；接着使current后移完成遍历，新头结点前移等待下一次前插；最终 新头结点为新链表的头结点</p></li></ul><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">LinkNode</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> data<span class="token punctuation">:</span> T
-    <span class="token keyword">var</span> next<span class="token punctuation">:</span> <span class="token builtin">LinkNode</span><span class="token operator">?</span>
-    <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token number">_</span> data<span class="token punctuation">:</span> T<span class="token punctuation">,</span> <span class="token number">_</span> next<span class="token punctuation">:</span> <span class="token builtin">LinkNode</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>data <span class="token operator">=</span> data
-        <span class="token keyword">self</span><span class="token punctuation">.</span>next <span class="token operator">=</span> next
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    subscript(_ i: Int) -&gt; Character {
+        get {
+            self[self.index(i)]
+        }
+        set {
+            self.remove(at: self.index(i))
+            self.insert(newValue, at: self.index(i))
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>
+<h3 id="链表"><a class="header" href="#链表">链表</a></h3>
+<p>设置一个新的头结点，遍历旧链表把每一个结点按顺序前插到新的链表中完成反转；使用可选项绑定来判空，首先临时保存当前结点的下一个结点，
+将当前结点前插到新链表中时，next指向发生变化，所以必须先保存next；接着使current后移完成遍历，新头结点前移等待下一次前插；最终
+新头结点为新链表的头结点</p>
+</li>
+</ul>
+<pre><code class="language-swift">class LinkNode&lt;T&gt; {
+    var data: T
+    var next: LinkNode?
+    init(_ data: T, _ next: LinkNode? = nil) {
+        self.data = data
+        self.next = next
+    }
+}
 
-<span class="token keyword">func</span> <span class="token builtin">reverse</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">_</span> head<span class="token punctuation">:</span> <span class="token builtin">LinkNode</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token operator">?</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">LinkNode</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token operator">?</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> current <span class="token operator">=</span> head
-    <span class="token keyword">var</span> newHead<span class="token punctuation">:</span> <span class="token builtin">LinkNode</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span>
-    <span class="token keyword">while</span> <span class="token keyword">let</span> cur <span class="token operator">=</span> current <span class="token punctuation">{</span>
-        <span class="token keyword">let</span> temp <span class="token operator">=</span> cur<span class="token punctuation">.</span>next
-        cur<span class="token punctuation">.</span>next <span class="token operator">=</span> newHead
-        current <span class="token operator">=</span> temp
-        newHead <span class="token operator">=</span> cur
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> newHead
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="_6-合并有序数组" tabindex="-1"><a class="header-anchor" href="#_6-合并有序数组" aria-hidden="true">#</a> 6. 合并有序数组</h2><p>使用两个指针分别指向两个数组，当两个指针都在数组范围内时，结果数组追加两个数组中更小的一个元素，追加了谁谁的指针就后移； 当两个指针中有一个溢出就不可再继续了，代码中数组访问会报错；分别使用两个循环追加剩下的元素，不用关心谁有剩余，谁有剩余谁追加，没有剩余循环就退出</p><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token number">_</span> array1<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">_</span> array2<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">var</span> q <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">while</span> p <span class="token operator">&lt;</span> array1<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">&amp;&amp;</span> q <span class="token operator">&lt;</span> array2<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> array1<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> array2<span class="token punctuation">[</span>q<span class="token punctuation">]</span> <span class="token punctuation">{</span>
-            result<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>array1<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            p <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            result<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>array2<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            q <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+func reverse&lt;T&gt;(_ head: LinkNode&lt;T&gt;?) -&gt; LinkNode&lt;T&gt;? {
+    var current = head
+    var newHead: LinkNode&lt;T&gt;? = nil
+    while let cur = current {
+        let temp = cur.next
+        cur.next = newHead
+        current = temp
+        newHead = cur
+    }
+    return newHead
+}
+</code></pre>
+<h2 id="6-合并有序数组"><a class="header" href="#6-合并有序数组">6. 合并有序数组</a></h2>
+<p>使用两个指针分别指向两个数组，当两个指针都在数组范围内时，结果数组追加两个数组中更小的一个元素，追加了谁谁的指针就后移；
+当两个指针中有一个溢出就不可再继续了，代码中数组访问会报错；分别使用两个循环追加剩下的元素，不用关心谁有剩余，谁有剩余谁追加，没有剩余循环就退出</p>
+<pre><code class="language-swift">func merge(_ array1: [Int], _ array2: [Int]) -&gt; [Int] {
+    var p = 0
+    var q = 0
+    var result = [Int]()
+    while p &lt; array1.count &amp;&amp; q &lt; array2.count {
+        if array1[p] &lt;= array2[q] {
+            result.append(array1[p])
+            p += 1
+        } else {
+            result.append(array2[q])
+            q += 1
+        }
+    }
     
-    <span class="token keyword">while</span> p <span class="token operator">&lt;</span> array1<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token punctuation">{</span>
-        result<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>array1<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        p <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">while</span> q <span class="token operator">&lt;</span> array2<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token punctuation">{</span>
-        result<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>array2<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        q <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> result
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h2 id="_7-哈希计数查找" tabindex="-1"><a class="header-anchor" href="#_7-哈希计数查找" aria-hidden="true">#</a> 7. 哈希计数查找</h2><p>查找第一个只出现一次的元素，哈希计数，遍历输入的序列，如果元素是第一次出现就把它的计数设为1，如果不是第一次出现就计数+1； 重新遍历，第一次找到哈希计数为一次的就反回结果；输入的序列可以是字符串或数组，序列中的元素要遵循哈希协议，这里的哈希实现 使用字典；字典返回的为可选项，当字典中没有关键字对应的值时返回nil，可选项绑定判空来判断是否是第一次出现</p><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> hashCount<span class="token operator">&lt;</span>T<span class="token punctuation">:</span> <span class="token builtin">Sequence</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">_</span> sequence<span class="token punctuation">:</span> T<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> T<span class="token punctuation">.</span><span class="token builtin">Element</span><span class="token operator">?</span> <span class="token keyword">where</span> T<span class="token punctuation">.</span><span class="token builtin">Element</span><span class="token punctuation">:</span> <span class="token builtin">Hashable</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> dict <span class="token operator">=</span> <span class="token punctuation">[</span>T<span class="token punctuation">.</span><span class="token builtin">Element</span><span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> element <span class="token keyword">in</span> sequence <span class="token punctuation">{</span>
-        <span class="token keyword">guard</span> <span class="token keyword">let</span> value <span class="token operator">=</span> dict<span class="token punctuation">[</span>element<span class="token punctuation">]</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> dict<span class="token punctuation">[</span>element<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token keyword">continue</span> <span class="token punctuation">}</span>
-        dict<span class="token punctuation">[</span>element<span class="token punctuation">]</span> <span class="token operator">=</span> value <span class="token operator">+</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span>
+    while p &lt; array1.count {
+        result.append(array1[p])
+        p += 1
+    }
+    while q &lt; array2.count {
+        result.append(array2[q])
+        q += 1
+    }
+    return result
+}
+</code></pre>
+<h2 id="7-哈希计数查找"><a class="header" href="#7-哈希计数查找">7. 哈希计数查找</a></h2>
+<p>查找第一个只出现一次的元素，哈希计数，遍历输入的序列，如果元素是第一次出现就把它的计数设为1，如果不是第一次出现就计数+1；
+重新遍历，第一次找到哈希计数为一次的就反回结果；输入的序列可以是字符串或数组，序列中的元素要遵循哈希协议，这里的哈希实现
+使用字典；字典返回的为可选项，当字典中没有关键字对应的值时返回nil，可选项绑定判空来判断是否是第一次出现</p>
+<pre><code class="language-swift">func hashCount&lt;T: Sequence&gt;(_ sequence: T) -&gt; T.Element? where T.Element: Hashable {
+    var dict = [T.Element: Int]()
+    for element in sequence {
+        guard let value = dict[element] else { dict[element] = 1; continue }
+        dict[element] = value + 1
+    }
 
-    <span class="token keyword">for</span> element <span class="token keyword">in</span> sequence <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> dict<span class="token punctuation">[</span>element<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> element
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token constant">nil</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="_8-用有序字典实现-lru缓存" tabindex="-1"><a class="header-anchor" href="#_8-用有序字典实现-lru缓存" aria-hidden="true">#</a> 8. 用有序字典实现 LRU缓存</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">// 双向链表结点</span>
-<span class="token keyword">class</span> <span class="token class-name">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">Data</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> data<span class="token punctuation">:</span> <span class="token builtin">Data</span><span class="token operator">?</span>
-    <span class="token keyword">var</span> prev<span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">?</span>
-    <span class="token keyword">var</span> next<span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">?</span>
+    for element in sequence {
+        if dict[element] == 1 {
+            return element
+        }
+    }
+    return nil
+}
+</code></pre>
+<h2 id="8-用有序字典实现-lru缓存"><a class="header" href="#8-用有序字典实现-lru缓存">8. 用有序字典实现 LRU缓存</a></h2>
+<pre><code class="language-swift">// 双向链表结点
+class DoubleLinkedNode&lt;Data&gt; {
+    var data: Data?
+    var prev: DoubleLinkedNode?
+    var next: DoubleLinkedNode?
 
-    <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token number">_</span> data<span class="token punctuation">:</span> <span class="token builtin">Data</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>data <span class="token operator">=</span> data
-        <span class="token keyword">self</span><span class="token punctuation">.</span>prev <span class="token operator">=</span> <span class="token constant">nil</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token constant">nil</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    init(_ data: Data? = nil) {
+        self.data = data
+        self.prev = nil
+        self.next = nil
+    }
+}
 
-<span class="token comment">// 双向链表</span>
-<span class="token comment">// tips: 双向链表的优点主要在于删除快，不需要遍历一遍找到待删除结点的前一个结点</span>
-<span class="token keyword">class</span> <span class="token class-name">DoubleLinkedList</span><span class="token operator">&lt;</span><span class="token builtin">Data</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment">// 虚拟头尾结点</span>
-    <span class="token keyword">var</span> head<span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">Data</span><span class="token operator">&gt;</span>
-    <span class="token keyword">var</span> tail<span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">Data</span><span class="token operator">&gt;</span>
+// 双向链表
+// tips: 双向链表的优点主要在于删除快，不需要遍历一遍找到待删除结点的前一个结点
+class DoubleLinkedList&lt;Data&gt; {
+    // 虚拟头尾结点
+    var head: DoubleLinkedNode&lt;Data&gt;
+    var tail: DoubleLinkedNode&lt;Data&gt;
 
-    <span class="token comment">// 链表结点个数</span>
-    <span class="token keyword">var</span> <span class="token builtin">count</span><span class="token punctuation">:</span> <span class="token builtin">Int</span>
+    // 链表结点个数
+    var count: Int
 
-    <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>head <span class="token operator">=</span> <span class="token function">DoubleLinkedNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> <span class="token function">DoubleLinkedNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    init() {
+        self.head = DoubleLinkedNode()
+        self.tail = DoubleLinkedNode()
 
-        <span class="token keyword">self</span><span class="token punctuation">.</span>head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>tail
-        <span class="token keyword">self</span><span class="token punctuation">.</span>tail<span class="token punctuation">.</span>prev <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>head
+        self.head.next = self.tail
+        self.tail.prev = self.head
 
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token punctuation">}</span>
+        self.count = 0
+    }
 
-    <span class="token comment">// 在虚拟头结点之后插入新结点，即在链表的第一个位置插入结点</span>
-    <span class="token keyword">func</span> <span class="token function">insertFirst</span><span class="token punctuation">(</span><span class="token number">_</span> newNode<span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">Data</span><span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>newNode<span class="token punctuation">,</span> after<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">.</span>head<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    // 在虚拟头结点之后插入新结点，即在链表的第一个位置插入结点
+    func insertFirst(_ newNode: DoubleLinkedNode&lt;Data&gt;) {
+        self.insert(newNode, after: self.head)
+    }
 
-    <span class="token comment">// 删除虚拟尾结点的前一个结点，即删除链表最后一个位置的结点，并返回结点的引用</span>
-    <span class="token keyword">func</span> <span class="token function">removeLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">Data</span><span class="token operator">&gt;</span><span class="token operator">?</span> <span class="token punctuation">{</span>
-        <span class="token keyword">guard</span> <span class="token keyword">let</span> <span class="token builtin">last</span> <span class="token operator">=</span> tail<span class="token punctuation">.</span>prev <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token constant">nil</span> <span class="token punctuation">}</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token builtin">last</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">last</span>
-    <span class="token punctuation">}</span>
+    // 删除虚拟尾结点的前一个结点，即删除链表最后一个位置的结点，并返回结点的引用
+    func removeLast() -&gt; DoubleLinkedNode&lt;Data&gt;? {
+        guard let last = tail.prev else { return nil }
+        self.remove(last)
+        return last
+    }
 
-    <span class="token comment">// 把某个结点移动到链表的第一个位置</span>
-    <span class="token keyword">func</span> <span class="token function">moveToFirst</span><span class="token punctuation">(</span><span class="token number">_</span> node<span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">Data</span><span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 先删掉它，再在第一个位置插入</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">insertFirst</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    // 把某个结点移动到链表的第一个位置
+    func moveToFirst(_ node: DoubleLinkedNode&lt;Data&gt;) {
+        // 先删掉它，再在第一个位置插入
+        self.remove(node)
+        self.insertFirst(node)
+    }
 
-    <span class="token comment">// 在某个结点之后插入新的结点</span>
-    <span class="token keyword">func</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">_</span> newNode<span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">Data</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> after prevNode<span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">Data</span><span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">guard</span> <span class="token keyword">let</span> nextNode <span class="token operator">=</span> prevNode<span class="token punctuation">.</span>next <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+    // 在某个结点之后插入新的结点
+    func insert(_ newNode: DoubleLinkedNode&lt;Data&gt;, after prevNode: DoubleLinkedNode&lt;Data&gt;) {
+        guard let nextNode = prevNode.next else { return }
 
-        <span class="token comment">// 新结点的前指针指向新结点前面的结点，新结点后面的结点的前指针指向新结点</span>
-        newNode<span class="token punctuation">.</span>prev <span class="token operator">=</span> prevNode
-        nextNode<span class="token punctuation">.</span>prev <span class="token operator">=</span> newNode
+        // 新结点的前指针指向新结点前面的结点，新结点后面的结点的前指针指向新结点
+        newNode.prev = prevNode
+        nextNode.prev = newNode
 
-        <span class="token comment">// 新结点的后指针指向新结点后面的结点，新结点前面的结点的后指针指向新结点</span>
-        newNode<span class="token punctuation">.</span>next <span class="token operator">=</span> nextNode
-        prevNode<span class="token punctuation">.</span>next <span class="token operator">=</span> newNode
+        // 新结点的后指针指向新结点后面的结点，新结点前面的结点的后指针指向新结点
+        newNode.next = nextNode
+        prevNode.next = newNode
 
-        <span class="token comment">// 插入计数 + 1</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span>
+        // 插入计数 + 1
+        self.count += 1
+    }
 
-    <span class="token comment">// 删除结点</span>
-    <span class="token keyword">func</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token number">_</span> node<span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">Data</span><span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">guard</span> <span class="token keyword">let</span> prevNode <span class="token operator">=</span> node<span class="token punctuation">.</span>prev<span class="token punctuation">,</span> <span class="token keyword">let</span> nextNode <span class="token operator">=</span> node<span class="token punctuation">.</span>next <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
+    // 删除结点
+    func remove(_ node: DoubleLinkedNode&lt;Data&gt;) {
+        guard let prevNode = node.prev, let nextNode = node.next else { return }
 
-        <span class="token comment">// 待删除结点的后一个结点的前指针指向待删除结点的前一个结点，待删除结点的前一个结点的后指针指向待删除结点的后一个结点</span>
-        nextNode<span class="token punctuation">.</span>prev <span class="token operator">=</span> node<span class="token punctuation">.</span>prev
-        prevNode<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">.</span>next
+        // 待删除结点的后一个结点的前指针指向待删除结点的前一个结点，待删除结点的前一个结点的后指针指向待删除结点的后一个结点
+        nextNode.prev = node.prev
+        prevNode.next = node.next
 
-        <span class="token comment">// 删除计数 - 1</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">-</span><span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        // 删除计数 - 1
+        self.count -= 1
+    }
+}
 
-<span class="token comment">// 键值对</span>
-<span class="token keyword">struct</span> <span class="token builtin">KeyValue</span><span class="token operator">&lt;</span><span class="token builtin">Key</span><span class="token punctuation">,</span> <span class="token builtin">Value</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> key<span class="token punctuation">:</span> <span class="token builtin">Key</span>
-    <span class="token keyword">var</span> value<span class="token punctuation">:</span> <span class="token builtin">Value</span>
-<span class="token punctuation">}</span>
+// 键值对
+struct KeyValue&lt;Key, Value&gt; {
+    var key: Key
+    var value: Value
+}
 
-<span class="token comment">// 双向链表 + 哈希表</span>
-<span class="token comment">// 用哈希字典存储链表的结点引用，可以根据 key 键找到哈希字典中的链表结点引用进而找到链表中存储的 value 值</span>
-<span class="token comment">// 本来哈希字典是没有顺序的，与链表结合可以创造有序字典</span>
-<span class="token keyword">class</span> <span class="token class-name">LinkedHashList</span><span class="token operator">&lt;</span><span class="token builtin">Key</span><span class="token punctuation">:</span> <span class="token builtin">Hashable</span><span class="token punctuation">,</span> <span class="token builtin">Value</span><span class="token operator">&gt;</span><span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedList</span><span class="token operator">&lt;</span><span class="token builtin">KeyValue</span><span class="token operator">&lt;</span><span class="token builtin">Key</span><span class="token punctuation">,</span> <span class="token builtin">Value</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment">// 哈希字典 [键: 结点引用]</span>
-    <span class="token keyword">var</span> dict<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Key</span><span class="token punctuation">:</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">KeyValue</span><span class="token operator">&lt;</span><span class="token builtin">Key</span><span class="token punctuation">,</span> <span class="token builtin">Value</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">]</span>
+// 双向链表 + 哈希表
+// 用哈希字典存储链表的结点引用，可以根据 key 键找到哈希字典中的链表结点引用进而找到链表中存储的 value 值
+// 本来哈希字典是没有顺序的，与链表结合可以创造有序字典
+class LinkedHashList&lt;Key: Hashable, Value&gt;: DoubleLinkedList&lt;KeyValue&lt;Key, Value&gt;&gt; {
+    // 哈希字典 [键: 结点引用]
+    var dict: [Key: DoubleLinkedNode&lt;KeyValue&lt;Key, Value&gt;&gt;]
 
-    <span class="token keyword">override</span> <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>dict <span class="token operator">=</span> <span class="token function">Dictionary</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    override init() {
+        self.dict = Dictionary()
+        super.init()
+    }
 
-    <span class="token keyword">subscript</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">Key</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Value</span><span class="token operator">?</span> <span class="token punctuation">{</span>
-        <span class="token comment">// key -&gt; node -&gt; value</span>
-        <span class="token keyword">get</span> <span class="token punctuation">{</span>
-            <span class="token keyword">guard</span> <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>dict<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token constant">nil</span> <span class="token punctuation">}</span>
-            <span class="token keyword">guard</span> <span class="token keyword">let</span> data <span class="token operator">=</span> node<span class="token punctuation">.</span>data <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token constant">nil</span> <span class="token punctuation">}</span>
-            <span class="token keyword">return</span> data<span class="token punctuation">.</span>value
-        <span class="token punctuation">}</span>
+    subscript(key: Key) -&gt; Value? {
+        // key -&gt; node -&gt; value
+        get {
+            guard let node = self.dict[key] else { return nil }
+            guard let data = node.data else { return nil }
+            return data.value
+        }
 
-        <span class="token keyword">set</span> <span class="token punctuation">{</span>
-            <span class="token comment">// newValue 不为 nil 时</span>
-            <span class="token keyword">if</span> <span class="token keyword">let</span> newValue <span class="token operator">=</span> newValue <span class="token punctuation">{</span>
-                <span class="token comment">// 已经有键时，修改链表结点的值</span>
-                <span class="token keyword">if</span> <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>dict<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token punctuation">{</span>
-                    node<span class="token punctuation">.</span>data<span class="token operator">?</span><span class="token punctuation">.</span>value <span class="token operator">=</span> newValue
-                <span class="token punctuation">}</span>
-                <span class="token comment">// 没有键时，新建结点，设置哈希字典键对应的结点索引，并把结点插入到链表的第一个位置</span>
-                <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                    <span class="token keyword">let</span> newNode <span class="token operator">=</span> <span class="token builtin">DoubleLinkedNode</span><span class="token operator">&lt;</span><span class="token builtin">KeyValue</span><span class="token operator">&lt;</span><span class="token builtin">Key</span><span class="token punctuation">,</span> <span class="token builtin">Value</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token function">KeyValue</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">,</span> value<span class="token punctuation">:</span> newValue<span class="token punctuation">)</span><span class="token punctuation">)</span>
-                    <span class="token keyword">self</span><span class="token punctuation">.</span>dict<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> newNode
-                    <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">insertFirst</span><span class="token punctuation">(</span>newNode<span class="token punctuation">)</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-            <span class="token comment">// newValue 为 nil 时，删除哈希字典索引，并删除链表中的结点 </span>
-            <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                <span class="token keyword">guard</span> <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>dict<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
-                <span class="token keyword">self</span><span class="token punctuation">.</span>dict<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token constant">nil</span>
-                <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        set {
+            // newValue 不为 nil 时
+            if let newValue = newValue {
+                // 已经有键时，修改链表结点的值
+                if let node = self.dict[key] {
+                    node.data?.value = newValue
+                }
+                // 没有键时，新建结点，设置哈希字典键对应的结点索引，并把结点插入到链表的第一个位置
+                else {
+                    let newNode = DoubleLinkedNode&lt;KeyValue&lt;Key, Value&gt;&gt;(KeyValue(key: key, value: newValue))
+                    self.dict[key] = newNode
+                    self.insertFirst(newNode)
+                }
+            }
+            // newValue 为 nil 时，删除哈希字典索引，并删除链表中的结点 
+            else {
+                guard let node = self.dict[key] else { return }
+                self.dict[key] = nil
+                self.remove(node)
+            }
+        }
+    }
  
-    <span class="token comment">// 根据关键字，把某个结点移动到链表的第一个位置</span>
-    <span class="token keyword">func</span> <span class="token function">moveToFirst</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">Key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">guard</span> <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>dict<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">moveToFirst</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    // 根据关键字，把某个结点移动到链表的第一个位置
+    func moveToFirst(key: Key) {
+        guard let node = self.dict[key] else { return }
+        self.moveToFirst(node)
+    }
 
-    <span class="token comment">// 删除链表最后一个位置的结点，并把删除哈希字典索引</span>
-    <span class="token keyword">func</span> <span class="token function">removeLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-        <span class="token keyword">guard</span> <span class="token keyword">let</span> removedNode <span class="token operator">=</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">removeLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
-        <span class="token keyword">guard</span> <span class="token keyword">let</span> data <span class="token operator">=</span> removedNode<span class="token punctuation">.</span>data <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">}</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>dict<span class="token punctuation">[</span>data<span class="token punctuation">.</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token constant">nil</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    // 删除链表最后一个位置的结点，并把删除哈希字典索引
+    func removeLast() { 
+        guard let removedNode = super.removeLast() else { return }
+        guard let data = removedNode.data else { return }
+        self.dict[data.key] = nil
+    }
+}
 
-<span class="token comment">// Least Recently Used，最少使用缓存算法</span>
-<span class="token comment">// 设置缓存最大容量，当缓存到达最大容量时，删除最少使用的缓存</span>
-<span class="token keyword">class</span> <span class="token class-name">LRUCache</span><span class="token operator">&lt;</span><span class="token builtin">Key</span><span class="token punctuation">:</span> <span class="token builtin">Hashable</span><span class="token punctuation">,</span> <span class="token builtin">Value</span><span class="token operator">&gt;</span><span class="token punctuation">:</span> <span class="token builtin">LinkedHashList</span><span class="token operator">&lt;</span><span class="token builtin">Key</span><span class="token punctuation">,</span> <span class="token builtin">Value</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment">// 容量</span>
-    <span class="token keyword">var</span> capacity<span class="token punctuation">:</span> <span class="token builtin">Int</span>
+// Least Recently Used，最少使用缓存算法
+// 设置缓存最大容量，当缓存到达最大容量时，删除最少使用的缓存
+class LRUCache&lt;Key: Hashable, Value&gt;: LinkedHashList&lt;Key, Value&gt; {
+    // 容量
+    var capacity: Int
 
-    <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token number">_</span> capacity<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>capacity <span class="token operator">=</span> capacity
-    <span class="token punctuation">}</span>
+    init(_ capacity: Int) {
+        self.capacity = capacity
+    }
 
-    <span class="token comment">// 获取缓存</span>
-    <span class="token keyword">func</span> <span class="token keyword">get</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">Key</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Value</span><span class="token operator">?</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 使用过移动到最前</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">moveToFirst</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token keyword">self</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
+    // 获取缓存
+    func get(key: Key) -&gt; Value? {
+        // 使用过移动到最前
+        self.moveToFirst(key: key)
+        return self[key]
+    }
 
-    <span class="token comment">// 设置缓存</span>
-    <span class="token keyword">func</span> <span class="token keyword">set</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">Key</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token builtin">Value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 使用过移动到最前，如果新建结点，默认插入到最前所以不需要移动到最前</span>
-        <span class="token keyword">if</span> <span class="token keyword">let</span> <span class="token number">_</span> <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token punctuation">{</span>
-            <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">moveToFirst</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">self</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value
+    // 设置缓存
+    func set(key: Key, value: Value) {
+        // 使用过移动到最前，如果新建结点，默认插入到最前所以不需要移动到最前
+        if let _ = self[key] {
+            self.moveToFirst(key: key)
+        }
+        self[key] = value
 
-        <span class="token comment">// 超出最大容量时，删除最后面的使用最少的缓存</span>
-        <span class="token keyword">if</span> <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token operator">&gt;</span> <span class="token keyword">self</span><span class="token punctuation">.</span>capacity <span class="token punctuation">{</span>
-            <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">removeLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br></div></div><h2 id="swift字符串算法特殊处理" tabindex="-1"><a class="header-anchor" href="#swift字符串算法特殊处理" aria-hidden="true">#</a> Swift字符串算法特殊处理</h2><p>避免String为兼容utf-8而产生的繁琐下标方法，以及因此带来的性能损失</p><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">var</span> stringArray <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">Character</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token string">&quot;abc&quot;</span><span class="token punctuation">)</span>
-<span class="token function">print</span><span class="token punctuation">(</span>stringArray<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// a</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">Last Updated: </span><span class="meta-item-info">2022/3/8 02:16:32</span></div><!----></footer><nav class="page-nav"><p class="inner"><span class="prev"> ← <a href="/Knowledge/iOS/Data-structure.html" class="nav-link" aria-label="数据结构"><!--[--><!--]--> 数据结构 <!--[--><!--]--></a></span><span class="next"><a href="/Knowledge/iOS/Swift.html" class="nav-link" aria-label="Swift"><!--[--><!--]--> Swift <!--[--><!--]--></a> → </span></p></nav><!--[--><!--]--></main></div><!----><!--]--></div>
-    <script src="/Knowledge/assets/js/runtime~app.4be62ddd.js" defer></script><script src="/Knowledge/assets/js/4640.e62e001d.js" defer></script><script src="/Knowledge/assets/js/app.d7e6dda3.js" defer></script>
-  </body>
+        // 超出最大容量时，删除最后面的使用最少的缓存
+        if self.count &gt; self.capacity {
+            self.removeLast()
+        }
+    }
+}
+</code></pre>
+<h2 id="swift字符串算法特殊处理"><a class="header" href="#swift字符串算法特殊处理">Swift字符串算法特殊处理</a></h2>
+<p>避免String为兼容utf-8而产生的繁琐下标方法，以及因此带来的性能损失</p>
+<pre><code class="language-swift">var stringArray = [Character](&quot;abc&quot;)
+print(stringArray[0]) // a
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../iOS/Data-structure.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../iOS/Swift.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../iOS/Data-structure.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../iOS/Swift.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
 </html>

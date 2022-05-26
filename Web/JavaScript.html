@@ -1,172 +1,424 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <link rel="icon" type="image/svg+xml" href="/images/杉.svg"><title>JavaScript | EricLiu's Blog</title><meta name="description" content=""><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="VuePress 2.0.0-beta.20">
-    <link rel="preload" href="/Knowledge/assets/js/runtime~app.4be62ddd.js" as="script"><link rel="preload" href="/Knowledge/assets/css/styles.1144b83c.css" as="style"><link rel="preload" href="/Knowledge/assets/js/4640.e62e001d.js" as="script"><link rel="preload" href="/Knowledge/assets/js/app.d7e6dda3.js" as="script">
-    <link rel="stylesheet" href="/Knowledge/assets/css/styles.1144b83c.css">
-  </head>
-  <body>
-    <div id="app"><!--[--><div class="theme-container"><header class="navbar"><div class="toggle-sidebar-button"><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><span><a href="/Knowledge/" class=""><!----><span class="site-name">EricLiu&#39;s Blog</span></a></span><div class="navbar-links-wrapper" style=""><!--[--><!--]--><nav class="navbar-links can-hide"><!--[--><div class="navbar-links-item"><a href="/Knowledge/CS/" class="nav-link" aria-label="CS"><!--[--><!--]--> CS <!--[--><!--]--></a></div><div class="navbar-links-item"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="arrow down"></span></button><button class="mobile-dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="right arrow"></span></button><ul style="display:none;" class="nav-dropdown"><!--[--><li class="dropdown-item"><a href="/Knowledge/Swift/ReferenceManual/" class="nav-link" aria-label="Swift语言参考"><!--[--><!--]--> Swift语言参考 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-links-item"><a href="/Knowledge/iOS/" class="nav-link" aria-label="iOS"><!--[--><!--]--> iOS <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Web/" class="nav-link router-link-active" aria-label="Web"><!--[--><!--]--> Web <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Books/" class="nav-link" aria-label="Books"><!--[--><!--]--> Books <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Tools/" class="nav-link" aria-label="Tools"><!--[--><!--]--> Tools <!--[--><!--]--></a></div><div class="navbar-links-item"><a class="nav-link external" href="https://github.com/ericliuhusky" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">open in new window</span><!--]--></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><button class="toggle-dark-button"><svg style="" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg style="display:none;" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><div class="sidebar-mask"></div><aside class="sidebar"><nav class="navbar-links"><!--[--><div class="navbar-links-item"><a href="/Knowledge/CS/" class="nav-link" aria-label="CS"><!--[--><!--]--> CS <!--[--><!--]--></a></div><div class="navbar-links-item"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="arrow down"></span></button><button class="mobile-dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="right arrow"></span></button><ul style="display:none;" class="nav-dropdown"><!--[--><li class="dropdown-item"><a href="/Knowledge/Swift/ReferenceManual/" class="nav-link" aria-label="Swift语言参考"><!--[--><!--]--> Swift语言参考 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-links-item"><a href="/Knowledge/iOS/" class="nav-link" aria-label="iOS"><!--[--><!--]--> iOS <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Web/" class="nav-link router-link-active" aria-label="Web"><!--[--><!--]--> Web <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Books/" class="nav-link" aria-label="Books"><!--[--><!--]--> Books <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Tools/" class="nav-link" aria-label="Tools"><!--[--><!--]--> Tools <!--[--><!--]--></a></div><div class="navbar-links-item"><a class="nav-link external" href="https://github.com/ericliuhusky" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">open in new window</span><!--]--></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><ul class="sidebar-links"><!--[--><!--[--><p class="sidebar-heading sidebar-item active">Web</p><ul class=""><li><!--[--><a href="/Knowledge/Web/CSS.html" class="nav-link sidebar-item" aria-label="CSS"><!--[--><!--]--> CSS <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/Web/HTML.html" class="nav-link sidebar-item" aria-label="HTML"><!--[--><!--]--> HTML <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html" class="router-link-active router-link-exact-active nav-link router-link-active sidebar-item active" aria-label="JavaScript"><!--[--><!--]--> JavaScript <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_1-事件代理" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="1. 事件代理"><!--[--><!--]--> 1. 事件代理 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_2-prototype" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="2. prototype"><!--[--><!--]--> 2. prototype <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_3-闭包" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="3. 闭包"><!--[--><!--]--> 3. 闭包 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_4-undeclared是语法错误表示没有声明-undefined表示根本未被定义-null是被定义了但是被定义的是空值" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="4. undeclared是语法错误表示没有声明，undefined表示根本未被定义，null是被定义了但是被定义的是空值"><!--[--><!--]--> 4. undeclared是语法错误表示没有声明，undefined表示根本未被定义，null是被定义了但是被定义的是空值 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_5-相等运算符-严格相等运算符" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="5. == 相等运算符， === 严格相等运算符"><!--[--><!--]--> 5. == 相等运算符， === 严格相等运算符 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_6-use-strict-严格模式下-不允许使用未声明的变量" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="6. &quot;use strict&quot;严格模式下，不允许使用未声明的变量"><!--[--><!--]--> 6. &quot;use strict&quot;严格模式下，不允许使用未声明的变量 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_7-编译阶段-函数声明和变量声明会被提前到环境顶部-函数声明的优先级又高于变量声明-据此来分析js代码" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="7. 编译阶段，函数声明和变量声明会被提前到环境顶部，函数声明的优先级又高于变量声明；据此来分析js代码"><!--[--><!--]--> 7. 编译阶段，函数声明和变量声明会被提前到环境顶部，函数声明的优先级又高于变量声明；据此来分析js代码 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_8-模块模式-减少命名冲突" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="8. 模块模式，减少命名冲突"><!--[--><!--]--> 8. 模块模式，减少命名冲突 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_9-call-和-apply-的用法" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="9. call 和 apply 的用法"><!--[--><!--]--> 9. call 和 apply 的用法 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_10-async-await-和-promise" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="10. async, await 和 Promise"><!--[--><!--]--> 10. async, await 和 Promise <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_11-this在函数中指向全局对象-在方法中指向该方法所属对象" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="11. this在函数中指向全局对象，在方法中指向该方法所属对象"><!--[--><!--]--> 11. this在函数中指向全局对象，在方法中指向该方法所属对象 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_12-todo" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="12. todo"><!--[--><!--]--> 12. todo <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_13-原型链" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="13. 原型链"><!--[--><!--]--> 13. 原型链 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#prototype-和-constructor" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="prototype 和 constructor"><!--[--><!--]--> prototype 和 constructor <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#proto" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="proto"><!--[--><!--]--> proto <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_14-javascript-继承实现" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="14. JavaScript 继承实现"><!--[--><!--]--> 14. JavaScript 继承实现 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#原型链表实现继承" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="原型链表实现继承"><!--[--><!--]--> 原型链表实现继承 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#call-实现继承" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="call 实现继承"><!--[--><!--]--> call 实现继承 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#组合继承" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="组合继承"><!--[--><!--]--> 组合继承 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#_15-let-var-和-const-的区别" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="15. let, var 和 const 的区别"><!--[--><!--]--> 15. let, var 和 const 的区别 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#let-const可以定义块级作用域-这里的块级作用域不等于函数-函数内部闭包都会形成新的作用域" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="let, const可以定义块级作用域，这里的块级作用域不等于函数，函数内部闭包都会形成新的作用域"><!--[--><!--]--> let, const可以定义块级作用域，这里的块级作用域不等于函数，函数内部闭包都会形成新的作用域 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#let-const不存在变量提升" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="let, const不存在变量提升"><!--[--><!--]--> let, const不存在变量提升 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#var-可以声明同名变量" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="var 可以声明同名变量"><!--[--><!--]--> var 可以声明同名变量 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Web/JavaScript.html#const-常量一旦声明不可再修改" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="const 常量一旦声明不可再修改"><!--[--><!--]--> const 常量一旦声明不可再修改 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li></ul><!--]--></li><li><!--[--><a href="/Knowledge/Web/React.html" class="nav-link sidebar-item" aria-label="React"><!--[--><!--]--> React <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/Web/Taro.html" class="nav-link sidebar-item" aria-label="Taro快速开始"><!--[--><!--]--> Taro快速开始 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/Web/Vue.html" class="nav-link sidebar-item" aria-label="Vue"><!--[--><!--]--> Vue <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/Web/http.html" class="nav-link sidebar-item" aria-label="http"><!--[--><!--]--> http <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/Web/Performance-optimization.html" class="nav-link sidebar-item" aria-label="性能优化"><!--[--><!--]--> 性能优化 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--]--></ul><!--[--><!--]--></aside><main class="page"><!--[--><!--]--><div class="theme-default-content"><!--[--><h1 id="javascript" tabindex="-1"><a class="header-anchor" href="#javascript" aria-hidden="true">#</a> JavaScript</h1><h2 id="_1-事件代理" tabindex="-1"><a class="header-anchor" href="#_1-事件代理" aria-hidden="true">#</a> 1. 事件代理</h2><p>借助点击时事件(event)会附带被点击的元素的DOM子树(target)；当给很多元素添加事件的时候，可以给这些元素的 共同父元素添加事件，借助target和事件冒泡传递，使父元素代理子元素的事件处理</p><h2 id="_2-prototype" tabindex="-1"><a class="header-anchor" href="#_2-prototype" aria-hidden="true">#</a> 2. prototype</h2><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token punctuation">{</span>
-    a <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>React - Knowledge</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
 
-<span class="token class-name">C</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">getA</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">+</span> x
-<span class="token punctuation">}</span>
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-<span class="token keyword">new</span> <span class="token class-name">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getA</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="_3-闭包" tabindex="-1"><a class="header-anchor" href="#_3-闭包" aria-hidden="true">#</a> 3. 闭包</h2><p>函数和函数内部能访问到的变量的总和，就是一个闭包</p><p>function foo是为了证明变量a是局部变量，能达到闭包的目的隐藏变量； return function bar的目的是为了bar函数能被使用，这两者都与闭包本身无关</p><p>闭包的作用是隐藏变量，能让函数外部访问内部隐藏的局部变量，且能保护局部变量不被外部干扰</p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        a <span class="token operator">+=</span> <span class="token number">1</span>
-        <span class="token keyword">return</span> a
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 2</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token comment">// a is not defined</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token function">callback</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
 
-<span class="token function">f</span><span class="token punctuation">(</span><span class="token parameter">a</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_4-undeclared是语法错误表示没有声明-undefined表示根本未被定义-null是被定义了但是被定义的是空值" tabindex="-1"><a class="header-anchor" href="#_4-undeclared是语法错误表示没有声明-undefined表示根本未被定义-null是被定义了但是被定义的是空值" aria-hidden="true">#</a> 4. undeclared是语法错误表示没有声明，undefined表示根本未被定义，null是被定义了但是被定义的是空值</h2><h2 id="_5-相等运算符-严格相等运算符" tabindex="-1"><a class="header-anchor" href="#_5-相等运算符-严格相等运算符" aria-hidden="true">#</a> 5. == 相等运算符， === 严格相等运算符</h2><h2 id="_6-use-strict-严格模式下-不允许使用未声明的变量" tabindex="-1"><a class="header-anchor" href="#_6-use-strict-严格模式下-不允许使用未声明的变量" aria-hidden="true">#</a> 6. &quot;use strict&quot;严格模式下，不允许使用未声明的变量</h2><h2 id="_7-编译阶段-函数声明和变量声明会被提前到环境顶部-函数声明的优先级又高于变量声明-据此来分析js代码" tabindex="-1"><a class="header-anchor" href="#_7-编译阶段-函数声明和变量声明会被提前到环境顶部-函数声明的优先级又高于变量声明-据此来分析js代码" aria-hidden="true">#</a> 7. 编译阶段，函数声明和变量声明会被提前到环境顶部，函数声明的优先级又高于变量声明；据此来分析js代码</h2><h2 id="_8-模块模式-减少命名冲突" tabindex="-1"><a class="header-anchor" href="#_8-模块模式-减少命名冲突" aria-hidden="true">#</a> 8. 模块模式，减少命名冲突</h2><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">var</span> m <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
 
-    <span class="token keyword">function</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;b&#39;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
 
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        a<span class="token punctuation">,</span>
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">EricLiu's Blog</a></li><li class="chapter-item expanded affix "><li class="part-title">CS</li><li class="chapter-item expanded "><a href="../CS/AsynchronyProgramming.html"><strong aria-hidden="true">1.</strong> 异步编程</a></li><li class="chapter-item expanded "><a href="../CS/DesignPatterns.html"><strong aria-hidden="true">2.</strong> 设计模式</a></li><li class="chapter-item expanded affix "><li class="part-title">Swift语言参考</li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/LexicalStructure.html"><strong aria-hidden="true">3.</strong> 词法结构</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Types.html"><strong aria-hidden="true">4.</strong> 类型</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Expressions.html"><strong aria-hidden="true">5.</strong> 表达式</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Statements.html"><strong aria-hidden="true">6.</strong> 语句</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Declarations.html"><strong aria-hidden="true">7.</strong> 声明</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Attributes.html"><strong aria-hidden="true">8.</strong> 特性</a></li><li class="chapter-item expanded affix "><li class="part-title">iOS</li><li class="chapter-item expanded "><a href="../iOS/Data-structure.html"><strong aria-hidden="true">9.</strong> 数据结构</a></li><li class="chapter-item expanded "><a href="../iOS/Algorithm.html"><strong aria-hidden="true">10.</strong> 算法</a></li><li class="chapter-item expanded "><a href="../iOS/Swift.html"><strong aria-hidden="true">11.</strong> Swift</a></li><li class="chapter-item expanded "><a href="../iOS/String.html"><strong aria-hidden="true">12.</strong> String</a></li><li class="chapter-item expanded "><a href="../iOS/Foundation.html"><strong aria-hidden="true">13.</strong> Foundation</a></li><li class="chapter-item expanded "><a href="../iOS/UIKit.html"><strong aria-hidden="true">14.</strong> UIKit</a></li><li class="chapter-item expanded "><a href="../iOS/WebKit.html"><strong aria-hidden="true">15.</strong> WebKit</a></li><li class="chapter-item expanded "><a href="../iOS/Memory-management.html"><strong aria-hidden="true">16.</strong> 内存管理</a></li><li class="chapter-item expanded "><a href="../iOS/Network.html"><strong aria-hidden="true">17.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../iOS/Data-storage.html"><strong aria-hidden="true">18.</strong> 数据存储</a></li><li class="chapter-item expanded "><a href="../iOS/Multi-thread.html"><strong aria-hidden="true">19.</strong> 多线程</a></li><li class="chapter-item expanded "><a href="../iOS/Design-patterns.html"><strong aria-hidden="true">20.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../iOS/Concurrency.html"><strong aria-hidden="true">21.</strong> 并发编程</a></li><li class="chapter-item expanded "><a href="../iOS/Alamofire.html"><strong aria-hidden="true">22.</strong> Alamofire</a></li><li class="chapter-item expanded "><a href="../iOS/OC2Swift.html"><strong aria-hidden="true">23.</strong> Objective-C组件库用Swift转写的方法论</a></li><li class="chapter-item expanded "><a href="../iOS/ApplicationExtensionUnavailable.html"><strong aria-hidden="true">24.</strong> 应用扩展不可用编译错误</a></li><li class="chapter-item expanded "><a href="../iOS/UnsafePointer.html"><strong aria-hidden="true">25.</strong> Swift指针</a></li><li class="chapter-item expanded affix "><li class="part-title">Web</li><li class="chapter-item expanded "><a href="../Web/CSS.html"><strong aria-hidden="true">26.</strong> CSS</a></li><li class="chapter-item expanded "><a href="../Web/HTML.html"><strong aria-hidden="true">27.</strong> HTML</a></li><li class="chapter-item expanded "><a href="../Web/JavaScript.html" class="active"><strong aria-hidden="true">28.</strong> JavaScript</a></li><li class="chapter-item expanded "><a href="../Web/JavaScript.html" class="active"><strong aria-hidden="true">29.</strong> React</a></li><li class="chapter-item expanded "><a href="../Web/Taro.html"><strong aria-hidden="true">30.</strong> Taro快速开始</a></li><li class="chapter-item expanded "><a href="../Web/Vue.html"><strong aria-hidden="true">31.</strong> Vue</a></li><li class="chapter-item expanded "><a href="../Web/http.html"><strong aria-hidden="true">32.</strong> http</a></li><li class="chapter-item expanded "><a href="../Web/Performance-optimization.html"><strong aria-hidden="true">33.</strong> 性能优化</a></li><li class="chapter-item expanded affix "><li class="part-title">Books</li><li class="chapter-item expanded "><a href="../Books/Swifter-SwiftTips.html"><strong aria-hidden="true">34.</strong> Swifter Swift必备Tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../Tools/SwiftToolChain.html"><strong aria-hidden="true">35.</strong> Swift工具链</a></li><li class="chapter-item expanded "><a href="../Tools/Git.html"><strong aria-hidden="true">36.</strong> Git</a></li><li class="chapter-item expanded "><a href="../Tools/DocC.html"><strong aria-hidden="true">37.</strong> DocC</a></li><li class="chapter-item expanded "><a href="../Tools/Gitmoji.html"><strong aria-hidden="true">38.</strong> Gitmoji</a></li><li class="chapter-item expanded "><a href="../Tools/UsefulWebsites.html"><strong aria-hidden="true">39.</strong> 有用的网站</a></li><li class="chapter-item expanded "><a href="../Tools/Vuepress.html"><strong aria-hidden="true">40.</strong> Vuepress</a></li><li class="chapter-item expanded "><a href="../Tools/Markdown.html"><strong aria-hidden="true">41.</strong> Markdown</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Knowledge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="javascript"><a class="header" href="#javascript">JavaScript</a></h1>
+<h2 id="1-事件代理"><a class="header" href="#1-事件代理">1. 事件代理</a></h2>
+<p>借助点击时事件(event)会附带被点击的元素的DOM子树(target)；当给很多元素添加事件的时候，可以给这些元素的
+共同父元素添加事件，借助target和事件冒泡传递，使父元素代理子元素的事件处理</p>
+<h2 id="2-prototype"><a class="header" href="#2-prototype">2. prototype</a></h2>
+<pre><code class="language-javascript">class C {
+    a = 1
+}
+
+C.prototype.getA = function (x) {
+    return this.a + x
+}
+
+new C().getA(2)
+</code></pre>
+<h2 id="3-闭包"><a class="header" href="#3-闭包">3. 闭包</a></h2>
+<p>函数和函数内部能访问到的变量的总和，就是一个闭包</p>
+<p>function foo是为了证明变量a是局部变量，能达到闭包的目的隐藏变量；
+return function bar的目的是为了bar函数能被使用，这两者都与闭包本身无关</p>
+<p>闭包的作用是隐藏变量，能让函数外部访问内部隐藏的局部变量，且能保护局部变量不被外部干扰</p>
+<pre><code class="language-javascript">function foo() {
+    var a = 1
+    return function bar() {
+        a += 1
+        return a
+    }
+}
+
+console.log(foo()()) // 2
+console.log(a) // a is not defined
+</code></pre>
+<pre><code class="language-javascript">function f(callback) {
+    var a = 1
+    callback(a)
+}
+
+f(a =&gt; {
+    console.log(a)
+})
+</code></pre>
+<pre><code class="language-javascript">for (var i = 0; i &lt; 10; i++) {
+    (function (e) {
+        setTimeout(function () {
+            console.log(e)
+        }, 1000)
+    })(i)
+}
+</code></pre>
+<h2 id="4-undeclared是语法错误表示没有声明undefined表示根本未被定义null是被定义了但是被定义的是空值"><a class="header" href="#4-undeclared是语法错误表示没有声明undefined表示根本未被定义null是被定义了但是被定义的是空值">4. undeclared是语法错误表示没有声明，undefined表示根本未被定义，null是被定义了但是被定义的是空值</a></h2>
+<h2 id="5--相等运算符--严格相等运算符"><a class="header" href="#5--相等运算符--严格相等运算符">5. == 相等运算符， === 严格相等运算符</a></h2>
+<h2 id="6-use-strict严格模式下不允许使用未声明的变量"><a class="header" href="#6-use-strict严格模式下不允许使用未声明的变量">6. &quot;use strict&quot;严格模式下，不允许使用未声明的变量</a></h2>
+<h2 id="7-编译阶段函数声明和变量声明会被提前到环境顶部函数声明的优先级又高于变量声明据此来分析js代码"><a class="header" href="#7-编译阶段函数声明和变量声明会被提前到环境顶部函数声明的优先级又高于变量声明据此来分析js代码">7. 编译阶段，函数声明和变量声明会被提前到环境顶部，函数声明的优先级又高于变量声明；据此来分析js代码</a></h2>
+<h2 id="8-模块模式减少命名冲突"><a class="header" href="#8-模块模式减少命名冲突">8. 模块模式，减少命名冲突</a></h2>
+<pre><code class="language-javascript">var m = (function () {
+    function a() {
+        console.log('a')
+    }
+
+    function b() {
+        console.log('b')
+    }
+
+    return {
+        a,
         b
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    }
+})()
 
-m<span class="token punctuation">.</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h2 id="_9-call-和-apply-的用法" tabindex="-1"><a class="header-anchor" href="#_9-call-和-apply-的用法" aria-hidden="true">#</a> 9. call 和 apply 的用法</h2><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+m.a()
+</code></pre>
+<h2 id="9-call-和-apply-的用法"><a class="header" href="#9-call-和-apply-的用法">9. call 和 apply 的用法</a></h2>
+<pre><code class="language-javascript">function f1(x, y, z) {
+    console.log(x, y, z)
+}
 
-<span class="token keyword">function</span> <span class="token function">f2</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span>
-    <span class="token function">f1</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span class="token function">f2</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="_10-async-await-和-promise" tabindex="-1"><a class="header-anchor" href="#_10-async-await-和-promise" aria-hidden="true">#</a> 10. async, await 和 Promise</h2><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data<span class="token punctuation">,</span> success<span class="token punctuation">,</span> fail <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">success</span><span class="token punctuation">(</span><span class="token string">&#39;success&#39;</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token function">fail</span><span class="token punctuation">(</span><span class="token string">&#39;error&#39;</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+function f2(x, y, z) {
+    console.log(x, y, z)
+    f1.apply(this, arguments)
+}
+f2.call(this, 1, 2, 3)
+</code></pre>
+<h2 id="10-async-await-和-promise"><a class="header" href="#10-async-await-和-promise">10. async, await 和 Promise</a></h2>
+<pre><code class="language-javascript">function callback({ data, success, fail }) {
+    setTimeout(() =&gt; {
+        if (data.flag) {
+            success('success')
+        } else {
+            fail('error')
+        }
+    }, 1000)
+}
 
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">asyncPromise</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-        <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-            data<span class="token operator">:</span> <span class="token punctuation">{</span>
-                flag<span class="token operator">:</span> data<span class="token punctuation">.</span>flag
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token parameter">res</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-                <span class="token function">resolve</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token function-variable function">fail</span><span class="token operator">:</span> <span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-                <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+async function asyncPromise(data) {
+    return await new Promise((resolve, reject) =&gt; {
+        callback({
+            data: {
+                flag: data.flag
+            },
+            success: res =&gt; {
+                resolve(res)
+            },
+            fail: err =&gt; {
+                reject(err)
+            }
+        })
+    })
+}
 
-<span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">asyncPromise</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        flag<span class="token operator">:</span> <span class="token boolean">true</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><h2 id="_11-this在函数中指向全局对象-在方法中指向该方法所属对象" tabindex="-1"><a class="header-anchor" href="#_11-this在函数中指向全局对象-在方法中指向该方法所属对象" aria-hidden="true">#</a> 11. this在函数中指向全局对象，在方法中指向该方法所属对象</h2><h2 id="_12-todo" tabindex="-1"><a class="header-anchor" href="#_12-todo" aria-hidden="true">#</a> 12. todo</h2><h2 id="_13-原型链" tabindex="-1"><a class="header-anchor" href="#_13-原型链" aria-hidden="true">#</a> 13. 原型链</h2><ul><li><h3 id="prototype-和-constructor" tabindex="-1"><a class="header-anchor" href="#prototype-和-constructor" aria-hidden="true">#</a> prototype 和 constructor</h3></li></ul><p>js中没有类的概念，ES6中有class关键字模拟了类但并不是真的类</p><p>每个函数都有一个原型对象，函数的prototype指向它的原型对象，原型对象的constructor又指回函数本身； Object,Function也都是函数</p><ul><li><h3 id="proto" tabindex="-1"><a class="header-anchor" href="#proto" aria-hidden="true">#</a> <strong>proto</strong></h3></li></ul><p>每个对象(函数也是对象)都有一个__proto__，这个__proto__指向创建它的函数的原型对象；所有的原型对象的__proto__又都指向Object.prototype； 最终Obejct.prototype的__proto__又指向null 当用new关键字使用函数构造一个实例对象的时候，这个对象的__proto__指向创建它的函数的原型对象</p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+(async () =&gt; {
+    let res = await asyncPromise({
+        flag: true
+    })
+    console.log(res)
+})()
+</code></pre>
+<h2 id="11-this在函数中指向全局对象在方法中指向该方法所属对象"><a class="header" href="#11-this在函数中指向全局对象在方法中指向该方法所属对象">11. this在函数中指向全局对象，在方法中指向该方法所属对象</a></h2>
+<h2 id="12-todo"><a class="header" href="#12-todo">12. todo</a></h2>
+<h2 id="13-原型链"><a class="header" href="#13-原型链">13. 原型链</a></h2>
+<ul>
+<li>
+<h3 id="prototype-和-constructor"><a class="header" href="#prototype-和-constructor">prototype 和 constructor</a></h3>
+</li>
+</ul>
+<p>js中没有类的概念，ES6中有class关键字模拟了类但并不是真的类</p>
+<p>每个函数都有一个原型对象，函数的prototype指向它的原型对象，原型对象的constructor又指回函数本身；
+Object,Function也都是函数</p>
+<ul>
+<li>
+<h3 id="proto"><a class="header" href="#proto"><strong>proto</strong></a></h3>
+</li>
+</ul>
+<p>每个对象(函数也是对象)都有一个__proto__，这个__proto__指向创建它的函数的原型对象；所有的原型对象的__proto__又都指向Object.prototype；
+最终Obejct.prototype的__proto__又指向null
+当用new关键字使用函数构造一个实例对象的时候，这个对象的__proto__指向创建它的函数的原型对象</p>
+<pre><code class="language-javascript">function foo() {
 
-<span class="token punctuation">}</span>
+}
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">===</span> foo<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">===</span> Object<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">===</span> Function<span class="token punctuation">)</span>
+console.log(foo.prototype.constructor === foo)
+console.log(Object.prototype.constructor === Object)
+console.log(Function.prototype.constructor === Function)
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Function<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
+console.log(foo.__proto__ === Function.prototype)
+console.log(Object.__proto__ === Function.prototype)
+console.log(Function.__proto__ === Function.prototype)
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p><img src="/Knowledge/assets/img/prototype.9523a9d3.jpeg" alt="原型链图片"></p><h2 id="_14-javascript-继承实现" tabindex="-1"><a class="header-anchor" href="#_14-javascript-继承实现" aria-hidden="true">#</a> 14. JavaScript 继承实现</h2><ul><li><h3 id="原型链表实现继承" tabindex="-1"><a class="header-anchor" href="#原型链表实现继承" aria-hidden="true">#</a> 原型链表实现继承</h3></li></ul><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
+console.log(foo.prototype.__proto__ === Object.prototype)
+console.log(Function.prototype.__proto__ === Object.prototype)
+console.log(Object.prototype.__proto__ === null)
+</code></pre>
+<p><img src="../images/prototype.jpeg" alt="原型链图片" /></p>
+<h2 id="14-javascript-继承实现"><a class="header" href="#14-javascript-继承实现">14. JavaScript 继承实现</a></h2>
+<ul>
+<li>
+<h3 id="原型链表实现继承"><a class="header" href="#原型链表实现继承">原型链表实现继承</a></h3>
+</li>
+</ul>
+<pre><code class="language-javascript">function Super() {
+    this.a = 1
+}
 
-<span class="token keyword">function</span> <span class="token function">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+function Sub() {
 
-<span class="token punctuation">}</span>
+}
 
-<span class="token class-name">Sub</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+Sub.prototype = new Super()
 
-<span class="token keyword">var</span> sub <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sub<span class="token punctuation">.</span>a<span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><ul><li><h3 id="call-实现继承" tabindex="-1"><a class="header-anchor" href="#call-实现继承" aria-hidden="true">#</a> call 实现继承</h3></li></ul><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
+var sub = new Sub()
+console.log(sub.a)
+</code></pre>
+<ul>
+<li>
+<h3 id="call-实现继承"><a class="header" href="#call-实现继承">call 实现继承</a></h3>
+</li>
+</ul>
+<pre><code class="language-javascript">function Super() {
+    this.a = 1
+}
 
-<span class="token keyword">function</span> <span class="token function">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">Super</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+function Sub() {
+    Super.call(this)
+}
 
-<span class="token keyword">var</span> sub <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sub<span class="token punctuation">.</span>a<span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><ul><li><h3 id="组合继承" tabindex="-1"><a class="header-anchor" href="#组合继承" aria-hidden="true">#</a> 组合继承</h3></li></ul><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">Super</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">=</span> a
-<span class="token punctuation">}</span>
+var sub = new Sub()
+console.log(sub.a)
+</code></pre>
+<ul>
+<li>
+<h3 id="组合继承"><a class="header" href="#组合继承">组合继承</a></h3>
+</li>
+</ul>
+<pre><code class="language-javascript">function Super(a) {
+    this.a = a
+}
 
-<span class="token keyword">function</span> <span class="token function">Sub</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">Super</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+function Sub(a) {
+    Super.call(this, a)
+}
 
-<span class="token class-name">Sub</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+Sub.prototype = new Super()
 
-<span class="token keyword">var</span> sub <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Sub</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sub<span class="token punctuation">.</span>a<span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="_15-let-var-和-const-的区别" tabindex="-1"><a class="header-anchor" href="#_15-let-var-和-const-的区别" aria-hidden="true">#</a> 15. let, var 和 const 的区别</h2><ul><li><h3 id="let-const可以定义块级作用域-这里的块级作用域不等于函数-函数内部闭包都会形成新的作用域" tabindex="-1"><a class="header-anchor" href="#let-const可以定义块级作用域-这里的块级作用域不等于函数-函数内部闭包都会形成新的作用域" aria-hidden="true">#</a> let, const可以定义块级作用域，这里的块级作用域不等于函数，函数内部闭包都会形成新的作用域</h3></li></ul><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token punctuation">{</span>
-    <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token comment">// 1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token comment">// error: b is not defined</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token comment">// error: c is not defined</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><ul><li><h3 id="let-const不存在变量提升" tabindex="-1"><a class="header-anchor" href="#let-const不存在变量提升" aria-hidden="true">#</a> let, const不存在变量提升</h3></li><li><h3 id="var-可以声明同名变量" tabindex="-1"><a class="header-anchor" href="#var-可以声明同名变量" aria-hidden="true">#</a> var 可以声明同名变量</h3></li></ul><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span>
-<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">2</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token comment">// error</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><ul><li><h3 id="const-常量一旦声明不可再修改" tabindex="-1"><a class="header-anchor" href="#const-常量一旦声明不可再修改" aria-hidden="true">#</a> const 常量一旦声明不可再修改</h3></li></ul><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token number">1</span>
-c <span class="token operator">=</span> <span class="token number">2</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token comment">// error: Assignment to constant variable.</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>但是可以修改复杂类型数据的属性</p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span>
-obj<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">2</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">Last Updated: </span><span class="meta-item-info">2022/3/8 02:16:32</span></div><!----></footer><nav class="page-nav"><p class="inner"><span class="prev"> ← <a href="/Knowledge/Web/HTML.html" class="nav-link" aria-label="HTML"><!--[--><!--]--> HTML <!--[--><!--]--></a></span><span class="next"><a href="/Knowledge/Web/React.html" class="nav-link" aria-label="React"><!--[--><!--]--> React <!--[--><!--]--></a> → </span></p></nav><!--[--><!--]--></main></div><!----><!--]--></div>
-    <script src="/Knowledge/assets/js/runtime~app.4be62ddd.js" defer></script><script src="/Knowledge/assets/js/4640.e62e001d.js" defer></script><script src="/Knowledge/assets/js/app.d7e6dda3.js" defer></script>
-  </body>
+var sub = new Sub(1)
+console.log(sub.a)
+</code></pre>
+<h2 id="15-let-var-和-const-的区别"><a class="header" href="#15-let-var-和-const-的区别">15. let, var 和 const 的区别</a></h2>
+<ul>
+<li>
+<h3 id="let-const可以定义块级作用域这里的块级作用域不等于函数函数内部闭包都会形成新的作用域"><a class="header" href="#let-const可以定义块级作用域这里的块级作用域不等于函数函数内部闭包都会形成新的作用域">let, const可以定义块级作用域，这里的块级作用域不等于函数，函数内部闭包都会形成新的作用域</a></h3>
+</li>
+</ul>
+<pre><code class="language-javascript">{
+    var a = 1
+    let b = 1
+    const c = 1
+}
+console.log(a) // 1
+console.log(b) // error: b is not defined
+console.log(c) // error: c is not defined
+</code></pre>
+<ul>
+<li>
+<h3 id="let-const不存在变量提升"><a class="header" href="#let-const不存在变量提升">let, const不存在变量提升</a></h3>
+</li>
+<li>
+<h3 id="var-可以声明同名变量"><a class="header" href="#var-可以声明同名变量">var 可以声明同名变量</a></h3>
+</li>
+</ul>
+<pre><code class="language-javascript">var a = 1
+var a = 2
+let b = 1
+let b = 2
+console.log(a)
+console.log(b) // error
+</code></pre>
+<ul>
+<li>
+<h3 id="const-常量一旦声明不可再修改"><a class="header" href="#const-常量一旦声明不可再修改">const 常量一旦声明不可再修改</a></h3>
+</li>
+</ul>
+<pre><code class="language-javascript">const c = 1
+c = 2
+console.log(c) // error: Assignment to constant variable.
+</code></pre>
+<p>但是可以修改复杂类型数据的属性</p>
+<pre><code class="language-javascript">const obj = { a: 1 }
+obj.a = 2
+console.log(obj)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Web/HTML.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Web/JavaScript.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Web/HTML.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Web/JavaScript.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
 </html>

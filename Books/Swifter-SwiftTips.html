@@ -1,555 +1,831 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <link rel="icon" type="image/svg+xml" href="/images/杉.svg"><title>Swifter Swift必备Tips | EricLiu's Blog</title><meta name="description" content=""><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="VuePress 2.0.0-beta.20">
-    <link rel="preload" href="/Knowledge/assets/js/runtime~app.4be62ddd.js" as="script"><link rel="preload" href="/Knowledge/assets/css/styles.1144b83c.css" as="style"><link rel="preload" href="/Knowledge/assets/js/4640.e62e001d.js" as="script"><link rel="preload" href="/Knowledge/assets/js/app.d7e6dda3.js" as="script">
-    <link rel="stylesheet" href="/Knowledge/assets/css/styles.1144b83c.css">
-  </head>
-  <body>
-    <div id="app"><!--[--><div class="theme-container"><header class="navbar"><div class="toggle-sidebar-button"><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><span><a href="/Knowledge/" class=""><!----><span class="site-name">EricLiu&#39;s Blog</span></a></span><div class="navbar-links-wrapper" style=""><!--[--><!--]--><nav class="navbar-links can-hide"><!--[--><div class="navbar-links-item"><a href="/Knowledge/CS/" class="nav-link" aria-label="CS"><!--[--><!--]--> CS <!--[--><!--]--></a></div><div class="navbar-links-item"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="arrow down"></span></button><button class="mobile-dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="right arrow"></span></button><ul style="display:none;" class="nav-dropdown"><!--[--><li class="dropdown-item"><a href="/Knowledge/Swift/ReferenceManual/" class="nav-link" aria-label="Swift语言参考"><!--[--><!--]--> Swift语言参考 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-links-item"><a href="/Knowledge/iOS/" class="nav-link" aria-label="iOS"><!--[--><!--]--> iOS <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Web/" class="nav-link" aria-label="Web"><!--[--><!--]--> Web <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Books/" class="nav-link router-link-active" aria-label="Books"><!--[--><!--]--> Books <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Tools/" class="nav-link" aria-label="Tools"><!--[--><!--]--> Tools <!--[--><!--]--></a></div><div class="navbar-links-item"><a class="nav-link external" href="https://github.com/ericliuhusky" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">open in new window</span><!--]--></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><button class="toggle-dark-button"><svg style="" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg style="display:none;" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><div class="sidebar-mask"></div><aside class="sidebar"><nav class="navbar-links"><!--[--><div class="navbar-links-item"><a href="/Knowledge/CS/" class="nav-link" aria-label="CS"><!--[--><!--]--> CS <!--[--><!--]--></a></div><div class="navbar-links-item"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="arrow down"></span></button><button class="mobile-dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="right arrow"></span></button><ul style="display:none;" class="nav-dropdown"><!--[--><li class="dropdown-item"><a href="/Knowledge/Swift/ReferenceManual/" class="nav-link" aria-label="Swift语言参考"><!--[--><!--]--> Swift语言参考 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-links-item"><a href="/Knowledge/iOS/" class="nav-link" aria-label="iOS"><!--[--><!--]--> iOS <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Web/" class="nav-link" aria-label="Web"><!--[--><!--]--> Web <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Books/" class="nav-link router-link-active" aria-label="Books"><!--[--><!--]--> Books <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Tools/" class="nav-link" aria-label="Tools"><!--[--><!--]--> Tools <!--[--><!--]--></a></div><div class="navbar-links-item"><a class="nav-link external" href="https://github.com/ericliuhusky" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">open in new window</span><!--]--></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><ul class="sidebar-links"><!--[--><!--[--><p class="sidebar-heading sidebar-item active">书籍</p><ul class=""><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html" class="router-link-active router-link-exact-active nav-link router-link-active sidebar-item active" aria-label="Swifter Swift必备Tips"><!--[--><!--]--> Swifter Swift必备Tips <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_1-柯里化" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="1. 柯里化"><!--[--><!--]--> 1. 柯里化 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_2-sequence-for-in迭代" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="2. Sequence for-in迭代"><!--[--><!--]--> 2. Sequence for-in迭代 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_3-元组多返回值" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="3. 元组多返回值"><!--[--><!--]--> 3. 元组多返回值 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_4-autoclosure-自动闭包" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="4. @autoclosure 自动闭包"><!--[--><!--]--> 4. @autoclosure 自动闭包 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_4-escaping-逃逸闭包" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="4. @escaping 逃逸闭包"><!--[--><!--]--> 4. @escaping 逃逸闭包 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_5-操作符重载" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="5. 操作符重载"><!--[--><!--]--> 5. 操作符重载 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_6-函数参数传递" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="6. 函数参数传递"><!--[--><!--]--> 6. 函数参数传递 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#值类型参数" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="值类型参数"><!--[--><!--]--> 值类型参数 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#引用类型参数" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="引用类型参数"><!--[--><!--]--> 引用类型参数 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_7-字面量表达协议" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="7. 字面量表达协议"><!--[--><!--]--> 7. 字面量表达协议 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_8-subscript-下标访问" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="8. subscript 下标访问"><!--[--><!--]--> 8. subscript 下标访问 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_9-typealias-类型别名" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="9. typealias 类型别名"><!--[--><!--]--> 9. typealias 类型别名 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_10-associatedtype-相关类型" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="10. associatedType 相关类型"><!--[--><!--]--> 10. associatedType 相关类型 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_11-可变参数" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="11. 可变参数"><!--[--><!--]--> 11. 可变参数 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_12-初始化顺序" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="12. 初始化顺序"><!--[--><!--]--> 12. 初始化顺序 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_13-可空初始化" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="13. 可空初始化"><!--[--><!--]--> 13. 可空初始化 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_14-函数默认参数" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="14. 函数默认参数"><!--[--><!--]--> 14. 函数默认参数 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_15-区间操作符" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="15. ... ..&lt; 区间操作符"><!--[--><!--]--> 15. ... ..&lt; 区间操作符 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_16-元类型" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="16. 元类型"><!--[--><!--]--> 16. 元类型 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_17-深拷贝" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="17. 深拷贝"><!--[--><!--]--> 17. 深拷贝 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_18-属性观察" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="18. 属性观察"><!--[--><!--]--> 18. 属性观察 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_19-lazy-懒加载" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="19. lazy 懒加载"><!--[--><!--]--> 19. lazy 懒加载 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_20-懒实现序列" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="20. 懒实现序列"><!--[--><!--]--> 20. 懒实现序列 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_21-optional-map" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="21. Optional Map"><!--[--><!--]--> 21. Optional Map <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_22-where-模式匹配" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="22. where 模式匹配"><!--[--><!--]--> 22. where 模式匹配 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_23-indirect-嵌套enum" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="23. indirect 嵌套enum"><!--[--><!--]--> 23. indirect 嵌套enum <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_24-实例方法的其它调用方式" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="24. 实例方法的其它调用方式"><!--[--><!--]--> 24. 实例方法的其它调用方式 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_25-单例模式" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="25. 单例模式"><!--[--><!--]--> 25. 单例模式 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_26-条件编译" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="26. 条件编译"><!--[--><!--]--> 26. 条件编译 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_27-注释标记" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="27. 注释标记"><!--[--><!--]--> 27. 注释标记 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_28-可选协议" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="28. 可选协议"><!--[--><!--]--> 28. 可选协议 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_29-判断实例类型" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="29. 判断实例类型"><!--[--><!--]--> 29. 判断实例类型 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_30-判断相等" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="30. == === 判断相等"><!--[--><!--]--> 30. == === 判断相等 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_31-格式化字符串" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="31. 格式化字符串"><!--[--><!--]--> 31. 格式化字符串 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_32-optionset-操作集合" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="32. OptionSet 操作集合"><!--[--><!--]--> 32. OptionSet 操作集合 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_33-enumerate-数组列举" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="33. enumerate 数组列举"><!--[--><!--]--> 33. enumerate 数组列举 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_34-associated-object扩展存储属性" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="34. Associated Object扩展存储属性"><!--[--><!--]--> 34. Associated Object扩展存储属性 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_35-lock-锁" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="35. Lock 锁"><!--[--><!--]--> 35. Lock 锁 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_36-编译符号" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="36. 编译符号"><!--[--><!--]--> 36. 编译符号 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_37-溢出操作符" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="37. 溢出操作符"><!--[--><!--]--> 37. 溢出操作符 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_38-属性访问控制" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="38. 属性访问控制"><!--[--><!--]--> 38. 属性访问控制 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_39-swift解释执行" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="39. Swift解释执行"><!--[--><!--]--> 39. Swift解释执行 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_40-swiftc编译" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="40. swiftc编译"><!--[--><!--]--> 40. swiftc编译 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_41-自定义打印输出" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="41. 自定义打印输出"><!--[--><!--]--> 41. 自定义打印输出 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_42-断言" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="42. 断言"><!--[--><!--]--> 42. 断言 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_43-错误退出" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="43. 错误退出"><!--[--><!--]--> 43. 错误退出 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_44-指针操作" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="44. 指针操作"><!--[--><!--]--> 44. 指针操作 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/Books/Swifter-SwiftTips.html#_45-条件协议扩展" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="45. 条件协议扩展"><!--[--><!--]--> 45. 条件协议扩展 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li></ul><!--]--><!--]--></ul><!--[--><!--]--></aside><main class="page"><!--[--><!--]--><div class="theme-default-content"><!--[--><h1 id="swifter-swift必备tips" tabindex="-1"><a class="header-anchor" href="#swifter-swift必备tips" aria-hidden="true">#</a> Swifter Swift必备Tips</h1><h2 id="_1-柯里化" tabindex="-1"><a class="header-anchor" href="#_1-柯里化" aria-hidden="true">#</a> 1. 柯里化</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">addTo</span><span class="token punctuation">(</span><span class="token number">_</span> adder<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span> num <span class="token keyword">in</span>
-        adder <span class="token operator">+</span> num
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Swifter Swift必备Tips - Knowledge</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
 
-<span class="token keyword">let</span> addToOne <span class="token operator">=</span> <span class="token function">addTo</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token keyword">let</span> addToTwo <span class="token operator">=</span> <span class="token function">addTo</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">addToOne</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 11</span>
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">addToTwo</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 12</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="_2-sequence-for-in迭代" tabindex="-1"><a class="header-anchor" href="#_2-sequence-for-in迭代" aria-hidden="true">#</a> 2. Sequence for-in迭代</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">IntArray</span><span class="token punctuation">:</span> <span class="token builtin">Sequence</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span>
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">EricLiu's Blog</a></li><li class="chapter-item expanded affix "><li class="part-title">CS</li><li class="chapter-item expanded "><a href="../CS/AsynchronyProgramming.html"><strong aria-hidden="true">1.</strong> 异步编程</a></li><li class="chapter-item expanded "><a href="../CS/DesignPatterns.html"><strong aria-hidden="true">2.</strong> 设计模式</a></li><li class="chapter-item expanded affix "><li class="part-title">Swift语言参考</li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/LexicalStructure.html"><strong aria-hidden="true">3.</strong> 词法结构</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Types.html"><strong aria-hidden="true">4.</strong> 类型</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Expressions.html"><strong aria-hidden="true">5.</strong> 表达式</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Statements.html"><strong aria-hidden="true">6.</strong> 语句</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Declarations.html"><strong aria-hidden="true">7.</strong> 声明</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Attributes.html"><strong aria-hidden="true">8.</strong> 特性</a></li><li class="chapter-item expanded affix "><li class="part-title">iOS</li><li class="chapter-item expanded "><a href="../iOS/Data-structure.html"><strong aria-hidden="true">9.</strong> 数据结构</a></li><li class="chapter-item expanded "><a href="../iOS/Algorithm.html"><strong aria-hidden="true">10.</strong> 算法</a></li><li class="chapter-item expanded "><a href="../iOS/Swift.html"><strong aria-hidden="true">11.</strong> Swift</a></li><li class="chapter-item expanded "><a href="../iOS/String.html"><strong aria-hidden="true">12.</strong> String</a></li><li class="chapter-item expanded "><a href="../iOS/Foundation.html"><strong aria-hidden="true">13.</strong> Foundation</a></li><li class="chapter-item expanded "><a href="../iOS/UIKit.html"><strong aria-hidden="true">14.</strong> UIKit</a></li><li class="chapter-item expanded "><a href="../iOS/WebKit.html"><strong aria-hidden="true">15.</strong> WebKit</a></li><li class="chapter-item expanded "><a href="../iOS/Memory-management.html"><strong aria-hidden="true">16.</strong> 内存管理</a></li><li class="chapter-item expanded "><a href="../iOS/Network.html"><strong aria-hidden="true">17.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../iOS/Data-storage.html"><strong aria-hidden="true">18.</strong> 数据存储</a></li><li class="chapter-item expanded "><a href="../iOS/Multi-thread.html"><strong aria-hidden="true">19.</strong> 多线程</a></li><li class="chapter-item expanded "><a href="../iOS/Design-patterns.html"><strong aria-hidden="true">20.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../iOS/Concurrency.html"><strong aria-hidden="true">21.</strong> 并发编程</a></li><li class="chapter-item expanded "><a href="../iOS/Alamofire.html"><strong aria-hidden="true">22.</strong> Alamofire</a></li><li class="chapter-item expanded "><a href="../iOS/OC2Swift.html"><strong aria-hidden="true">23.</strong> Objective-C组件库用Swift转写的方法论</a></li><li class="chapter-item expanded "><a href="../iOS/ApplicationExtensionUnavailable.html"><strong aria-hidden="true">24.</strong> 应用扩展不可用编译错误</a></li><li class="chapter-item expanded "><a href="../iOS/UnsafePointer.html"><strong aria-hidden="true">25.</strong> Swift指针</a></li><li class="chapter-item expanded affix "><li class="part-title">Web</li><li class="chapter-item expanded "><a href="../Web/CSS.html"><strong aria-hidden="true">26.</strong> CSS</a></li><li class="chapter-item expanded "><a href="../Web/HTML.html"><strong aria-hidden="true">27.</strong> HTML</a></li><li class="chapter-item expanded "><a href="../Web/JavaScript.html"><strong aria-hidden="true">28.</strong> JavaScript</a></li><li class="chapter-item expanded "><a href="../Web/JavaScript.html"><strong aria-hidden="true">29.</strong> React</a></li><li class="chapter-item expanded "><a href="../Web/Taro.html"><strong aria-hidden="true">30.</strong> Taro快速开始</a></li><li class="chapter-item expanded "><a href="../Web/Vue.html"><strong aria-hidden="true">31.</strong> Vue</a></li><li class="chapter-item expanded "><a href="../Web/http.html"><strong aria-hidden="true">32.</strong> http</a></li><li class="chapter-item expanded "><a href="../Web/Performance-optimization.html"><strong aria-hidden="true">33.</strong> 性能优化</a></li><li class="chapter-item expanded affix "><li class="part-title">Books</li><li class="chapter-item expanded "><a href="../Books/Swifter-SwiftTips.html" class="active"><strong aria-hidden="true">34.</strong> Swifter Swift必备Tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../Tools/SwiftToolChain.html"><strong aria-hidden="true">35.</strong> Swift工具链</a></li><li class="chapter-item expanded "><a href="../Tools/Git.html"><strong aria-hidden="true">36.</strong> Git</a></li><li class="chapter-item expanded "><a href="../Tools/DocC.html"><strong aria-hidden="true">37.</strong> DocC</a></li><li class="chapter-item expanded "><a href="../Tools/Gitmoji.html"><strong aria-hidden="true">38.</strong> Gitmoji</a></li><li class="chapter-item expanded "><a href="../Tools/UsefulWebsites.html"><strong aria-hidden="true">39.</strong> 有用的网站</a></li><li class="chapter-item expanded "><a href="../Tools/Vuepress.html"><strong aria-hidden="true">40.</strong> Vuepress</a></li><li class="chapter-item expanded "><a href="../Tools/Markdown.html"><strong aria-hidden="true">41.</strong> Markdown</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Knowledge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="swifter-swift必备tips"><a class="header" href="#swifter-swift必备tips">Swifter Swift必备Tips</a></h1>
+<h2 id="1-柯里化"><a class="header" href="#1-柯里化">1. 柯里化</a></h2>
+<pre><code class="language-swift">func addTo(_ adder: Int) -&gt; (Int) -&gt; Int {
+    return { num in
+        adder + num
+    }
+}
+
+let addToOne = addTo(1)
+let addToTwo = addTo(2)
+
+print(addToOne(10)) // 11
+print(addToTwo(10)) // 12
+</code></pre>
+<h2 id="2-sequence-for-in迭代"><a class="header" href="#2-sequence-for-in迭代">2. Sequence for-in迭代</a></h2>
+<pre><code class="language-swift">struct IntArray: Sequence {
+    var array: [Int]
     
-    <span class="token keyword">func</span> <span class="token function">makeIterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">IntArrayIterator</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token function">IntArrayIterator</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> array<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    func makeIterator() -&gt; IntArrayIterator {
+        return IntArrayIterator(array: array)
+    }
+}
 
-<span class="token keyword">struct</span> <span class="token builtin">IntArrayIterator</span><span class="token punctuation">:</span> <span class="token builtin">IteratorProtocol</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span>
-    <span class="token keyword">var</span> index <span class="token operator">=</span> <span class="token number">0</span>
+struct IntArrayIterator: IteratorProtocol {
+    var array: [Int]
+    var index = 0
     
-    <span class="token keyword">mutating</span> <span class="token keyword">func</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span><span class="token operator">?</span> <span class="token punctuation">{</span>
-        <span class="token keyword">guard</span> index <span class="token operator">&lt;</span> array<span class="token punctuation">.</span><span class="token builtin">count</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token constant">nil</span> <span class="token punctuation">}</span>
-        <span class="token keyword">defer</span> <span class="token punctuation">{</span>
-            index <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> array<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    mutating func next() -&gt; Int? {
+        guard index &lt; array.count else { return nil }
+        defer {
+            index += 1
+        }
+        return array[index]
+    }
+}
 
-<span class="token keyword">let</span> array <span class="token operator">=</span> <span class="token function">IntArray</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> item <span class="token keyword">in</span> array <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h2 id="_3-元组多返回值" tabindex="-1"><a class="header-anchor" href="#_3-元组多返回值" aria-hidden="true">#</a> 3. 元组多返回值</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>R<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> G<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> B<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+let array = IntArray(array: [0, 1, 2, 3])
+for item in array {
+    print(item)
+}
+</code></pre>
+<h2 id="3-元组多返回值"><a class="header" href="#3-元组多返回值">3. 元组多返回值</a></h2>
+<pre><code class="language-swift">func getColor() -&gt; (R: Int, G: Int, B: Int) {
+    return (255, 255, 255)
+}
 
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// (R: 255, G: 255, B: 255)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="_4-autoclosure-自动闭包" tabindex="-1"><a class="header-anchor" href="#_4-autoclosure-自动闭包" aria-hidden="true">#</a> 4. @autoclosure 自动闭包</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">closure</span><span class="token punctuation">(</span><span class="token number">_</span> number<span class="token punctuation">:</span> @autoclosure <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> number <span class="token operator">=</span> <span class="token function">number</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> number
-<span class="token punctuation">}</span>
+print(getColor()) // (R: 255, G: 255, B: 255)
+</code></pre>
+<h2 id="4-autoclosure-自动闭包"><a class="header" href="#4-autoclosure-自动闭包">4. @autoclosure 自动闭包</a></h2>
+<pre><code class="language-swift">func closure(_ number: @autoclosure () -&gt; Int) -&gt; Int {
+    let number = number()
+    return number
+}
 
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">closure</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 3</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="_4-escaping-逃逸闭包" tabindex="-1"><a class="header-anchor" href="#_4-escaping-逃逸闭包" aria-hidden="true">#</a> 4. @escaping 逃逸闭包</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">import</span> <span class="token builtin">Dispatch</span>
+print(closure(3)) // 3
+</code></pre>
+<h2 id="4-escaping-逃逸闭包"><a class="header" href="#4-escaping-逃逸闭包">4. @escaping 逃逸闭包</a></h2>
+<pre><code class="language-swift">import Dispatch
 
-<span class="token keyword">func</span> <span class="token function">asyncAfter</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> execute<span class="token punctuation">:</span> @escaping <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token builtin">DispatchQueue</span><span class="token punctuation">.</span>main<span class="token punctuation">.</span><span class="token function">asyncAfter</span><span class="token punctuation">(</span>deadline<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">.</span><span class="token function">seconds</span><span class="token punctuation">(</span>seconds<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+func asyncAfter(seconds: Int, execute: @escaping () -&gt; Void) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(seconds)) {
+        execute()
+    }
+}
 
-<span class="token function">asyncAfter</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;3秒后执行&quot;</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="_5-操作符重载" tabindex="-1"><a class="header-anchor" href="#_5-操作符重载" aria-hidden="true">#</a> 5. 操作符重载</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">ValueInt</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span>
+asyncAfter(seconds: 3) {
+    print(&quot;3秒后执行&quot;)
+}
+</code></pre>
+<h2 id="5-操作符重载"><a class="header" href="#5-操作符重载">5. 操作符重载</a></h2>
+<pre><code class="language-swift">struct ValueInt {
+    let value: Int
     
-    <span class="token keyword">static</span> <span class="token keyword">func</span> <span class="token operator">+</span><span class="token punctuation">(</span><span class="token keyword">left</span><span class="token punctuation">:</span> <span class="token builtin">ValueInt</span><span class="token punctuation">,</span> <span class="token keyword">right</span><span class="token punctuation">:</span> <span class="token builtin">ValueInt</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
-        <span class="token keyword">left</span><span class="token punctuation">.</span>value <span class="token operator">+</span> <span class="token keyword">right</span><span class="token punctuation">.</span>value
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    static func +(left: ValueInt, right: ValueInt) -&gt; Int {
+        left.value + right.value
+    }
+}
 
-<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">ValueInt</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token function">ValueInt</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">)</span>
+let a = ValueInt(value: 1)
+let b = ValueInt(value: 3)
 
-<span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span> <span class="token comment">// 4</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="_6-函数参数传递" tabindex="-1"><a class="header-anchor" href="#_6-函数参数传递" aria-hidden="true">#</a> 6. 函数参数传递</h2><ul><li><h3 id="值类型参数" tabindex="-1"><a class="header-anchor" href="#值类型参数" aria-hidden="true">#</a> 值类型参数</h3><h4 id="不更改原值" tabindex="-1"><a class="header-anchor" href="#不更改原值" aria-hidden="true">#</a> 不更改原值</h4><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">increased</span><span class="token punctuation">(</span><span class="token number">_</span> variable<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> variable <span class="token operator">=</span> variable
-    variable <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token keyword">return</span> variable
-<span class="token punctuation">}</span>
+print(a + b) // 4
+</code></pre>
+<h2 id="6-函数参数传递"><a class="header" href="#6-函数参数传递">6. 函数参数传递</a></h2>
+<ul>
+<li>
+<h3 id="值类型参数"><a class="header" href="#值类型参数">值类型参数</a></h3>
+<h4 id="不更改原值"><a class="header" href="#不更改原值">不更改原值</a></h4>
+<pre><code class="language-swift">func increased(_ variable: Int) -&gt; Int {
+    var variable = variable
+    variable += 1
+    return variable
+}
 
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">increased</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 1</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="更改原值" tabindex="-1"><a class="header-anchor" href="#更改原值" aria-hidden="true">#</a> 更改原值</h4><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">increase</span><span class="token punctuation">(</span><span class="token number">_</span> variable<span class="token punctuation">:</span> <span class="token keyword">inout</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    variable <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
+print(increased(0)) // 1
+</code></pre>
+<h4 id="更改原值"><a class="header" href="#更改原值">更改原值</a></h4>
+<pre><code class="language-swift">func increase(_ variable: inout Int) {
+    variable += 1
+}
 
-<span class="token keyword">var</span> variable <span class="token operator">=</span> <span class="token number">0</span>
+var variable = 0
 
-<span class="token function">increase</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>variable<span class="token punctuation">)</span>
+increase(&amp;variable)
 
-<span class="token function">print</span><span class="token punctuation">(</span>variable<span class="token punctuation">)</span> <span class="token comment">// 1</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div></li><li><h3 id="引用类型参数" tabindex="-1"><a class="header-anchor" href="#引用类型参数" aria-hidden="true">#</a> 引用类型参数</h3><h4 id="不更改原值-1" tabindex="-1"><a class="header-anchor" href="#不更改原值-1" aria-hidden="true">#</a> 不更改原值</h4><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">ReferenceInt</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span>
-    <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token number">_</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+print(variable) // 1
+</code></pre>
+</li>
+<li>
+<h3 id="引用类型参数"><a class="header" href="#引用类型参数">引用类型参数</a></h3>
+<h4 id="不更改原值-1"><a class="header" href="#不更改原值-1">不更改原值</a></h4>
+<pre><code class="language-swift">class ReferenceInt {
+    var value: Int
+    init(_ value: Int) {
+        self.value = value
+    }
+}
 
-<span class="token keyword">func</span> <span class="token function">increased</span><span class="token punctuation">(</span><span class="token number">_</span> variable<span class="token punctuation">:</span> <span class="token builtin">ReferenceInt</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">ReferenceInt</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> variable <span class="token operator">=</span> <span class="token function">ReferenceInt</span><span class="token punctuation">(</span>variable<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
-    variable<span class="token punctuation">.</span>value <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token keyword">return</span> variable
-<span class="token punctuation">}</span>
+func increased(_ variable: ReferenceInt) -&gt; ReferenceInt {
+    let variable = ReferenceInt(variable.value)
+    variable.value += 1
+    return variable
+}
 
-<span class="token keyword">let</span> variable <span class="token operator">=</span> <span class="token function">ReferenceInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+let variable = ReferenceInt(0)
 
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">increased</span><span class="token punctuation">(</span>variable<span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token comment">// 1</span>
-<span class="token function">print</span><span class="token punctuation">(</span>variable<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token comment">// 0</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h4 id="更改原值-1" tabindex="-1"><a class="header-anchor" href="#更改原值-1" aria-hidden="true">#</a> 更改原值</h4><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">increase</span><span class="token punctuation">(</span><span class="token number">_</span> variable<span class="token punctuation">:</span> <span class="token builtin">ReferenceInt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    variable<span class="token punctuation">.</span>value <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
+print(increased(variable).value) // 1
+print(variable.value) // 0
+</code></pre>
+<h4 id="更改原值-1"><a class="header" href="#更改原值-1">更改原值</a></h4>
+<pre><code class="language-swift">func increase(_ variable: ReferenceInt) {
+    variable.value += 1
+}
 
 
-<span class="token keyword">let</span> variable <span class="token operator">=</span> <span class="token function">ReferenceInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">increase</span><span class="token punctuation">(</span>variable<span class="token punctuation">)</span>
-<span class="token function">print</span><span class="token punctuation">(</span>variable<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div></li></ul><h2 id="_7-字面量表达协议" tabindex="-1"><a class="header-anchor" href="#_7-字面量表达协议" aria-hidden="true">#</a> 7. 字面量表达协议</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">ValueInt</span><span class="token punctuation">:</span> <span class="token builtin">ExpressibleByIntegerLiteral</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span>
+let variable = ReferenceInt(0)
+increase(variable)
+print(variable.value)
+</code></pre>
+</li>
+</ul>
+<h2 id="7-字面量表达协议"><a class="header" href="#7-字面量表达协议">7. 字面量表达协议</a></h2>
+<pre><code class="language-swift">struct ValueInt: ExpressibleByIntegerLiteral {
+    var value: Int
     
-    <span class="token keyword">init</span><span class="token punctuation">(</span>integerLiteral value<span class="token punctuation">:</span> <span class="token builtin">IntegerLiteralType</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    init(integerLiteral value: IntegerLiteralType) {
+        self.value = value
+    }
+}
 
-<span class="token keyword">let</span> variable<span class="token punctuation">:</span> <span class="token builtin">ValueInt</span> <span class="token operator">=</span> <span class="token number">3</span>
-<span class="token function">print</span><span class="token punctuation">(</span>variable<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token comment">// 3</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="_8-subscript-下标访问" tabindex="-1"><a class="header-anchor" href="#_8-subscript-下标访问" aria-hidden="true">#</a> 8. subscript 下标访问</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">IntArray</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span>
+let variable: ValueInt = 3
+print(variable.value) // 3
+</code></pre>
+<h2 id="8-subscript-下标访问"><a class="header" href="#8-subscript-下标访问">8. subscript 下标访问</a></h2>
+<pre><code class="language-swift">struct IntArray {
+    var array: [Int]
 
-    <span class="token keyword">subscript</span><span class="token punctuation">(</span>index<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
-        <span class="token keyword">get</span> <span class="token punctuation">{</span>
-            array<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">set</span> <span class="token punctuation">{</span>
-            array<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> newValue
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    subscript(index: Int) -&gt; Int {
+        get {
+            array[index]
+        }
+        set {
+            array[index] = newValue
+        }
+    }
+}
 
-<span class="token keyword">var</span> array <span class="token operator">=</span> <span class="token function">IntArray</span><span class="token punctuation">(</span>array<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token function">print</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 1</span>
-array<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span>
-<span class="token function">print</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 4</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="_9-typealias-类型别名" tabindex="-1"><a class="header-anchor" href="#_9-typealias-类型别名" aria-hidden="true">#</a> 9. typealias 类型别名</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">typealias</span> <span class="token builtin">IntArray</span> <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">Int</span><span class="token operator">&gt;</span>
+var array = IntArray(array: [0, 1, 2, 3])
+print(array[1]) // 1
+array[3] = 4
+print(array[3]) // 4
+</code></pre>
+<h2 id="9-typealias-类型别名"><a class="header" href="#9-typealias-类型别名">9. typealias 类型别名</a></h2>
+<pre><code class="language-swift">typealias IntArray = Array&lt;Int&gt;
 
 
-<span class="token keyword">protocol</span> A <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> a<span class="token punctuation">:</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span> <span class="token keyword">get</span> <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+protocol A {
+    var a: Int { get }
+}
 
-<span class="token keyword">protocol</span> B <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> b<span class="token punctuation">:</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span> <span class="token keyword">get</span> <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+protocol B {
+    var b: Int { get }
+}
 
-<span class="token keyword">typealias</span> C <span class="token operator">=</span> A <span class="token operator">&amp;</span> B
+typealias C = A &amp; B
 
-<span class="token keyword">struct</span> D<span class="token punctuation">:</span> C <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> a<span class="token punctuation">:</span> <span class="token builtin">Int</span>
+struct D: C {
+    var a: Int
     
-    <span class="token keyword">var</span> b<span class="token punctuation">:</span> <span class="token builtin">Int</span>
+    var b: Int
     
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h2 id="_10-associatedtype-相关类型" tabindex="-1"><a class="header-anchor" href="#_10-associatedtype-相关类型" aria-hidden="true">#</a> 10. associatedType 相关类型</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">protocol</span> <span class="token builtin">ArrayExtension</span> <span class="token punctuation">{</span>
+}
+</code></pre>
+<h2 id="10-associatedtype-相关类型"><a class="header" href="#10-associatedtype-相关类型">10. associatedType 相关类型</a></h2>
+<pre><code class="language-swift">protocol ArrayExtension {
     associatedtype T
     
-    <span class="token keyword">mutating</span> <span class="token keyword">func</span> <span class="token function">appendAndPrint</span><span class="token punctuation">(</span><span class="token number">_</span> newElement<span class="token punctuation">:</span> T<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+    mutating func appendAndPrint(_ newElement: T)
+}
 
-<span class="token keyword">extension</span> <span class="token builtin">Array</span><span class="token punctuation">:</span> <span class="token builtin">ArrayExtension</span> <span class="token punctuation">{</span>
-    <span class="token keyword">typealias</span> T <span class="token operator">=</span> <span class="token builtin">Element</span>
+extension Array: ArrayExtension {
+    typealias T = Element
     
-    <span class="token keyword">mutating</span> <span class="token keyword">func</span> <span class="token function">appendAndPrint</span><span class="token punctuation">(</span><span class="token number">_</span> newElement<span class="token punctuation">:</span> <span class="token builtin">Element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span>newElement<span class="token punctuation">)</span>
-        <span class="token function">append</span><span class="token punctuation">(</span>newElement<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    mutating func appendAndPrint(_ newElement: Element) {
+        print(newElement)
+        append(newElement)
+    }
+}
 
-<span class="token keyword">var</span> array <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">Int</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-array<span class="token punctuation">.</span><span class="token function">appendAndPrint</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// 1</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="_11-可变参数" tabindex="-1"><a class="header-anchor" href="#_11-可变参数" aria-hidden="true">#</a> 11. 可变参数</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">_</span> number<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> number<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">+</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+var array = Array&lt;Int&gt;()
+array.appendAndPrint(1) // 1
+</code></pre>
+<h2 id="11-可变参数"><a class="header" href="#11-可变参数">11. 可变参数</a></h2>
+<pre><code class="language-swift">func sum(_ number: Int...) -&gt; Int {
+    return number.reduce(0, +)
+}
 
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 6</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="_12-初始化顺序" tabindex="-1"><a class="header-anchor" href="#_12-初始化顺序" aria-hidden="true">#</a> 12. 初始化顺序</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">Rectangle</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> name<span class="token punctuation">:</span> <span class="token builtin">String</span>
-    <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        name <span class="token operator">=</span> <span class="token string">&quot;长方形&quot;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+print(sum(0, 1, 2, 3)) // 6
+</code></pre>
+<h2 id="12-初始化顺序"><a class="header" href="#12-初始化顺序">12. 初始化顺序</a></h2>
+<pre><code class="language-swift">class Rectangle {
+    var name: String
+    init() {
+        name = &quot;长方形&quot;
+    }
+}
 
-<span class="token keyword">class</span> <span class="token class-name">Square</span><span class="token punctuation">:</span> <span class="token builtin">Rectangle</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> sideLength<span class="token punctuation">:</span> <span class="token builtin">Int</span>
-    <span class="token keyword">override</span> <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        sideLength <span class="token operator">=</span> <span class="token number">10</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        name <span class="token operator">=</span> <span class="token string">&quot;正方形&quot;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h2 id="_13-可空初始化" tabindex="-1"><a class="header-anchor" href="#_13-可空初始化" aria-hidden="true">#</a> 13. 可空初始化</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">PositiveNumberString</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> value<span class="token punctuation">:</span> <span class="token builtin">String</span>
-    <span class="token keyword">init</span><span class="token operator">?</span><span class="token punctuation">(</span><span class="token number">_</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">guard</span> value <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token constant">nil</span> <span class="token punctuation">}</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token function">String</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+class Square: Rectangle {
+    var sideLength: Int
+    override init() {
+        sideLength = 10
+        super.init()
+        name = &quot;正方形&quot;
+    }
+}
+</code></pre>
+<h2 id="13-可空初始化"><a class="header" href="#13-可空初始化">13. 可空初始化</a></h2>
+<pre><code class="language-swift">struct PositiveNumberString {
+    var value: String
+    init?(_ value: Int) {
+        guard value &gt; 0 else { return nil }
+        self.value = String(value)
+    }
+}
 
-<span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token function">PositiveNumberString</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token function">print</span><span class="token punctuation">(</span>str <span class="token keyword">as</span> <span class="token builtin">Any</span><span class="token punctuation">)</span> <span class="token comment">// nil</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="_14-函数默认参数" tabindex="-1"><a class="header-anchor" href="#_14-函数默认参数" aria-hidden="true">#</a> 14. 函数默认参数</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">func</span> <span class="token function">printInt</span><span class="token punctuation">(</span><span class="token number">_</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+let str = PositiveNumberString(-1)
+print(str as Any) // nil
+</code></pre>
+<h2 id="14-函数默认参数"><a class="header" href="#14-函数默认参数">14. 函数默认参数</a></h2>
+<pre><code class="language-swift">func printInt(_ value: Int = 0) {
+    print(value)
+}
 
-<span class="token function">printInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 0</span>
-<span class="token function">printInt</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// 1</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="_15-区间操作符" tabindex="-1"><a class="header-anchor" href="#_15-区间操作符" aria-hidden="true">#</a> 15. ... ..&lt; 区间操作符</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">let</span> range <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token number">3</span>
-<span class="token keyword">let</span> closedRange <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token number">3</span>
+printInt() // 0
+printInt(1) // 1
+</code></pre>
+<h2 id="15---区间操作符"><a class="header" href="#15---区间操作符">15. ... ..&lt; 区间操作符</a></h2>
+<pre><code class="language-swift">let range = 0..&lt;3
+let closedRange = 0...3
 
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">(</span>range<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// [0, 1, 2]</span>
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">(</span>closedRange<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// [0, 1, 2, 3]</span>
+print([Int](range)) // [0, 1, 2]
+print([Int](closedRange)) // [0, 1, 2, 3]
 
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token string">&quot;z&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">&quot;c&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// true</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_16-元类型" tabindex="-1"><a class="header-anchor" href="#_16-元类型" aria-hidden="true">#</a> 16. 元类型</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token keyword">Type</span> <span class="token punctuation">{</span>
-    <span class="token keyword">static</span> <span class="token keyword">func</span> <span class="token function">staticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;静态方法&quot;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+print((&quot;a&quot;...&quot;z&quot;).contains(&quot;c&quot;)) // true
+</code></pre>
+<h2 id="16-元类型"><a class="header" href="#16-元类型">16. 元类型</a></h2>
+<pre><code class="language-swift">struct Type {
+    static func staticMethod() {
+        print(&quot;静态方法&quot;)
+    }
     
-    <span class="token keyword">func</span> <span class="token function">instanceMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;实例方法&quot;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    func instanceMethod() {
+        print(&quot;实例方法&quot;)
+    }
+}
 
-<span class="token keyword">let</span> instance<span class="token punctuation">:</span> <span class="token keyword">Type</span> <span class="token operator">=</span> <span class="token keyword">Type</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-instance<span class="token punctuation">.</span><span class="token function">instanceMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 实例方法</span>
-<span class="token keyword">let</span> type<span class="token punctuation">:</span> <span class="token keyword">Type</span><span class="token punctuation">.</span><span class="token keyword">Type</span> <span class="token operator">=</span> <span class="token keyword">Type</span><span class="token punctuation">.</span><span class="token keyword">self</span>
-type<span class="token punctuation">.</span><span class="token function">staticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 静态方法</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="_17-深拷贝" tabindex="-1"><a class="header-anchor" href="#_17-深拷贝" aria-hidden="true">#</a> 17. 深拷贝</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">protocol</span> <span class="token builtin">Copyable</span> <span class="token punctuation">{</span>
-    <span class="token keyword">func</span> <span class="token function">copy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">Self</span>
-<span class="token punctuation">}</span>
+let instance: Type = Type()
+instance.instanceMethod() // 实例方法
+let type: Type.Type = Type.self
+type.staticMethod() // 静态方法
+</code></pre>
+<h2 id="17-深拷贝"><a class="header" href="#17-深拷贝">17. 深拷贝</a></h2>
+<pre><code class="language-swift">protocol Copyable {
+    func copy() -&gt; Self
+}
 
-<span class="token keyword">class</span> <span class="token class-name">ReferenceInt</span><span class="token punctuation">:</span> <span class="token builtin">Copyable</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span>
+class ReferenceInt: Copyable {
+    var value: Int
     
-    <span class="token keyword">required</span> <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token number">_</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value
-    <span class="token punctuation">}</span>
+    required init(_ value: Int) {
+        self.value = value
+    }
     
-    <span class="token keyword">func</span> <span class="token function">copy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token keyword">Self</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token function">type</span><span class="token punctuation">(</span>of<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    func copy() -&gt; Self {
+        return type(of: self).init(value)
+    }
 
-<span class="token punctuation">}</span>
+}
 
 
-<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">ReferenceInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token keyword">let</span> b <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-b<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token number">1</span>
+let a = ReferenceInt(0)
+let b = a.copy()
+b.value = 1
 
-<span class="token function">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token comment">// 0</span>
-<span class="token function">print</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token comment">// 1</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h2 id="_18-属性观察" tabindex="-1"><a class="header-anchor" href="#_18-属性观察" aria-hidden="true">#</a> 18. 属性观察</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">ValueInt</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
-        <span class="token keyword">willSet</span> <span class="token punctuation">{</span>
-            <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;值即将从<span class="token interpolation"><span class="token delimiter variable">\(</span>value<span class="token delimiter variable">)</span></span>更改为<span class="token interpolation"><span class="token delimiter variable">\(</span>newValue<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">didSet</span> <span class="token punctuation">{</span>
-            <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;值已经从<span class="token interpolation"><span class="token delimiter variable">\(</span>oldValue<span class="token delimiter variable">)</span></span>更改为<span class="token interpolation"><span class="token delimiter variable">\(</span>value<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+print(a.value) // 0
+print(b.value) // 1
+</code></pre>
+<h2 id="18-属性观察"><a class="header" href="#18-属性观察">18. 属性观察</a></h2>
+<pre><code class="language-swift">struct ValueInt {
+    var value: Int {
+        willSet {
+            print(&quot;值即将从\(value)更改为\(newValue)&quot;)
+        }
+        didSet {
+            print(&quot;值已经从\(oldValue)更改为\(value)&quot;)
+        }
+    }
+}
 
-<span class="token keyword">var</span> variable <span class="token operator">=</span> <span class="token function">ValueInt</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span>
-variable<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment">// 值即将从0更改为1 \n 值已经从0更改为1</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="_19-lazy-懒加载" tabindex="-1"><a class="header-anchor" href="#_19-lazy-懒加载" aria-hidden="true">#</a> 19. lazy 懒加载</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">LazyMan</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> food<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;吃饭&quot;</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token string">&quot;食物&quot;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+var variable = ValueInt(value: 0)
+variable.value = 1 // 值即将从0更改为1 \n 值已经从0更改为1
+</code></pre>
+<h2 id="19-lazy-懒加载"><a class="header" href="#19-lazy-懒加载">19. lazy 懒加载</a></h2>
+<pre><code class="language-swift">struct LazyMan {
+    var food: String = {
+        print(&quot;吃饭&quot;)
+        return &quot;食物&quot;
+    }()
     
-    <span class="token keyword">lazy</span> <span class="token keyword">var</span> work<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;起床&quot;</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token string">&quot;工作&quot;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+    lazy var work: String = {
+        print(&quot;起床&quot;)
+        return &quot;工作&quot;
+    }()
+}
 
-<span class="token keyword">var</span> man <span class="token operator">=</span> <span class="token function">LazyMan</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 吃饭</span>
-<span class="token function">print</span><span class="token punctuation">(</span>man<span class="token punctuation">.</span>work<span class="token punctuation">)</span> <span class="token comment">// 起床 \n 工作</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h2 id="_20-懒实现序列" tabindex="-1"><a class="header-anchor" href="#_20-懒实现序列" aria-hidden="true">#</a> 20. 懒实现序列</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">let</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
-<span class="token keyword">let</span> result <span class="token operator">=</span> array<span class="token punctuation">.</span><span class="token keyword">lazy</span><span class="token punctuation">.</span><span class="token builtin">map</span> <span class="token punctuation">{</span> item <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span> <span class="token keyword">in</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;正在映射<span class="token interpolation"><span class="token delimiter variable">\(</span>item<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> item <span class="token operator">+</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
+var man = LazyMan() // 吃饭
+print(man.work) // 起床 \n 工作
+</code></pre>
+<h2 id="20-懒实现序列"><a class="header" href="#20-懒实现序列">20. 懒实现序列</a></h2>
+<pre><code class="language-swift">let array = [0, 1, 2, 3]
+let result = array.lazy.map { item -&gt; Int in
+    print(&quot;正在映射\(item)&quot;)
+    return item + 1
+}
 
-<span class="token keyword">for</span> item <span class="token keyword">in</span> result <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;映射结果<span class="token interpolation"><span class="token delimiter variable">\(</span>item<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
-    <span class="token keyword">break</span>
-<span class="token punctuation">}</span>
+for item in result {
+    print(&quot;映射结果\(item)&quot;)
+    break
+}
 
-<span class="token comment">// 正在映射0</span>
-<span class="token comment">// 映射结果1</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">let</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
-<span class="token keyword">let</span> result <span class="token operator">=</span> array<span class="token punctuation">.</span><span class="token builtin">map</span> <span class="token punctuation">{</span> item <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span> <span class="token keyword">in</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;正在映射<span class="token interpolation"><span class="token delimiter variable">\(</span>item<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> item <span class="token operator">+</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
+// 正在映射0
+// 映射结果1
+</code></pre>
+<pre><code class="language-swift">let array = [0, 1, 2, 3]
+let result = array.map { item -&gt; Int in
+    print(&quot;正在映射\(item)&quot;)
+    return item + 1
+}
 
-<span class="token keyword">for</span> item <span class="token keyword">in</span> result <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;映射结果<span class="token interpolation"><span class="token delimiter variable">\(</span>item<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
-    <span class="token keyword">break</span>
-<span class="token punctuation">}</span>
+for item in result {
+    print(&quot;映射结果\(item)&quot;)
+    break
+}
 
-<span class="token comment">// 正在映射0</span>
-<span class="token comment">// 正在映射1</span>
-<span class="token comment">// 正在映射2</span>
-<span class="token comment">// 正在映射3</span>
-<span class="token comment">// 映射结果1</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h2 id="_21-optional-map" tabindex="-1"><a class="header-anchor" href="#_21-optional-map" aria-hidden="true">#</a> 21. Optional Map</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">var</span> variable<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token number">0</span>
-<span class="token keyword">let</span> result <span class="token operator">=</span> variable<span class="token punctuation">.</span><span class="token builtin">map</span> <span class="token punctuation">{</span> variable <span class="token keyword">in</span>
-    variable <span class="token operator">+</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
+// 正在映射0
+// 正在映射1
+// 正在映射2
+// 正在映射3
+// 映射结果1
+</code></pre>
+<h2 id="21-optional-map"><a class="header" href="#21-optional-map">21. Optional Map</a></h2>
+<pre><code class="language-swift">var variable: Int? = 0
+let result = variable.map { variable in
+    variable + 1
+}
 
-<span class="token function">print</span><span class="token punctuation">(</span>result <span class="token keyword">as</span> <span class="token builtin">Any</span><span class="token punctuation">)</span> <span class="token comment">// Optional(1)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">var</span> variable<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token number">0</span>
-<span class="token keyword">var</span> result<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span>
-<span class="token keyword">if</span> <span class="token keyword">let</span> variable <span class="token operator">=</span> variable <span class="token punctuation">{</span>
-    result <span class="token operator">=</span> variable <span class="token operator">+</span> <span class="token number">1</span>
-<span class="token punctuation">}</span>
+print(result as Any) // Optional(1)
+</code></pre>
+<pre><code class="language-swift">var variable: Int? = 0
+var result: Int? = nil
+if let variable = variable {
+    result = variable + 1
+}
 
-<span class="token function">print</span><span class="token punctuation">(</span>result <span class="token keyword">as</span> <span class="token builtin">Any</span><span class="token punctuation">)</span> <span class="token comment">// Optional(1)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_22-where-模式匹配" tabindex="-1"><a class="header-anchor" href="#_22-where-模式匹配" aria-hidden="true">#</a> 22. where 模式匹配</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">let</span> model <span class="token operator">=</span> <span class="token string">&quot;iPhone12 mini&quot;</span>
+print(result as Any) // Optional(1)
+</code></pre>
+<h2 id="22-where-模式匹配"><a class="header" href="#22-where-模式匹配">22. where 模式匹配</a></h2>
+<pre><code class="language-swift">let model = &quot;iPhone12 mini&quot;
 
-<span class="token keyword">switch</span> model <span class="token punctuation">{</span>
-<span class="token keyword">case</span> <span class="token keyword">let</span> model <span class="token keyword">where</span> model<span class="token punctuation">.</span><span class="token function">hasPrefix</span><span class="token punctuation">(</span><span class="token string">&quot;iPhone&quot;</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;iPhone&quot;</span><span class="token punctuation">)</span>
-<span class="token keyword">default</span><span class="token punctuation">:</span>
-    <span class="token keyword">break</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// iPhone</span>
+switch model {
+case let model where model.hasPrefix(&quot;iPhone&quot;):
+    print(&quot;iPhone&quot;)
+default:
+    break
+}
+// iPhone
 
 
-<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token number">10</span> <span class="token keyword">where</span> i <span class="token operator">&lt;</span> <span class="token number">3</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 0 \n 1 \n 2</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h2 id="_23-indirect-嵌套enum" tabindex="-1"><a class="header-anchor" href="#_23-indirect-嵌套enum" aria-hidden="true">#</a> 23. indirect 嵌套enum</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code>indirect <span class="token keyword">enum</span> <span class="token builtin">LinkedNode</span> <span class="token punctuation">{</span>
-    <span class="token keyword">case</span> empty
-    <span class="token keyword">case</span> <span class="token function">node</span><span class="token punctuation">(</span><span class="token builtin">Int</span><span class="token punctuation">,</span> <span class="token builtin">LinkedNode</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+for i in 0..&lt;10 where i &lt; 3 {
+    print(i)
+}
+// 0 \n 1 \n 2
+</code></pre>
+<h2 id="23-indirect-嵌套enum"><a class="header" href="#23-indirect-嵌套enum">23. indirect 嵌套enum</a></h2>
+<pre><code class="language-swift">indirect enum LinkedNode {
+    case empty
+    case node(Int, LinkedNode)
+}
 
-<span class="token keyword">let</span> linkedList <span class="token operator">=</span> <span class="token builtin">LinkedNode</span><span class="token punctuation">.</span><span class="token function">node</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token function">node</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token function">node</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">.</span>empty<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+let linkedList = LinkedNode.node(0, .node(1, .node(2, .empty)))
 
-<span class="token function">print</span><span class="token punctuation">(</span>linkedList<span class="token punctuation">)</span> <span class="token comment">// node(0, node(1, .node(2, .empty)))</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h2 id="_24-实例方法的其它调用方式" tabindex="-1"><a class="header-anchor" href="#_24-实例方法的其它调用方式" aria-hidden="true">#</a> 24. 实例方法的其它调用方式</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">ValueInt</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span>
-    <span class="token keyword">func</span> <span class="token function">call</span><span class="token punctuation">(</span><span class="token number">_</span> way<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>value<span class="token punctuation">,</span> way<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+print(linkedList) // node(0, node(1, .node(2, .empty)))
+</code></pre>
+<h2 id="24-实例方法的其它调用方式"><a class="header" href="#24-实例方法的其它调用方式">24. 实例方法的其它调用方式</a></h2>
+<pre><code class="language-swift">struct ValueInt {
+    let value: Int
+    func call(_ way: String) {
+        print(self.value, way)
+    }
+}
 
-<span class="token keyword">let</span> v0 <span class="token operator">=</span> <span class="token function">ValueInt</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span>
-v0<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">&quot;(value:)&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 0 (value:)</span>
-<span class="token keyword">let</span> v1 <span class="token operator">=</span> <span class="token builtin">ValueInt</span><span class="token punctuation">.</span><span class="token keyword">init</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span>
-v1<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">&quot;.init(value:)&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 1 .init(value:)</span>
+let v0 = ValueInt(value: 0)
+v0.call(&quot;(value:)&quot;) // 0 (value:)
+let v1 = ValueInt.init(value: 1)
+v1.call(&quot;.init(value:)&quot;) // 1 .init(value:)
 
-<span class="token builtin">ValueInt</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>v0<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">&quot;ValueInt.call(_ self:)&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 0 ValueInt.call(_ self:)</span>
+ValueInt.call(v0)(&quot;ValueInt.call(_ self:)&quot;) // 0 ValueInt.call(_ self:)
 
-<span class="token keyword">let</span> call <span class="token operator">=</span> <span class="token builtin">ValueInt</span><span class="token punctuation">.</span>call
-<span class="token function">call</span><span class="token punctuation">(</span>v0<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">&quot;call(_ self:)&quot;</span><span class="token punctuation">)</span> <span class="token comment">// 0 call(_ self:)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h2 id="_25-单例模式" tabindex="-1"><a class="header-anchor" href="#_25-单例模式" aria-hidden="true">#</a> 25. 单例模式</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">Singleton</span> <span class="token punctuation">{</span>
-    <span class="token keyword">static</span> <span class="token keyword">let</span> shared <span class="token operator">=</span> <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+let call = ValueInt.call
+call(v0)(&quot;call(_ self:)&quot;) // 0 call(_ self:)
+</code></pre>
+<h2 id="25-单例模式"><a class="header" href="#25-单例模式">25. 单例模式</a></h2>
+<pre><code class="language-swift">struct Singleton {
+    static let shared = Singleton()
     
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="_26-条件编译" tabindex="-1"><a class="header-anchor" href="#_26-条件编译" aria-hidden="true">#</a> 26. 条件编译</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code>#<span class="token keyword">if</span> <span class="token function">os</span><span class="token punctuation">(</span>iOS<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">os</span><span class="token punctuation">(</span>tvOS<span class="token punctuation">)</span>
-<span class="token keyword">import</span> <span class="token builtin">UIKit</span>
-#elseif <span class="token function">os</span><span class="token punctuation">(</span>watchOS<span class="token punctuation">)</span>
-<span class="token keyword">import</span> <span class="token builtin">WatchKit</span>
-#elseif <span class="token function">os</span><span class="token punctuation">(</span>macOS<span class="token punctuation">)</span>
-<span class="token keyword">import</span> <span class="token builtin">AppKit</span>
+}
+</code></pre>
+<h2 id="26-条件编译"><a class="header" href="#26-条件编译">26. 条件编译</a></h2>
+<pre><code class="language-swift">#if os(iOS) || os(tvOS)
+import UIKit
+#elseif os(watchOS)
+import WatchKit
+#elseif os(macOS)
+import AppKit
 #endif
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_27-注释标记" tabindex="-1"><a class="header-anchor" href="#_27-注释标记" aria-hidden="true">#</a> 27. 注释标记</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">// MARK: - 分割线</span>
-<span class="token comment">// TODO: 待办</span>
-<span class="token comment">// FIXME: 待修复</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_28-可选协议" tabindex="-1"><a class="header-anchor" href="#_28-可选协议" aria-hidden="true">#</a> 28. 可选协议</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">import</span> <span class="token builtin">Foundation</span>
-<span class="token comment">// objc标记的协议只能被class类实现</span>
-<span class="token atrule">@objc</span> <span class="token keyword">protocol</span> <span class="token builtin">OptionalProtocol</span> <span class="token punctuation">{</span>
-    <span class="token atrule">@objc</span> <span class="token keyword">optional</span> <span class="token keyword">func</span> <span class="token function">optionalMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>使用协议扩展来实现可选协议</p><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">protocol</span> <span class="token builtin">OptionalProtocol</span> <span class="token punctuation">{</span>
-    <span class="token keyword">func</span> <span class="token function">optionalMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="27-注释标记"><a class="header" href="#27-注释标记">27. 注释标记</a></h2>
+<pre><code class="language-swift">// MARK: - 分割线
+// TODO: 待办
+// FIXME: 待修复
+</code></pre>
+<h2 id="28-可选协议"><a class="header" href="#28-可选协议">28. 可选协议</a></h2>
+<pre><code class="language-swift">import Foundation
+// objc标记的协议只能被class类实现
+@objc protocol OptionalProtocol {
+    @objc optional func optionalMethod()
+}
+</code></pre>
+<p>使用协议扩展来实现可选协议</p>
+<pre><code class="language-swift">protocol OptionalProtocol {
+    func optionalMethod()
+}
 
-<span class="token keyword">extension</span> <span class="token builtin">OptionalProtocol</span> <span class="token punctuation">{</span>
-    <span class="token keyword">func</span> <span class="token function">optionalMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+extension OptionalProtocol {
+    func optionalMethod() {
         
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="_29-判断实例类型" tabindex="-1"><a class="header-anchor" href="#_29-判断实例类型" aria-hidden="true">#</a> 29. 判断实例类型</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token function">print</span><span class="token punctuation">(</span><span class="token function">type</span><span class="token punctuation">(</span>of<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// Int</span>
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token keyword">is</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token comment">// true</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_30-判断相等" tabindex="-1"><a class="header-anchor" href="#_30-判断相等" aria-hidden="true">#</a> 30. == === 判断相等</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">ReferenceInt</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span>
-    <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token number">_</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value
-    <span class="token punctuation">}</span>
+    }
+}
+</code></pre>
+<h2 id="29-判断实例类型"><a class="header" href="#29-判断实例类型">29. 判断实例类型</a></h2>
+<pre><code class="language-swift">print(type(of: 1)) // Int
+print(1 is Int) // true
+</code></pre>
+<h2 id="30---判断相等"><a class="header" href="#30---判断相等">30. == === 判断相等</a></h2>
+<pre><code class="language-swift">class ReferenceInt {
+    var value: Int
+    init(_ value: Int) {
+        self.value = value
+    }
     
-    <span class="token keyword">static</span> <span class="token keyword">func</span> <span class="token operator">==</span><span class="token punctuation">(</span><span class="token keyword">left</span><span class="token punctuation">:</span> <span class="token builtin">ReferenceInt</span><span class="token punctuation">,</span> <span class="token keyword">right</span><span class="token punctuation">:</span> <span class="token builtin">ReferenceInt</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Bool</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">left</span><span class="token punctuation">.</span>value <span class="token operator">==</span> <span class="token keyword">right</span><span class="token punctuation">.</span>value
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    static func ==(left: ReferenceInt, right: ReferenceInt) -&gt; Bool {
+        return left.value == right.value
+    }
+}
 
-<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">ReferenceInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token function">ReferenceInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">==</span> b<span class="token punctuation">)</span> <span class="token comment">// true</span>
-<span class="token function">print</span><span class="token punctuation">(</span>a <span class="token operator">===</span> b<span class="token punctuation">)</span> <span class="token comment">// false</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h2 id="_31-格式化字符串" tabindex="-1"><a class="header-anchor" href="#_31-格式化字符串" aria-hidden="true">#</a> 31. 格式化字符串</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">import</span> <span class="token builtin">Foundation</span>
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">String</span><span class="token punctuation">(</span>format<span class="token punctuation">:</span> <span class="token string">&quot;%.2f&quot;</span><span class="token punctuation">,</span> <span class="token number">3.333333</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 3.33</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_32-optionset-操作集合" tabindex="-1"><a class="header-anchor" href="#_32-optionset-操作集合" aria-hidden="true">#</a> 32. OptionSet 操作集合</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">Options</span><span class="token punctuation">:</span> <span class="token builtin">OptionSet</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> rawValue<span class="token punctuation">:</span> <span class="token builtin">Int</span>
+let a = ReferenceInt(0)
+let b = ReferenceInt(0)
+print(a == b) // true
+print(a === b) // false
+</code></pre>
+<h2 id="31-格式化字符串"><a class="header" href="#31-格式化字符串">31. 格式化字符串</a></h2>
+<pre><code class="language-swift">import Foundation
+print(String(format: &quot;%.2f&quot;, 3.333333)) // 3.33
+</code></pre>
+<h2 id="32-optionset-操作集合"><a class="header" href="#32-optionset-操作集合">32. OptionSet 操作集合</a></h2>
+<pre><code class="language-swift">struct Options: OptionSet {
+    let rawValue: Int
     
-    <span class="token keyword">static</span> <span class="token keyword">let</span> <span class="token keyword">left</span> <span class="token operator">=</span> <span class="token function">Options</span><span class="token punctuation">(</span>rawValue<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token keyword">static</span> <span class="token keyword">let</span> top <span class="token operator">=</span> <span class="token function">Options</span><span class="token punctuation">(</span>rawValue<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token keyword">static</span> <span class="token keyword">let</span> <span class="token keyword">right</span> <span class="token operator">=</span> <span class="token function">Options</span><span class="token punctuation">(</span>rawValue<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span>
-    <span class="token keyword">static</span> <span class="token keyword">let</span> bottom <span class="token operator">=</span> <span class="token function">Options</span><span class="token punctuation">(</span>rawValue<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+    static let left = Options(rawValue: 1)
+    static let top = Options(rawValue: 1 &lt;&lt; 1)
+    static let right = Options(rawValue: 1 &lt;&lt; 2)
+    static let bottom = Options(rawValue: 1 &lt;&lt; 3)
+}
 
-<span class="token keyword">var</span> option<span class="token punctuation">:</span> <span class="token builtin">Options</span> <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token keyword">left</span>
-<span class="token function">print</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span> <span class="token comment">// Options(rawValue: 1)</span>
-option <span class="token operator">=</span> <span class="token punctuation">.</span>top
-<span class="token function">print</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span> <span class="token comment">// Options(rawValue: 2)</span>
-option <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token keyword">right</span>
-<span class="token function">print</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span> <span class="token comment">// Options(rawValue: 4)</span>
-option <span class="token operator">=</span> <span class="token punctuation">.</span>bottom
-<span class="token function">print</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span> <span class="token comment">// Options(rawValue: 8)</span>
-option <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token keyword">left</span><span class="token punctuation">,</span> <span class="token punctuation">.</span>top<span class="token punctuation">]</span>
-<span class="token function">print</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span> <span class="token comment">// Options(rawValue: 3)</span>
-option <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token keyword">left</span><span class="token punctuation">,</span> <span class="token punctuation">.</span>top<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token keyword">right</span><span class="token punctuation">,</span> <span class="token punctuation">.</span>bottom<span class="token punctuation">]</span>
-<span class="token function">print</span><span class="token punctuation">(</span>option<span class="token punctuation">)</span> <span class="token comment">// Options(rawValue: 15)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h2 id="_33-enumerate-数组列举" tabindex="-1"><a class="header-anchor" href="#_33-enumerate-数组列举" aria-hidden="true">#</a> 33. enumerate 数组列举</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">for</span> <span class="token punctuation">(</span>index<span class="token punctuation">,</span> item<span class="token punctuation">)</span> <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">enumerated</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">print</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> item<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 0 10 \n 1 11 \n 2 12</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="_34-associated-object扩展存储属性" tabindex="-1"><a class="header-anchor" href="#_34-associated-object扩展存储属性" aria-hidden="true">#</a> 34. Associated Object扩展存储属性</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">import</span> <span class="token builtin">ObjectiveC</span>
-<span class="token comment">// 只能为class类扩展</span>
-<span class="token keyword">class</span> <span class="token class-name">IPhone</span> <span class="token punctuation">{</span>
+var option: Options = .left
+print(option) // Options(rawValue: 1)
+option = .top
+print(option) // Options(rawValue: 2)
+option = .right
+print(option) // Options(rawValue: 4)
+option = .bottom
+print(option) // Options(rawValue: 8)
+option = [.left, .top]
+print(option) // Options(rawValue: 3)
+option = [.left, .top, .right, .bottom]
+print(option) // Options(rawValue: 15)
+</code></pre>
+<h2 id="33-enumerate-数组列举"><a class="header" href="#33-enumerate-数组列举">33. enumerate 数组列举</a></h2>
+<pre><code class="language-swift">for (index, item) in (10..&lt;13).enumerated() {
+    print(index, item)
+}
+// 0 10 \n 1 11 \n 2 12
+</code></pre>
+<h2 id="34-associated-object扩展存储属性"><a class="header" href="#34-associated-object扩展存储属性">34. Associated Object扩展存储属性</a></h2>
+<pre><code class="language-swift">import ObjectiveC
+// 只能为class类扩展
+class IPhone {
     
-<span class="token punctuation">}</span>
+}
 
-<span class="token keyword">private</span> <span class="token keyword">var</span> key<span class="token punctuation">:</span> <span class="token builtin">Void</span><span class="token operator">?</span>
+private var key: Void?
 
-<span class="token keyword">extension</span> <span class="token builtin">IPhone</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> storage<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token operator">?</span> <span class="token punctuation">{</span>
-        <span class="token keyword">get</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token function">objc_getAssociatedObject</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>key<span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">Int</span>
-        <span class="token punctuation">}</span>
+extension IPhone {
+    var storage: Int? {
+        get {
+            return objc_getAssociatedObject(self, &amp;key) as? Int
+        }
         
-        <span class="token keyword">set</span> <span class="token punctuation">{</span>
-            <span class="token function">objc_setAssociatedObject</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>key<span class="token punctuation">,</span> newValue<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token constant">OBJC_ASSOCIATION_RETAIN_NONATOMIC</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+        set {
+            objc_setAssociatedObject(self, &amp;key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+}
 
-<span class="token keyword">var</span> iPhone <span class="token operator">=</span> <span class="token function">IPhone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token function">print</span><span class="token punctuation">(</span>iPhone<span class="token punctuation">.</span>storage <span class="token keyword">as</span> <span class="token builtin">Any</span><span class="token punctuation">)</span> <span class="token comment">// nil</span>
-iPhone<span class="token punctuation">.</span>storage <span class="token operator">=</span> <span class="token number">128</span>
-<span class="token function">print</span><span class="token punctuation">(</span>iPhone<span class="token punctuation">.</span>storage <span class="token keyword">as</span> <span class="token builtin">Any</span><span class="token punctuation">)</span> <span class="token comment">// Optional(128)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h2 id="_35-lock-锁" tabindex="-1"><a class="header-anchor" href="#_35-lock-锁" aria-hidden="true">#</a> 35. Lock 锁</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">import</span> <span class="token builtin">Foundation</span>
+var iPhone = IPhone()
+print(iPhone.storage as Any) // nil
+iPhone.storage = 128
+print(iPhone.storage as Any) // Optional(128)
+</code></pre>
+<h2 id="35-lock-锁"><a class="header" href="#35-lock-锁">35. Lock 锁</a></h2>
+<pre><code class="language-swift">import Foundation
 
-<span class="token keyword">func</span> <span class="token function">synchronized</span><span class="token punctuation">(</span><span class="token number">_</span> lock<span class="token punctuation">:</span> <span class="token builtin">AnyObject</span><span class="token punctuation">,</span> execute<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">objc_sync_enter</span><span class="token punctuation">(</span>lock<span class="token punctuation">)</span>
-    <span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token function">objc_sync_exit</span><span class="token punctuation">(</span>lock<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+func synchronized(_ lock: AnyObject, execute: () -&gt; Void) {
+    objc_sync_enter(lock)
+    execute()
+    objc_sync_exit(lock)
+}
 
-<span class="token keyword">class</span> <span class="token class-name">SafeData</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> data <span class="token operator">=</span> <span class="token number">0</span>
+class SafeData {
+    var data = 0
     
-    <span class="token keyword">func</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">_</span> number<span class="token punctuation">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">synchronized</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            data <span class="token operator">+</span><span class="token operator">=</span> number
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    func add(_ number: Int) {
+        synchronized(self) {
+            data += number
+        }
+    }
+}
 
-<span class="token keyword">let</span> safeData <span class="token operator">=</span> <span class="token function">SafeData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> <span class="token number">_</span> <span class="token keyword">in</span> <span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token number">10000</span> <span class="token punctuation">{</span>
-    <span class="token builtin">DispatchQueue</span><span class="token punctuation">.</span><span class="token function">global</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>async <span class="token punctuation">{</span>
-        safeData<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+let safeData = SafeData()
+for _ in 0..&lt;10000 {
+    DispatchQueue.global().async {
+        safeData.add(1)
+    }
+}
 
-<span class="token function">print</span><span class="token punctuation">(</span>safeData<span class="token punctuation">.</span>data<span class="token punctuation">)</span> <span class="token comment">// 10000</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><h2 id="_36-编译符号" tabindex="-1"><a class="header-anchor" href="#_36-编译符号" aria-hidden="true">#</a> 36. 编译符号</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code>#file <span class="token comment">// 符号所在文件路径</span>
-#line <span class="token comment">// 符号所在行号</span>
-#column <span class="token comment">// 符号所在列</span>
-#function <span class="token comment">// 符号所在方法名</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="_37-溢出操作符" tabindex="-1"><a class="header-anchor" href="#_37-溢出操作符" aria-hidden="true">#</a> 37. 溢出操作符</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">var</span> <span class="token builtin">max</span> <span class="token operator">=</span> <span class="token builtin">UInt</span><span class="token punctuation">.</span><span class="token builtin">max</span>
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">,</span> radix<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment">// 1111111111111111111111111111111111111111111111111111111111111111</span>
-<span class="token builtin">max</span> <span class="token operator">=</span> <span class="token builtin">max</span> <span class="token operator">&amp;</span><span class="token operator">+</span> <span class="token number">1</span>
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">,</span> radix<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 0</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="_38-属性访问控制" tabindex="-1"><a class="header-anchor" href="#_38-属性访问控制" aria-hidden="true">#</a> 38. 属性访问控制</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">private</span>
+print(safeData.data) // 10000
+</code></pre>
+<h2 id="36-编译符号"><a class="header" href="#36-编译符号">36. 编译符号</a></h2>
+<pre><code class="language-swift">#file // 符号所在文件路径
+#line // 符号所在行号
+#column // 符号所在列
+#function // 符号所在方法名
+</code></pre>
+<h2 id="37-溢出操作符"><a class="header" href="#37-溢出操作符">37. 溢出操作符</a></h2>
+<pre><code class="language-swift">var max = UInt.max
+print(String(max, radix: 2))
+// 1111111111111111111111111111111111111111111111111111111111111111
+max = max &amp;+ 1
+print(String(max, radix: 2)) // 0
+</code></pre>
+<h2 id="38-属性访问控制"><a class="header" href="#38-属性访问控制">38. 属性访问控制</a></h2>
+<pre><code class="language-swift">private
 fileprivate
-<span class="token keyword">internal</span>
-<span class="token keyword">public</span>
+internal
+public
 open
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="_39-swift解释执行" tabindex="-1"><a class="header-anchor" href="#_39-swift解释执行" aria-hidden="true">#</a> 39. Swift解释执行</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code>#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>env swift
+</code></pre>
+<h2 id="39-swift解释执行"><a class="header" href="#39-swift解释执行">39. Swift解释执行</a></h2>
+<pre><code class="language-swift">#!/usr/bin/env swift
 
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_40-swiftc编译" tabindex="-1"><a class="header-anchor" href="#_40-swiftc编译" aria-hidden="true">#</a> 40. swiftc编译</h2><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code>swiftc main.swift
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><h2 id="_41-自定义打印输出" tabindex="-1"><a class="header-anchor" href="#_41-自定义打印输出" aria-hidden="true">#</a> 41. 自定义打印输出</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">ValueInt</span><span class="token punctuation">:</span> <span class="token builtin">CustomStringConvertible</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> value<span class="token punctuation">:</span> <span class="token builtin">Int</span>
+print(&quot;hello&quot;)
+</code></pre>
+<h2 id="40-swiftc编译"><a class="header" href="#40-swiftc编译">40. swiftc编译</a></h2>
+<pre><code class="language-shell">swiftc main.swift
+</code></pre>
+<h2 id="41-自定义打印输出"><a class="header" href="#41-自定义打印输出">41. 自定义打印输出</a></h2>
+<pre><code class="language-swift">struct ValueInt: CustomStringConvertible {
+    let value: Int
     
-    <span class="token keyword">var</span> description<span class="token punctuation">:</span> <span class="token builtin">String</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token string">&quot;这是一个自定义的描述<span class="token interpolation"><span class="token delimiter variable">\(</span>value<span class="token delimiter variable">)</span></span>&quot;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    var description: String {
+        return &quot;这是一个自定义的描述\(value)&quot;
+    }
+}
 
-<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">ValueInt</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 这是一个自定义的描述1</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="_42-断言" tabindex="-1"><a class="header-anchor" href="#_42-断言" aria-hidden="true">#</a> 42. 断言</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">// 断言只在Debug模式下有效</span>
-<span class="token function">assert</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="_43-错误退出" tabindex="-1"><a class="header-anchor" href="#_43-错误退出" aria-hidden="true">#</a> 43. 错误退出</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token function">fatalError</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><h2 id="_44-指针操作" tabindex="-1"><a class="header-anchor" href="#_44-指针操作" aria-hidden="true">#</a> 44. 指针操作</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token comment">//#include &quot;stdio.h&quot;</span>
-<span class="token comment">//</span>
-<span class="token comment">//int main() {</span>
-<span class="token comment">//    int a[] = {0, 1, 2};</span>
-<span class="token comment">//    int *p = a;</span>
-<span class="token comment">//    *(p+2) = 3;</span>
-<span class="token comment">//    for(int i; i &lt; 3; i ++) {</span>
-<span class="token comment">//        printf(&quot;%d\n&quot;, a[i]);</span>
-<span class="token comment">//    }</span>
-<span class="token comment">//    // 0 \n 1 \n 3 \n</span>
-<span class="token comment">//    return 0;</span>
-<span class="token comment">//}</span>
+print(ValueInt(value: 1)) // 这是一个自定义的描述1
+</code></pre>
+<h2 id="42-断言"><a class="header" href="#42-断言">42. 断言</a></h2>
+<pre><code class="language-swift">// 断言只在Debug模式下有效
+assert(1 == 1)
+</code></pre>
+<h2 id="43-错误退出"><a class="header" href="#43-错误退出">43. 错误退出</a></h2>
+<pre><code class="language-swift">fatalError()
+</code></pre>
+<h2 id="44-指针操作"><a class="header" href="#44-指针操作">44. 指针操作</a></h2>
+<pre><code class="language-swift">//#include &quot;stdio.h&quot;
+//
+//int main() {
+//    int a[] = {0, 1, 2};
+//    int *p = a;
+//    *(p+2) = 3;
+//    for(int i; i &lt; 3; i ++) {
+//        printf(&quot;%d\n&quot;, a[i]);
+//    }
+//    // 0 \n 1 \n 3 \n
+//    return 0;
+//}
 
-<span class="token keyword">var</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
-<span class="token keyword">let</span> pointer <span class="token operator">=</span> <span class="token builtin">UnsafeMutableBufferPointer</span><span class="token operator">&lt;</span><span class="token builtin">Int</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>start<span class="token punctuation">:</span> <span class="token operator">&amp;</span>array<span class="token punctuation">,</span> <span class="token builtin">count</span><span class="token punctuation">:</span> array<span class="token punctuation">.</span><span class="token builtin">count</span><span class="token punctuation">)</span><span class="token punctuation">.</span>baseAddress
-pointer<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">advanced</span><span class="token punctuation">(</span>by<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span>pointee <span class="token operator">=</span> <span class="token number">3</span>
-<span class="token function">print</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span> <span class="token comment">// [0, 1, 3]</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="_45-条件协议扩展" tabindex="-1"><a class="header-anchor" href="#_45-条件协议扩展" aria-hidden="true">#</a> 45. 条件协议扩展</h2><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">protocol</span> <span class="token builtin">NumberProtocol</span> <span class="token punctuation">{</span>
+var array = [0, 1, 2]
+let pointer = UnsafeMutableBufferPointer&lt;Int&gt;(start: &amp;array, count: array.count).baseAddress
+pointer?.advanced(by: 2).pointee = 3
+print(array) // [0, 1, 3]
+</code></pre>
+<h2 id="45-条件协议扩展"><a class="header" href="#45-条件协议扩展">45. 条件协议扩展</a></h2>
+<pre><code class="language-swift">protocol NumberProtocol {
     
-<span class="token punctuation">}</span>
+}
 
-<span class="token keyword">extension</span> <span class="token builtin">Int</span><span class="token punctuation">:</span> <span class="token builtin">NumberProtocol</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+extension Int: NumberProtocol {}
 
-<span class="token keyword">extension</span> <span class="token builtin">NumberProtocol</span> <span class="token keyword">where</span> <span class="token keyword">Self</span> <span class="token operator">==</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
-    <span class="token keyword">func</span> <span class="token function">int</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;只有Int类型才可以有此方法&quot;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">Last Updated: </span><span class="meta-item-info">2022/3/8 02:16:32</span></div><!----></footer><!----><!--[--><!--]--></main></div><!----><!--]--></div>
-    <script src="/Knowledge/assets/js/runtime~app.4be62ddd.js" defer></script><script src="/Knowledge/assets/js/4640.e62e001d.js" defer></script><script src="/Knowledge/assets/js/app.d7e6dda3.js" defer></script>
-  </body>
+extension NumberProtocol where Self == Int {
+    func int() {
+        print(&quot;只有Int类型才可以有此方法&quot;)
+    }
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Web/Performance-optimization.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../Tools/SwiftToolChain.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Web/Performance-optimization.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../Tools/SwiftToolChain.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
 </html>

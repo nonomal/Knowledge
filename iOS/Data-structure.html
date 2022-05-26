@@ -1,32 +1,257 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <link rel="icon" type="image/svg+xml" href="/images/杉.svg"><title>数据结构 | EricLiu's Blog</title><meta name="description" content=""><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="VuePress 2.0.0-beta.20">
-    <link rel="preload" href="/Knowledge/assets/js/runtime~app.4be62ddd.js" as="script"><link rel="preload" href="/Knowledge/assets/css/styles.1144b83c.css" as="style"><link rel="preload" href="/Knowledge/assets/js/4640.e62e001d.js" as="script"><link rel="preload" href="/Knowledge/assets/js/app.d7e6dda3.js" as="script">
-    <link rel="stylesheet" href="/Knowledge/assets/css/styles.1144b83c.css">
-  </head>
-  <body>
-    <div id="app"><!--[--><div class="theme-container"><header class="navbar"><div class="toggle-sidebar-button"><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><span><a href="/Knowledge/" class=""><!----><span class="site-name">EricLiu&#39;s Blog</span></a></span><div class="navbar-links-wrapper" style=""><!--[--><!--]--><nav class="navbar-links can-hide"><!--[--><div class="navbar-links-item"><a href="/Knowledge/CS/" class="nav-link" aria-label="CS"><!--[--><!--]--> CS <!--[--><!--]--></a></div><div class="navbar-links-item"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="arrow down"></span></button><button class="mobile-dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="right arrow"></span></button><ul style="display:none;" class="nav-dropdown"><!--[--><li class="dropdown-item"><a href="/Knowledge/Swift/ReferenceManual/" class="nav-link" aria-label="Swift语言参考"><!--[--><!--]--> Swift语言参考 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-links-item"><a href="/Knowledge/iOS/" class="nav-link router-link-active" aria-label="iOS"><!--[--><!--]--> iOS <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Web/" class="nav-link" aria-label="Web"><!--[--><!--]--> Web <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Books/" class="nav-link" aria-label="Books"><!--[--><!--]--> Books <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Tools/" class="nav-link" aria-label="Tools"><!--[--><!--]--> Tools <!--[--><!--]--></a></div><div class="navbar-links-item"><a class="nav-link external" href="https://github.com/ericliuhusky" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">open in new window</span><!--]--></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><button class="toggle-dark-button"><svg style="" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg style="display:none;" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><div class="sidebar-mask"></div><aside class="sidebar"><nav class="navbar-links"><!--[--><div class="navbar-links-item"><a href="/Knowledge/CS/" class="nav-link" aria-label="CS"><!--[--><!--]--> CS <!--[--><!--]--></a></div><div class="navbar-links-item"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="arrow down"></span></button><button class="mobile-dropdown-title" type="button" aria-label="Swift"><span class="title">Swift</span><span class="right arrow"></span></button><ul style="display:none;" class="nav-dropdown"><!--[--><li class="dropdown-item"><a href="/Knowledge/Swift/ReferenceManual/" class="nav-link" aria-label="Swift语言参考"><!--[--><!--]--> Swift语言参考 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-links-item"><a href="/Knowledge/iOS/" class="nav-link router-link-active" aria-label="iOS"><!--[--><!--]--> iOS <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Web/" class="nav-link" aria-label="Web"><!--[--><!--]--> Web <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Books/" class="nav-link" aria-label="Books"><!--[--><!--]--> Books <!--[--><!--]--></a></div><div class="navbar-links-item"><a href="/Knowledge/Tools/" class="nav-link" aria-label="Tools"><!--[--><!--]--> Tools <!--[--><!--]--></a></div><div class="navbar-links-item"><a class="nav-link external" href="https://github.com/ericliuhusky" rel="noopener noreferrer" target="_blank" aria-label="GitHub"><!--[--><!--]--> GitHub <span><svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" ariahidden="true" focusable="false" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><!--[--><span class="sr-only">open in new window</span><!--]--></span><!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><ul class="sidebar-links"><!--[--><!--[--><p class="sidebar-heading sidebar-item active">iOS</p><ul class=""><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html" class="router-link-active router-link-exact-active nav-link router-link-active sidebar-item active" aria-label="数据结构"><!--[--><!--]--> 数据结构 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#_1-数据存储-物理-结构" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="1. 数据存储(物理)结构"><!--[--><!--]--> 1. 数据存储(物理)结构 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#顺序" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="顺序"><!--[--><!--]--> 顺序 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#链式" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="链式"><!--[--><!--]--> 链式 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#哈希-散列" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="哈希(散列)"><!--[--><!--]--> 哈希(散列) <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#索引" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="索引"><!--[--><!--]--> 索引 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#_2-数据逻辑结构" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="2. 数据逻辑结构"><!--[--><!--]--> 2. 数据逻辑结构 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#集合" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="集合"><!--[--><!--]--> 集合 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#线性" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="线性"><!--[--><!--]--> 线性 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#树形" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="树形"><!--[--><!--]--> 树形 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#图形" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="图形"><!--[--><!--]--> 图形 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#_3-表、堆、栈和队列" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="3. 表、堆、栈和队列"><!--[--><!--]--> 3. 表、堆、栈和队列 <!--[--><!--]--></a><ul class="sidebar-sub-items"><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#表" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="表"><!--[--><!--]--> 表 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#堆" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="堆"><!--[--><!--]--> 堆 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#栈" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="栈"><!--[--><!--]--> 栈 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#队列" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="队列"><!--[--><!--]--> 队列 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a aria-current="page" href="/Knowledge/iOS/Data-structure.html#_4-二叉树的深度" class="router-link-active router-link-exact-active nav-link sidebar-item" aria-label="4. 二叉树的深度"><!--[--><!--]--> 4. 二叉树的深度 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Algorithm.html" class="nav-link sidebar-item" aria-label="算法"><!--[--><!--]--> 算法 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Swift.html" class="nav-link sidebar-item" aria-label="Swift"><!--[--><!--]--> Swift <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/String.html" class="nav-link sidebar-item" aria-label="String"><!--[--><!--]--> String <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Foundation.html" class="nav-link sidebar-item" aria-label="Foundation"><!--[--><!--]--> Foundation <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/UIKit.html" class="nav-link sidebar-item" aria-label="UIKit"><!--[--><!--]--> UIKit <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/WebKit.html" class="nav-link sidebar-item" aria-label="WebKit"><!--[--><!--]--> WebKit <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Memory-management.html" class="nav-link sidebar-item" aria-label="内存管理"><!--[--><!--]--> 内存管理 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Network.html" class="nav-link sidebar-item" aria-label="网络"><!--[--><!--]--> 网络 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Data-storage.html" class="nav-link sidebar-item" aria-label="数据存储"><!--[--><!--]--> 数据存储 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Multi-thread.html" class="nav-link sidebar-item" aria-label="多线程"><!--[--><!--]--> 多线程 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Design-patterns.html" class="nav-link sidebar-item" aria-label="设计模式"><!--[--><!--]--> 设计模式 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Concurrency.html" class="nav-link sidebar-item" aria-label="并发编程"><!--[--><!--]--> 并发编程 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/Alamofire.html" class="nav-link sidebar-item" aria-label="Alamofire"><!--[--><!--]--> Alamofire <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/OC-%3ESwift.html" class="nav-link sidebar-item" aria-label="Objective-C组件库用Swift转写的方法论"><!--[--><!--]--> Objective-C组件库用Swift转写的方法论 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/ApplicationExtensionUnavailable.html" class="nav-link sidebar-item" aria-label="应用扩展不可用编译错误"><!--[--><!--]--> 应用扩展不可用编译错误 <!--[--><!--]--></a><!----><!--]--></li><li><!--[--><a href="/Knowledge/iOS/UnsafePointer.html" class="nav-link sidebar-item" aria-label="Swift 指针"><!--[--><!--]--> Swift 指针 <!--[--><!--]--></a><!----><!--]--></li></ul><!--]--><!--]--></ul><!--[--><!--]--></aside><main class="page"><!--[--><!--]--><div class="theme-default-content"><!--[--><h1 id="数据结构" tabindex="-1"><a class="header-anchor" href="#数据结构" aria-hidden="true">#</a> 数据结构</h1><h2 id="_1-数据存储-物理-结构" tabindex="-1"><a class="header-anchor" href="#_1-数据存储-物理-结构" aria-hidden="true">#</a> 1. 数据存储(物理)结构</h2><ul><li><h3 id="顺序" tabindex="-1"><a class="header-anchor" href="#顺序" aria-hidden="true">#</a> 顺序</h3><p>把逻辑上相邻的结点按顺序存储在物理上相邻的连续存储单元中，结点逻辑关系由存储单元的邻接关系体现。查找快，插入、删除慢。</p></li><li><h3 id="链式" tabindex="-1"><a class="header-anchor" href="#链式" aria-hidden="true">#</a> 链式</h3><p>用一组任意的存储单元存储逻辑上相邻的结点（存储单元可以连续也可以不连续），逻辑关系记录在指针域中。查找慢，插入、删除快。</p></li><li><h3 id="哈希-散列" tabindex="-1"><a class="header-anchor" href="#哈希-散列" aria-hidden="true">#</a> 哈希(散列)</h3><p>根据存储数据的内容计算哈希值来决定存储地址，根据内容查找时快</p></li><li><h3 id="索引" tabindex="-1"><a class="header-anchor" href="#索引" aria-hidden="true">#</a> 索引</h3><p>另外设置一个索引表来存储结点的地址，分开存放数据结点和结点逻辑关系</p></li></ul><h2 id="_2-数据逻辑结构" tabindex="-1"><a class="header-anchor" href="#_2-数据逻辑结构" aria-hidden="true">#</a> 2. 数据逻辑结构</h2><ul><li><h3 id="集合" tabindex="-1"><a class="header-anchor" href="#集合" aria-hidden="true">#</a> 集合</h3><p>无序、不重复的元素构成集合</p></li><li><h3 id="线性" tabindex="-1"><a class="header-anchor" href="#线性" aria-hidden="true">#</a> 线性</h3><p>具有唯一前驱和唯一后继的“一对一”关系的有序线性结构</p></li><li><h3 id="树形" tabindex="-1"><a class="header-anchor" href="#树形" aria-hidden="true">#</a> 树形</h3><p>具有唯一前驱但可以有一个或多个后继的“一对多”关系的树形结构</p></li><li><h3 id="图形" tabindex="-1"><a class="header-anchor" href="#图形" aria-hidden="true">#</a> 图形</h3><p>具有多个前驱和多个后继的“多对多”关系的图形结构</p></li></ul><h2 id="_3-表、堆、栈和队列" tabindex="-1"><a class="header-anchor" href="#_3-表、堆、栈和队列" aria-hidden="true">#</a> 3. 表、堆、栈和队列</h2><ul><li><h3 id="表" tabindex="-1"><a class="header-anchor" href="#表" aria-hidden="true">#</a> 表</h3><p>具有线性逻辑结构的就是线性表简称表，线性表又根据不同的物理实现方式分为：顺序表、链表。</p></li><li><h3 id="堆" tabindex="-1"><a class="header-anchor" href="#堆" aria-hidden="true">#</a> 堆</h3><p>堆是一种经过排序的树形结构。根结点最大的，父结点比子结点大的叫最大堆；根结点最小的叫最小堆。</p></li><li><h3 id="栈" tabindex="-1"><a class="header-anchor" href="#栈" aria-hidden="true">#</a> 栈</h3><p>栈是只允许在栈顶进行插入和删除操作的特殊线性表，栈又根据不同的物理实现方式分为：顺序栈、链式栈。具有“后进先出”的特性</p></li><li><h3 id="队列" tabindex="-1"><a class="header-anchor" href="#队列" aria-hidden="true">#</a> 队列</h3><p>队列是只允许在队尾插入，在队首删除的特殊线性表，队列又根据不同的物理实现方式分为：顺序队列、链式队列。具有“先进先出”的特性</p></li></ul><h2 id="_4-二叉树的深度" tabindex="-1"><a class="header-anchor" href="#_4-二叉树的深度" aria-hidden="true">#</a> 4. 二叉树的深度</h2><p>当前结点的深度为左右子树深度较大的值+1</p><div class="language-swift ext-swift line-numbers-mode"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">BinaryTreeNode</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> data<span class="token punctuation">:</span> T
-    <span class="token keyword">var</span> <span class="token keyword">left</span><span class="token punctuation">:</span> <span class="token builtin">BinaryTreeNode</span><span class="token operator">?</span>
-    <span class="token keyword">var</span> <span class="token keyword">right</span><span class="token punctuation">:</span> <span class="token builtin">BinaryTreeNode</span><span class="token operator">?</span>
-    <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token number">_</span> data<span class="token punctuation">:</span> T<span class="token punctuation">,</span> <span class="token number">_</span> <span class="token keyword">left</span><span class="token punctuation">:</span> <span class="token builtin">BinaryTreeNode</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">,</span> <span class="token number">_</span> <span class="token keyword">right</span><span class="token punctuation">:</span> <span class="token builtin">BinaryTreeNode</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span>data <span class="token operator">=</span> data
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token keyword">left</span> <span class="token operator">=</span> <span class="token keyword">left</span>
-        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token keyword">right</span> <span class="token operator">=</span> <span class="token keyword">right</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>数据结构 - Knowledge</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
 
-<span class="token keyword">func</span> depth<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">_</span> node<span class="token punctuation">:</span> <span class="token builtin">BinaryTreeNode</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token operator">?</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Int</span> <span class="token punctuation">{</span>
-    <span class="token keyword">guard</span> <span class="token keyword">let</span> node <span class="token operator">=</span> node <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">0</span> <span class="token punctuation">}</span>
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
-    <span class="token keyword">let</span> <span class="token keyword">left</span> <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span><span class="token keyword">left</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
-    <span class="token keyword">let</span> <span class="token keyword">right</span> <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span><span class="token keyword">right</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
 
-    <span class="token keyword">return</span> <span class="token keyword">left</span> <span class="token operator">&gt;</span> <span class="token keyword">right</span> <span class="token operator">?</span> <span class="token keyword">left</span> <span class="token punctuation">:</span> <span class="token keyword">right</span>
-<span class="token punctuation">}</span>
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
 
-</code></pre><div class="line-numbers"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">Last Updated: </span><span class="meta-item-info">2022/3/8 02:16:32</span></div><!----></footer><nav class="page-nav"><p class="inner"><!----><span class="next"><a href="/Knowledge/iOS/Algorithm.html" class="nav-link" aria-label="算法"><!--[--><!--]--> 算法 <!--[--><!--]--></a> → </span></p></nav><!--[--><!--]--></main></div><!----><!--]--></div>
-    <script src="/Knowledge/assets/js/runtime~app.4be62ddd.js" defer></script><script src="/Knowledge/assets/js/4640.e62e001d.js" defer></script><script src="/Knowledge/assets/js/app.d7e6dda3.js" defer></script>
-  </body>
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">EricLiu's Blog</a></li><li class="chapter-item expanded affix "><li class="part-title">CS</li><li class="chapter-item expanded "><a href="../CS/AsynchronyProgramming.html"><strong aria-hidden="true">1.</strong> 异步编程</a></li><li class="chapter-item expanded "><a href="../CS/DesignPatterns.html"><strong aria-hidden="true">2.</strong> 设计模式</a></li><li class="chapter-item expanded affix "><li class="part-title">Swift语言参考</li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/LexicalStructure.html"><strong aria-hidden="true">3.</strong> 词法结构</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Types.html"><strong aria-hidden="true">4.</strong> 类型</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Expressions.html"><strong aria-hidden="true">5.</strong> 表达式</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Statements.html"><strong aria-hidden="true">6.</strong> 语句</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Declarations.html"><strong aria-hidden="true">7.</strong> 声明</a></li><li class="chapter-item expanded "><a href="../Swift/ReferenceManual/Attributes.html"><strong aria-hidden="true">8.</strong> 特性</a></li><li class="chapter-item expanded affix "><li class="part-title">iOS</li><li class="chapter-item expanded "><a href="../iOS/Data-structure.html" class="active"><strong aria-hidden="true">9.</strong> 数据结构</a></li><li class="chapter-item expanded "><a href="../iOS/Algorithm.html"><strong aria-hidden="true">10.</strong> 算法</a></li><li class="chapter-item expanded "><a href="../iOS/Swift.html"><strong aria-hidden="true">11.</strong> Swift</a></li><li class="chapter-item expanded "><a href="../iOS/String.html"><strong aria-hidden="true">12.</strong> String</a></li><li class="chapter-item expanded "><a href="../iOS/Foundation.html"><strong aria-hidden="true">13.</strong> Foundation</a></li><li class="chapter-item expanded "><a href="../iOS/UIKit.html"><strong aria-hidden="true">14.</strong> UIKit</a></li><li class="chapter-item expanded "><a href="../iOS/WebKit.html"><strong aria-hidden="true">15.</strong> WebKit</a></li><li class="chapter-item expanded "><a href="../iOS/Memory-management.html"><strong aria-hidden="true">16.</strong> 内存管理</a></li><li class="chapter-item expanded "><a href="../iOS/Network.html"><strong aria-hidden="true">17.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../iOS/Data-storage.html"><strong aria-hidden="true">18.</strong> 数据存储</a></li><li class="chapter-item expanded "><a href="../iOS/Multi-thread.html"><strong aria-hidden="true">19.</strong> 多线程</a></li><li class="chapter-item expanded "><a href="../iOS/Design-patterns.html"><strong aria-hidden="true">20.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../iOS/Concurrency.html"><strong aria-hidden="true">21.</strong> 并发编程</a></li><li class="chapter-item expanded "><a href="../iOS/Alamofire.html"><strong aria-hidden="true">22.</strong> Alamofire</a></li><li class="chapter-item expanded "><a href="../iOS/OC2Swift.html"><strong aria-hidden="true">23.</strong> Objective-C组件库用Swift转写的方法论</a></li><li class="chapter-item expanded "><a href="../iOS/ApplicationExtensionUnavailable.html"><strong aria-hidden="true">24.</strong> 应用扩展不可用编译错误</a></li><li class="chapter-item expanded "><a href="../iOS/UnsafePointer.html"><strong aria-hidden="true">25.</strong> Swift指针</a></li><li class="chapter-item expanded affix "><li class="part-title">Web</li><li class="chapter-item expanded "><a href="../Web/CSS.html"><strong aria-hidden="true">26.</strong> CSS</a></li><li class="chapter-item expanded "><a href="../Web/HTML.html"><strong aria-hidden="true">27.</strong> HTML</a></li><li class="chapter-item expanded "><a href="../Web/JavaScript.html"><strong aria-hidden="true">28.</strong> JavaScript</a></li><li class="chapter-item expanded "><a href="../Web/JavaScript.html"><strong aria-hidden="true">29.</strong> React</a></li><li class="chapter-item expanded "><a href="../Web/Taro.html"><strong aria-hidden="true">30.</strong> Taro快速开始</a></li><li class="chapter-item expanded "><a href="../Web/Vue.html"><strong aria-hidden="true">31.</strong> Vue</a></li><li class="chapter-item expanded "><a href="../Web/http.html"><strong aria-hidden="true">32.</strong> http</a></li><li class="chapter-item expanded "><a href="../Web/Performance-optimization.html"><strong aria-hidden="true">33.</strong> 性能优化</a></li><li class="chapter-item expanded affix "><li class="part-title">Books</li><li class="chapter-item expanded "><a href="../Books/Swifter-SwiftTips.html"><strong aria-hidden="true">34.</strong> Swifter Swift必备Tips</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../Tools/SwiftToolChain.html"><strong aria-hidden="true">35.</strong> Swift工具链</a></li><li class="chapter-item expanded "><a href="../Tools/Git.html"><strong aria-hidden="true">36.</strong> Git</a></li><li class="chapter-item expanded "><a href="../Tools/DocC.html"><strong aria-hidden="true">37.</strong> DocC</a></li><li class="chapter-item expanded "><a href="../Tools/Gitmoji.html"><strong aria-hidden="true">38.</strong> Gitmoji</a></li><li class="chapter-item expanded "><a href="../Tools/UsefulWebsites.html"><strong aria-hidden="true">39.</strong> 有用的网站</a></li><li class="chapter-item expanded "><a href="../Tools/Vuepress.html"><strong aria-hidden="true">40.</strong> Vuepress</a></li><li class="chapter-item expanded "><a href="../Tools/Markdown.html"><strong aria-hidden="true">41.</strong> Markdown</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Knowledge</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="数据结构"><a class="header" href="#数据结构">数据结构</a></h1>
+<h2 id="1-数据存储物理结构"><a class="header" href="#1-数据存储物理结构">1. 数据存储(物理)结构</a></h2>
+<ul>
+<li>
+<h3 id="顺序"><a class="header" href="#顺序">顺序</a></h3>
+<p>把逻辑上相邻的结点按顺序存储在物理上相邻的连续存储单元中，结点逻辑关系由存储单元的邻接关系体现。查找快，插入、删除慢。</p>
+</li>
+<li>
+<h3 id="链式"><a class="header" href="#链式">链式</a></h3>
+<p>用一组任意的存储单元存储逻辑上相邻的结点（存储单元可以连续也可以不连续），逻辑关系记录在指针域中。查找慢，插入、删除快。</p>
+</li>
+<li>
+<h3 id="哈希散列"><a class="header" href="#哈希散列">哈希(散列)</a></h3>
+<p>根据存储数据的内容计算哈希值来决定存储地址，根据内容查找时快</p>
+</li>
+<li>
+<h3 id="索引"><a class="header" href="#索引">索引</a></h3>
+<p>另外设置一个索引表来存储结点的地址，分开存放数据结点和结点逻辑关系</p>
+</li>
+</ul>
+<h2 id="2-数据逻辑结构"><a class="header" href="#2-数据逻辑结构">2. 数据逻辑结构</a></h2>
+<ul>
+<li>
+<h3 id="集合"><a class="header" href="#集合">集合</a></h3>
+<p>无序、不重复的元素构成集合</p>
+</li>
+<li>
+<h3 id="线性"><a class="header" href="#线性">线性</a></h3>
+<p>具有唯一前驱和唯一后继的“一对一”关系的有序线性结构</p>
+</li>
+<li>
+<h3 id="树形"><a class="header" href="#树形">树形</a></h3>
+<p>具有唯一前驱但可以有一个或多个后继的“一对多”关系的树形结构</p>
+</li>
+<li>
+<h3 id="图形"><a class="header" href="#图形">图形</a></h3>
+<p>具有多个前驱和多个后继的“多对多”关系的图形结构</p>
+</li>
+</ul>
+<h2 id="3-表堆栈和队列"><a class="header" href="#3-表堆栈和队列">3. 表、堆、栈和队列</a></h2>
+<ul>
+<li>
+<h3 id="表"><a class="header" href="#表">表</a></h3>
+<p>具有线性逻辑结构的就是线性表简称表，线性表又根据不同的物理实现方式分为：顺序表、链表。</p>
+</li>
+<li>
+<h3 id="堆"><a class="header" href="#堆">堆</a></h3>
+<p>堆是一种经过排序的树形结构。根结点最大的，父结点比子结点大的叫最大堆；根结点最小的叫最小堆。</p>
+</li>
+<li>
+<h3 id="栈"><a class="header" href="#栈">栈</a></h3>
+<p>栈是只允许在栈顶进行插入和删除操作的特殊线性表，栈又根据不同的物理实现方式分为：顺序栈、链式栈。具有“后进先出”的特性</p>
+</li>
+<li>
+<h3 id="队列"><a class="header" href="#队列">队列</a></h3>
+<p>队列是只允许在队尾插入，在队首删除的特殊线性表，队列又根据不同的物理实现方式分为：顺序队列、链式队列。具有“先进先出”的特性</p>
+</li>
+</ul>
+<h2 id="4-二叉树的深度"><a class="header" href="#4-二叉树的深度">4. 二叉树的深度</a></h2>
+<p>当前结点的深度为左右子树深度较大的值+1</p>
+<pre><code class="language-swift">class BinaryTreeNode&lt;T&gt; {
+    var data: T
+    var left: BinaryTreeNode?
+    var right: BinaryTreeNode?
+    init(_ data: T, _ left: BinaryTreeNode? = nil, _ right: BinaryTreeNode? = nil) {
+        self.data = data
+        self.left = left
+        self.right = right
+    }
+}
+
+func depth&lt;T&gt;(_ node: BinaryTreeNode&lt;T&gt;?) -&gt; Int {
+    guard let node = node else { return 0 }
+
+    let left = depth(node.left) + 1
+    let right = depth(node.right) + 1
+
+    return left &gt; right ? left : right
+}
+
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Swift/ReferenceManual/Attributes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../iOS/Algorithm.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Swift/ReferenceManual/Attributes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../iOS/Algorithm.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
 </html>

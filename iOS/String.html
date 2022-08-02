@@ -188,6 +188,41 @@ print(sentence)
 //  后几位子字符串
 &quot;accd&quot;.suffix(2)//  cd
 </code></pre>
+<h2 id="swift-string-length"><a class="header" href="#swift-string-length">Swift String Length</a></h2>
+<p><code>String.count</code>得到的是<code>Unicode.Scalar</code>按Unicode规则合成<code>Character</code>后，<code>String</code>中<code>Character</code>的个数。
+&quot;\r&quot;和&quot;\n&quot;两个字符合成了新的单个字符&quot;\r\n&quot;，因此字符串长度为1</p>
+<pre><code class="language-swift">&quot;\r\n&quot;.count // 1
+strlen(&quot;\r\n&quot;) // 2
+&quot;\r\n&quot;.unicodeScalars.count // 2
+
+(&quot;🇨&quot; + &quot;🇳&quot;) == &quot;🇨🇳&quot; // true
+(&quot;🇨&quot; + &quot;🇳&quot;).count // 1
+&quot;🇨🇳&quot;.unicodeScalars.count // 2
+</code></pre>
+<h3 id="使用utf8和c函数一起工作"><a class="header" href="#使用utf8和c函数一起工作">使用utf8和C函数一起工作</a></h3>
+<pre><code class="language-swift">strlen(&quot;你好&quot;) // 6
+&quot;你好&quot;.utf8.count // 6
+</code></pre>
+<h3 id="使用utf16和objective-c函数一起工作"><a class="header" href="#使用utf16和objective-c函数一起工作">使用utf16和Objective-C函数一起工作</a></h3>
+<pre><code class="language-swift">NSString(string: &quot;你好&quot;).length // 2
+&quot;你好&quot;.utf16.count // 2
+</code></pre>
+<h3 id="utf8cstring"><a class="header" href="#utf8cstring">utf8CString</a></h3>
+<pre><code class="language-swift">strlen(&quot;abc&quot;) // 3 (长度不包含'\0')
+&quot;abc&quot;.utf8CString // [97, 98, 99, 0]
+&quot;abc&quot;.utf8CString.count // 4 (长度包含'\0')
+</code></pre>
+<h3 id="contains的巨坑"><a class="header" href="#contains的巨坑">contains的巨坑</a></h3>
+<p>引入Foundation之前，contains调用的是Swift标准库；引入之后，contains调用的是Foundation中NSString的方法。
+Swift完全支持Unicode，而Objective-C只支持utf-16，造成了引入前后不一样的结果</p>
+<pre><code class="language-swift">&quot;\r\n&quot;.contains(&quot;\n&quot;) // false
+&quot;🇨🇳&quot;.contains(&quot;🇨&quot;) // false
+</code></pre>
+<pre><code class="language-swift">import Foundation
+
+&quot;\r\n&quot;.contains(&quot;\n&quot;) // true
+&quot;🇨🇳&quot;.contains(&quot;🇨&quot;) // true
+</code></pre>
 
                     </main>
 

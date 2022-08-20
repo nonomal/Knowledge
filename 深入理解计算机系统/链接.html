@@ -178,6 +178,46 @@ ld main.o -lhello -L. -lSystem -L $SDK/usr/lib
 </code></pre>
 </li>
 </ol>
+<h2 id="运行时加载动态库"><a class="header" href="#运行时加载动态库">运行时加载动态库</a></h2>
+<pre><code class="language-swift">import Foundation
+
+let handle = dlopen(&quot;./libhello.so&quot;, RTLD_LAZY)
+if let hello = dlsym(handle, &quot;hello&quot;) {
+    let hello = unsafeBitCast(hello, to: (@convention(c) () -&gt; Void).self)
+    hello()
+    dlclose(handle)
+}
+</code></pre>
+<h2 id="打桩"><a class="header" href="#打桩">打桩</a></h2>
+<h3 id="编译时打桩"><a class="header" href="#编译时打桩">编译时打桩</a></h3>
+<pre><code class="language-c">// myabs.c
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int myabs(int x) {
+    printf(&quot;called abs\n&quot;);
+    return abs(x);
+}
+</code></pre>
+<pre><code class="language-c">// stdlib.h
+#define abs(x) myabs(x)
+
+int myabs(int x);
+</code></pre>
+<pre><code class="language-c">// main.c
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int main() {
+    int x = abs(-1);
+    printf(&quot;%d\n&quot;, x);
+    return 0;
+}
+</code></pre>
+<ol>
+<li><code>clang -c myabs.c</code></li>
+<li><code>clang -I. main.c myabs.o</code></li>
+</ol>
 
                     </main>
 

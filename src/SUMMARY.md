@@ -1,6 +1,6 @@
 # Summary
 
-[EricLiu's Blog](index.md)
+[EricLiu](首页.md)
 
 # 深入理解计算机系统 (CSAPP)
 
@@ -14,9 +14,17 @@
 - [网络编程](深入理解计算机系统/网络编程.md)
 - [并发编程](深入理解计算机系统/并发编程.md)
 
+# 内存模型
+
+- [内存分配](内存模型/内存分配.md)
+- [堆内存管理](内存模型/堆内存管理.md)
+- [函数传参](内存模型/函数传参.md)
+- [变量赋值](内存模型/变量赋值.md)
+- [地址与指针](内存模型/地址与指针.md)
+- [内存布局](内存模型/内存布局.md)
+
 # CS
 
-- [异步编程](CS/AsynchronyProgramming.md)
 - [设计模式](CS/DesignPatterns.md)
 
 # Swift语言参考
@@ -41,27 +49,20 @@
 - [Foundation](iOS/Foundation.md)
 - [UIKit](iOS/UIKit.md)
 - [WebKit](iOS/WebKit.md)
-- [内存管理](iOS/Memory-management.md)
 - [网络](iOS/Network.md)
 - [数据存储](iOS/Data-storage.md)
-- [多线程](iOS/Multi-thread.md)
+- [并发编程](iOS/并发编程.md)
 - [设计模式](iOS/Design-patterns.md)
-- [并发编程](iOS/Concurrency.md)
 - [Alamofire](iOS/Alamofire.md)
 - [Objective-C组件库用Swift转写的方法论](iOS/OC2Swift.md)
 - [应用扩展不可用编译错误](iOS/ApplicationExtensionUnavailable.md)
 - [Swift指针](iOS/UnsafePointer.md)
-
-# Web
-
-- [CSS](Web/CSS.md)
-- [HTML](Web/HTML.md)
-- [JavaScript](Web/JavaScript.md)
-- [React](Web/JavaScript.md)
-- [Taro快速开始](Web/Taro.md)
-- [Vue](Web/Vue.md)
-- [http](Web/http.md)
-- [性能优化](Web/Performance-optimization.md)
+- [JSON](iOS/JSON.md)
+- [Runtime](iOS/Runtime.md)
+- [RunLoop](iOS/RunLoop.md)
+- [KVC](iOS/KVC.md)
+- [KVO](iOS/KVO.md)
+- [hook](iOS/hook.md)
 
 # Books
 
@@ -75,5 +76,11 @@
 - [Gitmoji](Tools/Gitmoji.md)
 - [有用的网站](Tools/UsefulWebsites.md)
 - [mdbook](Tools/mdbook.md)
-- [Vuepress](Tools/Vuepress.md)
 - [Markdown](Tools/Markdown.md)
+
+# 行政能力测试
+
+- [言语理解](行政能力测试/言语理解.md)
+- [数量关系](行政能力测试/数量关系.md)
+- [逻辑判断](行政能力测试/逻辑判断.md)
+- [资料分析](行政能力测试/资料分析.md)
